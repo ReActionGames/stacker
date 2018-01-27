@@ -14,8 +14,6 @@ public partial class TetrisGrid : MonoBehaviour
     private Vector3 cellSize;
     [SerializeField]
     private Grid grid;
-    [SerializeField]
-    private CellsContainer cellsContainer;
 
     [SerializeField, BoxGroup("Gizmos")]
     private bool showCoordinates;
@@ -29,21 +27,7 @@ public partial class TetrisGrid : MonoBehaviour
     /// <summary>
     /// A binary representation of the cells. 0 means the cell is empty. 1 means it's full.
     /// </summary>
-    private int[,] cells
-    {
-        get
-        {
-            if (cellsContainer == null)
-                cellsContainer = gameObject.AddComponent<CellsContainer>();
-            return cellsContainer.Cells;
-        }
-        set
-        {
-            if (cellsContainer == null)
-                cellsContainer = gameObject.AddComponent<CellsContainer>();
-            cellsContainer.Cells = value;
-        }
-    }
+    private int[,] cells;
 
     public Grid Grid
     {
@@ -85,6 +69,15 @@ public partial class TetrisGrid : MonoBehaviour
         return cells[pos.x, pos.y] == 0;
     }
 
+    public bool IsCellFull(Vector2 cellPos)
+    {
+        Vector3Int pos = grid.WorldToCell(cellPos);
+        //if(pos.)
+        if (IsOutOfBounds(pos))
+            return false;
+        return cells[pos.x, pos.y] == 1;
+    }
+
     public void SetCellFull(Vector2 pos)
     {
         Vector3Int cellPos = grid.WorldToCell(pos);
@@ -109,6 +102,13 @@ public partial class TetrisGrid : MonoBehaviour
         //return Vector2.down;
     }
 
+    private bool IsOutOfBounds(Vector3Int cell)
+    {
+        return cell.x < 0 || cell.x >= cells.GetLength(0) || cell.y < 0 || cell.y >= cells.GetLength(1);
+    }
+
+    #region Editor
+
     private void OnDrawGizmos()
     {
         int x = 0;
@@ -123,29 +123,45 @@ public partial class TetrisGrid : MonoBehaviour
 
             for (; y < gridSize.y; y++)
             {
-                Gizmos.color = Color.green;
-
-                Vector3 pos;
-                pos = new Vector2(x, y);
-                pos += transform.position;
-                pos *= cellSize.x;
-                pos = grid.GetCellCenterWorld(grid.WorldToCell(pos));
-                Gizmos.DrawWireCube(pos, cellSize);
-
-                if (showCoordinates == false)
-                    continue;
-                Vector3 labelPos = new Vector2(pos.x - (cellSize.x / 4), pos.y + (cellSize.y / 4));
-                //labelPos = pos;
-                //labelPos += (Vector2)cellSize;
-                Vector3 text = grid.WorldToCell(pos);
-                Handles.Label(labelPos, $"({text.x}, {text.y})");
+                DrawCell(x, y);
+                if (showCoordinates)
+                    DrawCoordinates(x, y);
             }
         }
     }
 
-    private bool IsOutOfBounds(Vector3Int cell)
+    private void DrawCell(int x, int y)
     {
-        return cell.x < 0 || cell.x >= cells.GetLength(0) || cell.y < 0 || cell.y >= cells.GetLength(1);
+        Gizmos.color = Color.green;
+        Vector3 pos = GetCellCenter(x, y);
+        Gizmos.DrawWireCube(pos, cellSize);
+
+        if (cells != null && cells[x, y] == 1)
+        {
+            Gizmos.color = new Color(0, 1, 0, 0.25f);
+            Gizmos.DrawCube(pos, cellSize);
+        }
     }
 
+    private void DrawCoordinates(int x, int y)
+    {
+        Vector3 pos = GetCellCenter(x, y);
+        Vector3 labelPos = new Vector2(pos.x - (cellSize.x / 4), pos.y + (cellSize.y / 4));
+        //labelPos = pos;
+        //labelPos += (Vector2)cellSize;
+        Vector3 text = grid.WorldToCell(pos);
+        Handles.Label(labelPos, $"({text.x}, {text.y})");
+    }
+
+    private Vector3 GetCellCenter(int x, int y)
+    {
+        Vector3 pos;
+        pos = new Vector2(x, y);
+        pos += transform.position;
+        pos *= cellSize.x;
+        pos = grid.GetCellCenterWorld(grid.WorldToCell(pos));
+        return pos;
+    }
+
+    #endregion
 }
