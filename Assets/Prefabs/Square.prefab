@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 61788278630966930}
   - component: {fileID: 50846389210916938}
   - component: {fileID: 114742157824819132}
-  - component: {fileID: 114339935039349734}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -105,7 +104,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1206313726890162}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5, y: 6.5, z: 1.5}
+  m_LocalPosition: {x: 1.5, y: 12.5, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4953315555389286}
@@ -223,11 +222,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3429b2f869a41b49b021deddbd96659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookDist: 0.02
-  size: {x: 1, y: 1}
-  floorMask:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!114 &114113296094403920
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -239,23 +233,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3429b2f869a41b49b021deddbd96659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookDist: 0.02
-  size: {x: 1, y: 1}
-  floorMask:
-    serializedVersion: 2
-    m_Bits: 256
---- !u!114 &114339935039349734
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1206313726890162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a39faa661ec0967479ce8dd63bddb955, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tetrisGrid: {fileID: 0}
 --- !u!114 &114742157824819132
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -267,7 +244,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8006741b00f6cb43b6984c388b94cd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 50846389210916938}
   fallSpeed: 0.25
   tiles:
   - {fileID: 114082319090819794}
@@ -285,11 +261,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3429b2f869a41b49b021deddbd96659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookDist: 0.02
-  size: {x: 1, y: 1}
-  floorMask:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!114 &114812684770645510
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -301,11 +272,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3429b2f869a41b49b021deddbd96659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookDist: 0.02
-  size: {x: 1, y: 1}
-  floorMask:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!212 &212082596100368154
 SpriteRenderer:
   m_ObjectHideFlags: 1

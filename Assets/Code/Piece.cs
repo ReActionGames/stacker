@@ -5,12 +5,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Piece : MonoBehaviour {
-
-
-    [SerializeField, TabGroup("References"), Required]
-    private Rigidbody2D rb;
-
-    [SerializeField, TabGroup("Variables"), Tooltip("The time it takes (in seconds) to move down from one cell to the next")]
+        
+    [SerializeField, Tooltip("The time it takes (in seconds) to move down from one cell to the next")]
     private float fallSpeed;
 
     [SerializeField]
@@ -24,16 +20,10 @@ public class Piece : MonoBehaviour {
         //rb.velocity = Vector2.down * fallSpeed;
         falling = true;
         grid = FindObjectOfType<TetrisGrid>();
-        grid.OnGridUpdated.AddListener(AfterFall);
+        //grid.OnGridUpdated.AddListener(AfterFall);
         StartCoroutine(FallOneCell());
     }
-
-    private void Update()
-    {
-        if (falling)
-            CheckCanFall();
-    }
-
+    
     [Button]
     public void Restart()
     {
@@ -65,28 +55,34 @@ public class Piece : MonoBehaviour {
     {
         if (CanFall())
             StartCoroutine(FallOneCell());
+        else
+        {
+            Snap();
+            Die();
+        }
     }
 
     private bool CanFall()
     {
-        return grid.IsCellEmpty(grid.GetCellBelow(transform.position));
+        foreach (var tile in tiles)
+        {
+            if (grid.IsCellFull(tile.transform.position))
+                return false;
+        }
+        return true;
     }
 
     private void Snap()
     {
-        GetComponent<SnapToGrid>().Snap();
+        FindObjectOfType<SnapToGrid>().Snap();
     }
 
-    private void CheckCanFall()
+    private void Die()
     {
         foreach (var tile in tiles)
         {
-            if (tile.CanMoveDown() == false)
-            {
-                rb.velocity = Vector2.zero;
-                GetComponent<SnapToGrid>().Snap();
-                falling = false;
-            }
+            grid.SetCellFull(tile.transform.position);
         }
+        gameObject.SetActive(false);
     }
 }
