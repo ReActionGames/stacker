@@ -82,7 +82,6 @@ namespace Stacker
         {
             foreach (var tile in tiles)
             {
-                //Debug.Log("Checking cell at coordinates: " + grid.GetCellBelow(tile.transform.position).ToString());
                 if (grid.IsCellFull(grid.GetCellBelow(tile.transform.position)))
                     return false;
             }
