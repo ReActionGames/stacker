@@ -33,7 +33,6 @@ namespace Stacker
         [Button]
         public void Restart()
         {
-            transform.position += Vector3.up * 5;
             gameObject.SetActive(true);
             AfterFall();
         }
