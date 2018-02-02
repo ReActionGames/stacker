@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4367482917346966}
   - component: {fileID: 114742157824819132}
+  - component: {fileID: 114061765224515920}
   m_Layer: 9
   m_Name: Square (O)
   m_TagString: Untagged
@@ -164,6 +165,17 @@ Transform:
   m_Father: {fileID: 4367482917346966}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114061765224515920
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1206313726890162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7d7976d668884d41b1593b0607f63d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114082319090819794
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -203,6 +215,16 @@ MonoBehaviour:
   - {fileID: 114779166866147014}
   - {fileID: 114812684770645510}
   - {fileID: 114113296094403920}
+  onStartFalling:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDie:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114779166866147014
 MonoBehaviour:
   m_ObjectHideFlags: 1

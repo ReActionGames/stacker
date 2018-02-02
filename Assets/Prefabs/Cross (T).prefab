@@ -37,6 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4043773935689644}
   - component: {fileID: 114452371638203548}
+  - component: {fileID: 114613445845244780}
   m_Layer: 9
   m_Name: Cross (T)
   m_TagString: Untagged
@@ -214,6 +215,27 @@ MonoBehaviour:
   - {fileID: 114396419280255392}
   - {fileID: 114790411879130508}
   - {fileID: 114383300867520472}
+  onStartFalling:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDie:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &114613445845244780
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1178758827053708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7d7976d668884d41b1593b0607f63d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114790411879130508
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -88,6 +88,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4375717246738936}
   - component: {fileID: 114987249424606522}
+  - component: {fileID: 114550736961630036}
   m_Layer: 9
   m_Name: S-Left (S)
   m_TagString: Untagged
@@ -186,6 +187,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3429b2f869a41b49b021deddbd96659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114550736961630036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1819700117260320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7d7976d668884d41b1593b0607f63d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114627846986322900
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -225,6 +237,16 @@ MonoBehaviour:
   - {fileID: 114547964399956172}
   - {fileID: 114627846986322900}
   - {fileID: 114502694661695878}
+  onStartFalling:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDie:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!212 &212015651205600822
 SpriteRenderer:
   m_ObjectHideFlags: 1
