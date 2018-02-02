@@ -1,9 +1,6 @@
 ﻿using HenderStudios.Events;
-using Sirenix.OdinInspector;
 using Stacker.Enums;
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using Stacker.ScriptableObjects;
 using UnityEngine;
 
 namespace Stacker
