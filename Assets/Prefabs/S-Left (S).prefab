@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4490493627282842}
   - component: {fileID: 212108881635071764}
   - component: {fileID: 114627846986322900}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: (1, 1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4045848509451098}
   - component: {fileID: 212538840098825790}
   - component: {fileID: 114956892862030932}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: (0, 0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4684350298242204}
   - component: {fileID: 212015651205600822}
   - component: {fileID: 114502694661695878}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: (-1, 0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 4918828593757242}
   - component: {fileID: 212363065077475384}
   - component: {fileID: 114547964399956172}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: (0, 1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4375717246738936}
   - component: {fileID: 114987249424606522}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: S-Left (S)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,8 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8006741b00f6cb43b6984c388b94cd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: 0.25
-  tetroType: 5
+  tetroType: 6
   tiles:
   - {fileID: 114956892862030932}
   - {fileID: 114547964399956172}

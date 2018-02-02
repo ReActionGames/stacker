@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4985280796833978}
   - component: {fileID: 212346142444765002}
   - component: {fileID: 114996851174207688}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: (0, 0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4504141621418516}
   - component: {fileID: 212423301508922372}
   - component: {fileID: 114861664943002850}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: (-1, 0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4875175465290392}
   - component: {fileID: 212439864121065168}
   - component: {fileID: 114927776666462996}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: (0, 1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4653394778246380}
   - component: {fileID: 114201897014805438}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: L-Left (J)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 4820999640074056}
   - component: {fileID: 212671149769455998}
   - component: {fileID: 114215351129137262}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: (0, 2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,8 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8006741b00f6cb43b6984c388b94cd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: 0.25
-  tetroType: 3
+  tetroType: 4
   tiles:
   - {fileID: 114996851174207688}
   - {fileID: 114927776666462996}

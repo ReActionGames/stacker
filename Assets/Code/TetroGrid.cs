@@ -11,29 +11,25 @@ namespace Stacker
 {
     public partial class TetroGrid : MonoBehaviour
     {
+        [SerializeField] private Vector2 gridSize;
+        [OnValueChanged("UpdateGridCellSize")]
+        [SerializeField] private Vector3 cellSize;
+        [SerializeField] private Grid grid;
+        [Required]
+        [SerializeField] private Cell cellPrefab;
+        [SerializeField] private TetroColorPalette colorPalette;
 
-        [SerializeField]
-        private Vector2 gridSize;
-        [SerializeField, OnValueChanged("UpdateGridCellSize")]
-        private Vector3 cellSize;
-        [SerializeField]
-        private Grid grid;
-        [SerializeField, Required]
-        private Cell cellPrefab;
-        [SerializeField]
-        private TetroColorPalette colorPalette;
-
-        [SerializeField, BoxGroup("Gizmos")]
-        private bool showCoordinates;
-        [SerializeField, BoxGroup("Gizmos")]
-        private bool negativeX, negativeY;
+        [BoxGroup("Gizmos")]
+        [SerializeField] private bool showGizmos, showCoordinates;
+        [BoxGroup("Gizmos")]
+        [SerializeField] private bool negativeX, negativeY;
 
 
-        [SerializeField, BoxGroup("Events")]
-        public UnityEvent OnGridUpdated;
+        [BoxGroup("Events")]
+        [SerializeField] private UnityEvent onGridUpdated;
 
         /// <summary>
-        /// A binary representation of the cells. 0 means the cell is empty. 1 means it's full.
+        /// A 2D array of Cells. Cells are either null, Active, Inactive, Moving, or Dying.
         /// </summary>
         private Cell[,] cells;
 
@@ -42,6 +38,13 @@ namespace Stacker
             get
             {
                 return grid;
+            }
+        }
+        public UnityEvent OnGridUpdated
+        {
+            get
+            {
+                return onGridUpdated;
             }
         }
 
@@ -55,9 +58,9 @@ namespace Stacker
 
         private void Awake()
         {
-            InitializeCellArray();
             if (grid == null)
                 grid = gameObject.AddComponent<Grid>();
+            InitializeCellArray();
         }
 
         private void InitializeCellArray()
@@ -65,11 +68,11 @@ namespace Stacker
             cells = new Cell[(int)gridSize.x, (int)gridSize.y];
             for (int x = 0; x < cells.GetLength(0); x++)
             {
-                GameObject row = new GameObject("row" + x);
-                row.transform.SetParent(transform);
+                GameObject col = new GameObject("col" + x);
+                col.transform.SetParent(transform);
                 for (int y = 0; y < cells.GetLength(1); y++)
                 {
-                    Cell cell = Instantiate(cellPrefab, grid.GetCellCenterWorld(new Vector3Int(x, y, 0)), Quaternion.identity, row.transform);
+                    Cell cell = Instantiate(cellPrefab, grid.GetCellCenterWorld(new Vector3Int(x, y, 0)), Quaternion.identity, col.transform);
                     cell.name = $"cell ({x}, {y})";
                     cell.SetGrid(this);
                     cells[x, y] = cell;
@@ -96,9 +99,11 @@ namespace Stacker
         public bool IsCellFull(Vector2 cellPos)
         {
             Vector3Int pos = grid.WorldToCell(cellPos);
+            if (IsTooHigh(pos))
+                return false;
             if (IsOutOfBounds(pos))
                 return true;
-            return cells[pos.x, pos.y].CurrentState is ActiveCell;
+            return GetCellAt(cellPos).CurrentState is ActiveCell;
         }
 
         public bool IsCellEmpty(Vector2 cellPos)
@@ -127,49 +132,54 @@ namespace Stacker
             OnGridUpdated?.Invoke();
         }
 
-        public Vector2 GetCellBelow(Vector2 pos)
+        public Vector2 GetCellPosBelow(Vector2 pos)
         {
             return grid.GetCellCenterWorld(grid.WorldToCell(pos) + Vector3Int.down);
             //return Vector2.down;
         }
 
-        public Vector2 GetCellAt(Vector2 pos)
+        public Cell GetCellAt(Vector2 pos)
+        {
+            var intPos = pos.ToVector2Int();
+            return cells[intPos.x, intPos.y];
+        }
+
+        public Vector2 GetCellPosAt(Vector2 pos)
         {
             return grid.GetCellCenterWorld(grid.WorldToCell(pos));
         }
 
-        private bool IsOutOfBounds(Vector3Int cell)
+        private bool IsTooHigh(Vector3Int cell)
         {
-            return cell.x < 0 || cell.x >= cells.GetLength(0) || cell.y < 0 || cell.y >= cells.GetLength(1);
+            return cell.y >= cells.GetLength(1);
         }
 
+        private bool IsOutOfBounds(Vector3Int cell)
+        {
+            return cell.x < 0 || cell.x >= cells.GetLength(0) || cell.y < 0 /*|| cell.y >= cells.GetLength(1)*/;
+        }
+        
         #region Editor
 
         private void OnDrawGizmos()
         {
-            int x = 0;
-            if (negativeX)
-                x = (int)-gridSize.x;
-
-            for (; x < gridSize.x; x++)
+            if (showGizmos == false)
+                return;
+            for (int col = 0; col < gridSize.x; col++)
             {
-                int y = 0;
-                if (negativeY)
-                    y = (int)-gridSize.y;
-
-                for (; y < gridSize.y; y++)
+                for (int row = 0; row < gridSize.y; row++)
                 {
-                    DrawCell(x, y);
+                    DrawCell(col, row);
                     if (showCoordinates)
-                        DrawCoordinates(x, y);
+                        DrawCoordinates(col, row);
                 }
             }
         }
 
-        private void DrawCell(int x, int y)
+        private void DrawCell(int row, int col)
         {
             Gizmos.color = Color.green;
-            Vector3 pos = GetCellCenter(x, y);
+            Vector3 pos = GetCellCenter(row, col);
             Gizmos.DrawWireCube(pos, cellSize);
 
             if (cells != null && IsCellFull(pos))
@@ -179,9 +189,9 @@ namespace Stacker
             }
         }
 
-        private void DrawCoordinates(int x, int y)
+        private void DrawCoordinates(int row, int col)
         {
-            Vector3 pos = GetCellCenter(x, y);
+            Vector3 pos = GetCellCenter(row, col);
             Vector3 labelPos = new Vector2(pos.x - (cellSize.x / 4), pos.y + (cellSize.y / 4));
             Vector3 text = grid.WorldToCell(pos);
             Handles.Label(labelPos, $"({text.x}, {text.y})");

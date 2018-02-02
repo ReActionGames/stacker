@@ -6,12 +6,12 @@ namespace Stacker.Enums
 {
     public enum TetroType
     {
-        I,
-        O,
-        T,
-        J,
-        L,
-        S,
-        Z
+        I = 1,
+        O = 2,
+        T = 3,
+        J = 4,
+        L = 5,
+        S = 6,
+        Z = 7
     }
 }

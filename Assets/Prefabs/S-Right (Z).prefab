@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4749791897404202}
   - component: {fileID: 114085457514085170}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: S-Right (Z)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4616912852116984}
   - component: {fileID: 212008769980725000}
   - component: {fileID: 114959752230301064}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: (0, 1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 4642855075238232}
   - component: {fileID: 212827973342254046}
   - component: {fileID: 114470101498420212}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: (-1, 1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 4928631127247408}
   - component: {fileID: 212582547388371082}
   - component: {fileID: 114100607691075872}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: (1, 0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 4152145869048588}
   - component: {fileID: 212580255655333240}
   - component: {fileID: 114982813289655962}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: (0, 0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1142472335845140}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.53, y: 7.92, z: 1.5}
+  m_LocalPosition: {x: 3.5, y: 14.5, z: -1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4152145869048588}
@@ -175,8 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8006741b00f6cb43b6984c388b94cd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: 0.25
-  tetroType: 6
+  tetroType: 7
   tiles:
   - {fileID: 114982813289655962}
   - {fileID: 114959752230301064}

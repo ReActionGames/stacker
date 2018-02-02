@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4776220402106518}
   - component: {fileID: 212728973201273656}
   - component: {fileID: 114396419280255392}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: (0, 1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4043773935689644}
   - component: {fileID: 114452371638203548}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cross (T)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 4218551984880818}
   - component: {fileID: 212109685083826832}
   - component: {fileID: 114790411879130508}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: (1, 1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 4244299257198270}
   - component: {fileID: 212781048825379646}
   - component: {fileID: 114383300867520472}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: (-1, 1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 4424280861630962}
   - component: {fileID: 212008388228626412}
   - component: {fileID: 114342291726556744}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: (0, 0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,8 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8006741b00f6cb43b6984c388b94cd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: 0.25
-  tetroType: 2
+  tetroType: 3
   tiles:
   - {fileID: 114342291726556744}
   - {fileID: 114396419280255392}

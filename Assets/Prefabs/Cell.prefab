@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4391908781257930}
   - component: {fileID: 114048017345665392}
   - component: {fileID: 212552420083521630}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: {fileID: 0}
   sprite: {fileID: 212552420083521630}
-  colorPalette: {fileID: 11400000, guid: f69306dd397a2874e97fb937e6f754df, type: 2}
+  grid: {fileID: 0}
 --- !u!212 &212552420083521630
 SpriteRenderer:
   m_ObjectHideFlags: 1

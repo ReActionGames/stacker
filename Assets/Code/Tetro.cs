@@ -1,4 +1,5 @@
 ﻿using Sirenix.OdinInspector;
+using Stacker.Enums;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,25 +9,28 @@ namespace Stacker
 {
     public class Tetro : MonoBehaviour
     {
-
-        [SerializeField, Tooltip("The time it takes (in seconds) to move down from one cell to the next")]
-        private float fallSpeed;
         [SerializeField]
         private Enums.TetroType tetroType;
 
         [SerializeField]
         private TetroTile[] tiles;
 
+        private float fallSpeed;
         private bool falling = true;
         private TetroGrid grid;
 
         private void Start()
         {
-            //rb.velocity = Vector2.down * fallSpeed;
-            falling = true;
+            falling = false;
             grid = FindObjectOfType<TetroGrid>();
             ApplyColor();
-            //grid.OnGridUpdated.AddListener(AfterFall);
+        }
+
+        public void StartFalling(float fallSpeed)
+        {
+            falling = true;
+            this.fallSpeed = fallSpeed;
+            gameObject.SetActive(true);
             StartCoroutine(FallOneCell());
         }
 
@@ -46,13 +50,18 @@ namespace Stacker
             }
         }
 
+        public TetroType GetTetroType()
+        {
+            return tetroType;
+        }
+
         private IEnumerator FallOneCell()
         {
             Snap();
 
             falling = true;
             Vector3 startPos = transform.position;
-            Vector2 nextCellPos = grid.GetCellBelow(transform.position);
+            Vector2 nextCellPos = grid.GetCellPosBelow(transform.position);
             float time = 0;
             while (time < fallSpeed)
             {
@@ -81,7 +90,7 @@ namespace Stacker
         {
             foreach (var tile in tiles)
             {
-                if (grid.IsCellFull(grid.GetCellBelow(tile.transform.position)))
+                if (grid.IsCellFull(grid.GetCellPosBelow(tile.transform.position)))
                     return false;
             }
             return true;
