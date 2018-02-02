@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Stacker.Cells
 {
-    public abstract class CellState : MonoBehaviour
+    public abstract class CellState
     {
         public virtual void OnEnterState(Cell cell)
         {

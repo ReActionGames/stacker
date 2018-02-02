@@ -43,6 +43,7 @@ namespace Stacker
             falling = false;
             grid = FindObjectOfType<TetroGrid>();
             ApplyColor();
+            gameObject.SetActive(false);
         }
 
         public void StartFalling(float fallSpeed)
