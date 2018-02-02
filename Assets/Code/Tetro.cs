@@ -1,23 +1,42 @@
-﻿using Sirenix.OdinInspector;
+﻿using HenderStudios.Events;
+using Sirenix.OdinInspector;
 using Stacker.Enums;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Stacker
 {
     public class Tetro : MonoBehaviour
     {
         [SerializeField]
-        private Enums.TetroType tetroType;
+        private TetroType tetroType;
 
         [SerializeField]
         private TetroTile[] tiles;
+        [SerializeField] private UnityEvent onStartFalling;
+        [SerializeField] private UnityEvent onDie;
 
         private float fallSpeed;
         private bool falling = true;
         private TetroGrid grid;
+
+        public UnityEvent OnStartFalling
+        {
+            get
+            {
+                return onStartFalling;
+            }
+        }
+        public UnityEvent OnDie
+        {
+            get
+            {
+                return onDie;
+            }
+        }
 
         private void Start()
         {
@@ -31,6 +50,8 @@ namespace Stacker
             falling = true;
             this.fallSpeed = fallSpeed;
             gameObject.SetActive(true);
+            EventManager.TriggerEvent(EventNames.NewTetroFalling, new Message(this));
+            OnStartFalling?.Invoke();
             StartCoroutine(FallOneCell());
         }
 
@@ -67,7 +88,8 @@ namespace Stacker
             {
                 time += Time.deltaTime;
                 float perc = time / fallSpeed;
-                transform.position = Vector3.Lerp(startPos, nextCellPos, perc);
+                float yPos = Vector3.Lerp(startPos, nextCellPos, perc).y;
+                transform.position = new Vector3(transform.position.x, yPos);
                 yield return null;
             }
             Snap();
@@ -96,13 +118,14 @@ namespace Stacker
             return true;
         }
 
-        private void Snap()
+        public void Snap()
         {
             FindObjectOfType<SnapToGrid>().Snap();
         }
 
         private void Die()
         {
+            OnDie?.Invoke();
             foreach (var tile in tiles)
             {
                 grid.SetCellFull(tile.transform.position, tetroType);

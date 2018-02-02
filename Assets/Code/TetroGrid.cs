@@ -138,6 +138,18 @@ namespace Stacker
             //return Vector2.down;
         }
 
+        public Vector2 GetCellPosRight(Vector2 pos)
+        {
+            return grid.GetCellCenterWorld(grid.WorldToCell(pos) + Vector3Int.right);
+            //return Vector2.down;
+        }
+
+        public Vector2 GetCellPosLeft(Vector2 pos)
+        {
+            return grid.GetCellCenterWorld(grid.WorldToCell(pos) + Vector3Int.left);
+            //return Vector2.down;
+        }
+
         public Cell GetCellAt(Vector2 pos)
         {
             var intPos = pos.ToVector2Int();
@@ -154,11 +166,16 @@ namespace Stacker
             return cell.y >= cells.GetLength(1);
         }
 
-        private bool IsOutOfBounds(Vector3Int cell)
+        public bool IsOutOfBounds(Vector3Int cell)
         {
             return cell.x < 0 || cell.x >= cells.GetLength(0) || cell.y < 0 /*|| cell.y >= cells.GetLength(1)*/;
         }
-        
+
+        public bool IsOutOfBounds(Vector2 cellPos)
+        {
+            return IsOutOfBounds(grid.WorldToCell(cellPos));
+        }
+
         #region Editor
 
         private void OnDrawGizmos()
