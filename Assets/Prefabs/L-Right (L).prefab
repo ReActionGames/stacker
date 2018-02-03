@@ -38,6 +38,10 @@ GameObject:
   - component: {fileID: 4215512226692040}
   - component: {fileID: 114681194903594808}
   - component: {fileID: 114353925835178074}
+  - component: {fileID: 114893297334275118}
+  - component: {fileID: 114747474325808100}
+  - component: {fileID: 114764654535846384}
+  - component: {fileID: 114105066211157182}
   m_Layer: 9
   m_Name: L-Right (L)
   m_TagString: Untagged
@@ -165,6 +169,17 @@ Transform:
   m_Father: {fileID: 4215512226692040}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114105066211157182
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1219977257287546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c05475f771c49f44b83913b6148078d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114273116232416922
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -236,6 +251,39 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114747474325808100
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1219977257287546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c11cc2ce8b6f1874c8168bc75afee85e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114764654535846384
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1219977257287546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 479480cea3e0988498e2aa3003acdf05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114893297334275118
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1219977257287546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1d0908fcf6d3ed49848c23b0def1d5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114993692172318768
 MonoBehaviour:
   m_ObjectHideFlags: 1

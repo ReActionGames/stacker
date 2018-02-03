@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f29041d3bfc821040ab1d729e8da3cd8, type: 3}
   m_Name: Default Tetro Settings
   m_EditorClassIdentifier: 
-  fallingSpeed: 1
+  fallingSpeed: 0.5
   shiftSpeed: 0.1
-  dropSpeed: 0.1
+  dropSpeed: 0.4

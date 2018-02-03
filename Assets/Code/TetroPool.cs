@@ -1,4 +1,5 @@
 ﻿using Stacker.Enums;
+using Stacker.Tetros;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace Stacker
             {
                 Tetro t = Instantiate(tetroPrefabs[i], poolPos.position, Quaternion.identity);
                 t.transform.parent = poolPos;
+                t.SetPool(this);
                 pool[i] = t;
             }
         }
@@ -35,8 +37,8 @@ namespace Stacker
 
         public void ReturnTetro(Tetro tetro)
         {
-            tetro.gameObject.SetActive(false);
-            tetro.transform.SetParent(poolPos, false);
+            tetro.transform.SetParent(poolPos);
+            tetro.transform.localPosition = Vector3.zero;
         }
 
     }

@@ -106,10 +106,10 @@ namespace Stacker
         public bool IsCellFull(Vector2 cellPos)
         {
             Vector3Int pos = grid.WorldToCell(cellPos);
-            if (IsTooHigh(pos))
-                return false;
             if (IsOutOfBounds(pos))
                 return true;
+            if (IsTooHigh(pos))
+                return false;
             return GetCellAt(cellPos).CurrentState is ActiveCell;
         }
 
@@ -118,13 +118,15 @@ namespace Stacker
             Vector3Int pos = grid.WorldToCell(cellPos);
             if (IsOutOfBounds(pos))
                 return false;
+            if (IsTooHigh(pos))
+                return true;
             return !(cells[pos.x, pos.y].CurrentState is ActiveCell);
         }
 
         public void SetCellFull(Vector2 pos, Enums.TetroType type)
         {
             Vector3Int cellPos = grid.WorldToCell(pos);
-            if (IsOutOfBounds(cellPos))
+            if (IsOutOfBounds(cellPos) || IsTooHigh(cellPos))
                 return;
             cells[cellPos.x, cellPos.y].ChangeState(new ActiveCell(type));
             OnGridUpdated?.Invoke();
@@ -133,7 +135,7 @@ namespace Stacker
         public void SetCellEmtpy(Vector2 pos)
         {
             Vector3Int cellPos = grid.WorldToCell(pos);
-            if (IsOutOfBounds(cellPos))
+            if (IsOutOfBounds(cellPos) || IsTooHigh(cellPos))
                 return;
             cells[cellPos.x, cellPos.y].ChangeState(new InactiveCell());
             OnGridUpdated?.Invoke();

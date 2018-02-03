@@ -218,7 +218,6 @@ GameObject:
   - component: {fileID: 576785971}
   - component: {fileID: 576785970}
   - component: {fileID: 576785969}
-  - component: {fileID: 576785968}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -226,19 +225,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &576785968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 576785967}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a39faa661ec0967479ce8dd63bddb955, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tetrisGrid: {fileID: 957283991}
-  objectToSnap: {fileID: 0}
 --- !u!81 &576785969
 AudioListener:
   m_ObjectHideFlags: 0
@@ -314,7 +300,7 @@ GameObject:
   - component: {fileID: 594291875}
   - component: {fileID: 594291874}
   m_Layer: 5
-  m_Name: UI
+  m_Name: MainUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -484,7 +470,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26d6c0afeabcbd342a3fce9192d18c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tetroSettings: {fileID: 11400000, guid: 1dc8126af75009042b1ec986f70d72e1, type: 2}
 --- !u!4 &758304353
 Transform:
   m_ObjectHideFlags: 0
@@ -533,6 +518,7 @@ MonoBehaviour:
   cellPrefab: {fileID: 114048017345665392, guid: 37982971b7c0f7448a1a9714d1f20e9a,
     type: 2}
   colorPalette: {fileID: 11400000, guid: f69306dd397a2874e97fb937e6f754df, type: 2}
+  tetroSettings: {fileID: 11400000, guid: 1dc8126af75009042b1ec986f70d72e1, type: 2}
   showGizmos: 1
   showCoordinates: 0
   negativeX: 0
@@ -743,7 +729,7 @@ Camera:
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
-  m_AllowMSAA: 1
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
