@@ -39,7 +39,7 @@ namespace Stacker.Tetros
                 yield break;
 
             float time = 0;
-            while (tetro.Active && time < settings.ShiftSpeed)
+            while (tetro.Active && tetro.Falling && time < settings.ShiftSpeed)
             {
                 time += Time.deltaTime;
                 float perc = time / settings.ShiftSpeed;

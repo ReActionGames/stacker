@@ -21,7 +21,7 @@ namespace Stacker.Tetros
         private IEnumerator FallDown()
         {
             Snap(SnapAxis.Both);
-            while (tetro.Active && CanFall())
+            while (tetro.Active && tetro.Falling && CanFall())
             {
                 yield return LerpFallOneCell();
                 Snap(SnapAxis.Y);
