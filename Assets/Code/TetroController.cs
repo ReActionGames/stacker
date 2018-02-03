@@ -7,13 +7,23 @@ namespace Stacker
 {
     public class TetroController : MonoBehaviour
     {
-        [SerializeField] private TetroSettings tetroSettings;
+        private TetroGrid grid;
         
+        private TetroSettings tetroSettings
+        {
+            get
+            {
+                if (grid == null)
+                    grid = FindObjectOfType<TetroGrid>();
+                return grid.TetroSettings;
+            }
+        }
+
         private void Awake()
         {
             EventManager.StartListening(EventNames.InputReceived, OnInputReceived);
         }
-        
+
         private void OnInputReceived(Message msg)
         {
             InputType input = (InputType)msg.Data;

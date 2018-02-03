@@ -18,6 +18,7 @@ namespace Stacker
         [Required]
         [SerializeField] private Cell cellPrefab;
         [SerializeField] private TetroColorPalette colorPalette;
+        [SerializeField] private TetroSettings tetroSettings;
 
         [BoxGroup("Gizmos")]
         [SerializeField] private bool showGizmos, showCoordinates;
@@ -47,12 +48,18 @@ namespace Stacker
                 return onGridUpdated;
             }
         }
-
         public TetroColorPalette ColorPalette
         {
             get
             {
                 return colorPalette;
+            }
+        }
+        public TetroSettings TetroSettings
+        {
+            get
+            {
+                return tetroSettings;
             }
         }
 

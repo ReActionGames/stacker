@@ -14,8 +14,7 @@ namespace Stacker
         [SerializeField]
         private TetroType tetroType;
 
-        [SerializeField]
-        private TetroTile[] tiles;
+        [SerializeField] private TetroTile[] tiles;
         [SerializeField] private UnityEvent onStartFalling;
         [SerializeField] private UnityEvent onDie;
 
@@ -35,6 +34,14 @@ namespace Stacker
             get
             {
                 return onDie;
+            }
+        }
+
+        public TetroTile[] Tiles
+        {
+            get
+            {
+                return tiles;
             }
         }
 

@@ -1,4 +1,5 @@
 ﻿using HenderStudios.Events;
+using Stacker.ScriptableObjects;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,9 +8,40 @@ using UnityEngine;
 namespace Stacker
 {
     public class TetroMovement : MonoBehaviour
-    {        
+    {
+        private bool falling = false;
+        private Tetro tetro;
+        private TetroGrid grid;
+
+        private Tetro Tetro
+        {
+            get
+            {
+                if (tetro == null)
+                    tetro = GetComponent<Tetro>();
+                return tetro;
+            }
+        }
+        private TetroGrid Grid
+        {
+            get
+            {
+                if (grid == null)
+                    grid = FindObjectOfType<TetroGrid>();
+                return grid;
+            }
+        }
+        private TetroSettings Settings
+        {
+            get
+            {
+                return Grid.TetroSettings;
+            }
+        }
+
         private void Start()
         {
+            falling = false;
             EventManager.StartListening(EventNames.TetroMoveRight, ShiftRight);
             EventManager.StartListening(EventNames.TetroMoveLeft, ShiftLeft);
             EventManager.StartListening(EventNames.TetroMoveDrop, Drop);
@@ -40,6 +72,53 @@ namespace Stacker
         private void RotateCounterClockwise(Message arg0)
         {
             throw new NotImplementedException();
+        }
+        
+        private IEnumerator FallOneCell()
+        {
+            Snap();
+
+            falling = true;
+            Vector3 startPos = transform.position;
+            Vector2 nextCellPos = Grid.GetCellPosBelow(transform.position);
+            float time = 0;
+            while (time < Settings.FallingSpeed)
+            {
+                time += Time.deltaTime;
+                float perc = time / Settings.FallingSpeed;
+                float yPos = Vector3.Lerp(startPos, nextCellPos, perc).y;
+                transform.position = new Vector3(transform.position.x, yPos);
+                yield return null;
+            }
+            Snap();
+            falling = false;
+            AfterFall();
+        }
+
+        private void AfterFall()
+        {
+            if (CanFall())
+                StartCoroutine(FallOneCell());
+            else
+            {
+                Snap();
+                Die();
+            }
+        }
+
+        private bool CanFall()
+        {
+            foreach (var tile in Tetro.Tiles)
+            {
+                if (Grid.IsCellFull(Grid.GetCellPosBelow(tile.transform.position)))
+                    return false;
+            }
+            return true;
+        }
+
+        public void Snap()
+        {
+            FindObjectOfType<SnapToGrid>().Snap();
         }
 
         //private void ShiftRight()
