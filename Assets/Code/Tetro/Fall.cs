@@ -21,7 +21,7 @@ namespace Stacker.Tetros
         private IEnumerator FallDown()
         {
             Snap(SnapAxis.Both);
-            while (tetro.Active && tetro.Falling && CanFall())
+            while (tetro.Active /*&& tetro.Falling*/ && CanFall())
             {
                 yield return LerpFallOneCell();
                 Snap(SnapAxis.Y);
@@ -34,7 +34,7 @@ namespace Stacker.Tetros
             Vector3 startPos = transform.position;
             Vector2 nextCellPos = grid.GetCellPosBelow(transform.position);
             float time = 0;
-            while (tetro.Active && time < settings.FallingSpeed)
+            while (tetro.Active /*&& tetro.Falling*/ && time < settings.FallingSpeed)
             {
                 time += Time.deltaTime;
                 float perc = time / settings.FallingSpeed;

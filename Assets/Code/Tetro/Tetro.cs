@@ -54,7 +54,7 @@ namespace Stacker.Tetros
             grid = FindObjectOfType<TetroGrid>();
             ApplyColor();
             Active = false;
-            Falling = false;
+            //Falling = false;
         }
 
         public void SetPool(TetroPool tetroPool)
@@ -65,7 +65,7 @@ namespace Stacker.Tetros
         public void StartFalling(float fallSpeed)
         {
             Active = true;
-            Falling = true;
+            //Falling = true;
             EventManager.TriggerEvent(EventNames.NewTetroFalling, new Message(this));
             OnStartFalling?.Invoke();
         }
@@ -97,7 +97,7 @@ namespace Stacker.Tetros
                 grid.SetCellFull(tile.transform.position, tetroType);
             }
             pool?.ReturnTetro(this);
-            Falling = false;
+            //Falling = false;
             Active = false;
         }
     }

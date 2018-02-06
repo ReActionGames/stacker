@@ -10,6 +10,7 @@ namespace Stacker.Tetros
         protected Tile[] tiles;
         protected TetroGrid grid;
         protected TetroSettings settings;
+        protected TetroMovement movement;
         
         protected enum SnapAxis
         {
@@ -20,6 +21,7 @@ namespace Stacker.Tetros
 
         public virtual void SetUp(TetroMovement movement)
         {
+            this.movement = movement;
             tetro = movement.Tetro;
             tiles = tetro.Tiles;
             grid = movement.Grid;
@@ -43,6 +45,11 @@ namespace Stacker.Tetros
                     break;
             }
             transform.position = newPos;
+        }
+
+        protected void Stop()
+        {
+            movement.Stop();
         }
 
         protected bool CanFall()

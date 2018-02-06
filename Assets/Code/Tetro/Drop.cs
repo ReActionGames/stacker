@@ -23,13 +23,17 @@ namespace Stacker.Tetros
             {
                 offset += Vector3.down;
             }
-            tetro.Falling = false;
-            StartCoroutine(LerpDrop(grid.GetCellPosAt(transform.position + offset)));
+            Stop();
+            Snap(SnapAxis.X);
+            Vector3 dropPos = transform.position + offset;
+            Vector2 cellPos = grid.GetCellPosAt(dropPos);
+            StartCoroutine(LerpDrop(cellPos));
+            //tetro.Falling = false;
         }
 
         private IEnumerator LerpDrop(Vector3 endPos)
         {
-            Vector3 startPos =tetro.transform.position;
+            Vector3 startPos = tetro.transform.position;
 
             if (grid.IsOutOfBounds(endPos))
                 yield break;
@@ -38,11 +42,11 @@ namespace Stacker.Tetros
             while (time < settings.DropSpeed)
             {
                 time += Time.deltaTime;
-                float perc = time / settings.ShiftSpeed;
+                float perc = time / settings.DropSpeed;
                 transform.position = Vector3.Lerp(startPos, endPos, perc);
                 yield return null;
             }
-            //transform.position = endPos;
+            transform.position = endPos;
             Snap(SnapAxis.Both);
             tetro.EndFall();
         }

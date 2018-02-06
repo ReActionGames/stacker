@@ -55,6 +55,13 @@ namespace Stacker
                 c.SetUp(this);
             }
         }
-              
+
+        public void Stop()
+        {
+            foreach (var c in controllers)
+            {
+                c.StopAllCoroutines();
+            }
+        }
     }
 }
