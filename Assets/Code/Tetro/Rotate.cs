@@ -7,6 +7,8 @@ namespace Stacker.Tetros
 {
     public class Rotate : MovementController
     {
+        private int rotationIndex;
+
         public override void SetUp(TetroMovement movement)
         {
             base.SetUp(movement);
@@ -16,12 +18,18 @@ namespace Stacker.Tetros
 
         private void RotateClockwise(Message msg)
         {
-            transform.Rotate(Vector3.forward, 90);
+            rotationIndex++;
+            rotationIndex = tetro.Wrap(rotationIndex);
+            tetro.SetRotation(rotationIndex);
+            //transform.Rotate(Vector3.forward, 90);
         }
 
         private void RotateCounterClockwise(Message msg)
         {
-            transform.Rotate(Vector3.forward, -90);
+            rotationIndex--;
+            rotationIndex = tetro.Wrap(rotationIndex);
+            tetro.SetRotation(rotationIndex);
+            //transform.Rotate(Vector3.forward, -90);
         }
     }
 }
