@@ -1,6 +1,7 @@
 ﻿using HenderStudios.Events;
 using Sirenix.OdinInspector;
 using Stacker.Enums;
+using Stacker.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -17,6 +18,7 @@ namespace Stacker.Tetros
         
         private TetroGrid grid;
         private TetroPool pool;
+        private TetroData data;
 
         public UnityEvent OnStartFalling
         {
@@ -49,12 +51,45 @@ namespace Stacker.Tetros
             }
         }
 
-        private void Start()
+        private void Awake()
         {
             grid = FindObjectOfType<TetroGrid>();
+        }
+
+        public void SetUp(TetroData data)
+        {
+            this.data = data;
+            name = $"Tetro ({data.Type})";
+            tetroType = data.Type;
+            SetTilePositions(data.DefaultTilePositions);
             ApplyColor();
             Active = false;
-            //Falling = false;
+        }
+
+        private void SetTilePositions(Vector3[] positions)
+        {
+            for (int i = 0; i < tiles.Length; i++)
+            {
+                tiles[i].transform.localPosition = positions[i];
+            }
+        }
+
+        private void SetTilePositions(Vector2[] positions)
+        {
+            for (int i = 0; i < tiles.Length; i++)
+            {
+                tiles[i].transform.localPosition = positions[i];
+            }
+        }
+
+        public void SetRotation(int index)
+        {
+            index = Mathf.Clamp(index, 0, data.TileRotationPositions.GetLength(0)); // Just in case "index" is out of bounds
+            //SetTilePositions(data.TileRotationPositions[index]); // TODO Refractor "TileRotationPositions" as a jagged array instead of a 2D array
+            for (int i = 0; i < tiles.Length; i++)
+            {
+                tiles[i].transform.localPosition = data.TileRotationPositions[index, i];
+            }
         }
 
         public void SetPool(TetroPool tetroPool)
