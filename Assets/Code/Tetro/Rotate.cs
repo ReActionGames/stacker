@@ -16,12 +16,12 @@ namespace Stacker.Tetros
 
         private void RotateClockwise(Message msg)
         {
-            throw new System.NotImplementedException();
+            transform.Rotate(Vector3.forward, 90);
         }
 
         private void RotateCounterClockwise(Message msg)
         {
-            throw new System.NotImplementedException();
+            transform.Rotate(Vector3.forward, -90);
         }
     }
 }
