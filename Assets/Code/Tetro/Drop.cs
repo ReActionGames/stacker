@@ -23,7 +23,7 @@ namespace Stacker.Tetros
             {
                 offset += Vector3.down;
             }
-            Stop();
+            StopAllMovement();
             Snap(SnapAxis.X);
             Vector3 dropPos = transform.position + offset;
             Vector2 cellPos = grid.GetCellPosAt(dropPos);

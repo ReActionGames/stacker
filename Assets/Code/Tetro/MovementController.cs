@@ -47,7 +47,7 @@ namespace Stacker.Tetros
             transform.position = newPos;
         }
 
-        protected void Stop()
+        protected void StopAllMovement()
         {
             movement.Stop();
         }
