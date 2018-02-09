@@ -40,10 +40,6 @@ namespace Stacker.Tetros
         {
             get; private set;
         }
-        public bool Falling
-        {
-            get; set;
-        }
 
         public Tile[] Tiles
         {
@@ -155,6 +151,7 @@ namespace Stacker.Tetros
                 grid.SetCellFull(tile.transform.position, tetroType);
             }
             pool?.ReturnTetro(this);
+            SetRotation(0);
             //Falling = false;
             Active = false;
         }

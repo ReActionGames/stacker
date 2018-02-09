@@ -18,6 +18,8 @@ namespace Stacker.Tetros
 
         private void RotateClockwise(Message msg)
         {
+            if (tetro.Active == false)
+                return;
             int temp = rotationIndex + 1;
             temp = tetro.Wrap(temp);
             if (CanRotate(temp) == false)
@@ -28,6 +30,8 @@ namespace Stacker.Tetros
 
         private void RotateCounterClockwise(Message msg)
         {
+            if (tetro.Active == false)
+                return;
             int temp = rotationIndex - 1;
             temp = tetro.Wrap(temp);
             if (CanRotate(temp) == false)
