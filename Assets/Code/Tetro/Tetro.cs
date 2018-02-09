@@ -86,11 +86,11 @@ namespace Stacker.Tetros
 
         public void SetRotation(int index)
         {
-            index = Mathf.Clamp(index, 0, data.TileRotationPositions.GetLength(0)); // Just in case "index" is out of bounds
+            index = Mathf.Clamp(index, 0, data.TilePositions.GetLength(0)); // Just in case "index" is out of bounds
             //SetTilePositions(data.TileRotationPositions[index]); // TODO Refractor "TileRotationPositions" as a jagged array instead of a 2D array
             for (int i = 0; i < tiles.Length; i++)
             {
-                tiles[i].transform.localPosition = data.TileRotationPositions[index, i];
+                tiles[i].transform.localPosition = data.TilePositions[index, i];
             }
         }
 
