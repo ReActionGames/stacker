@@ -15,7 +15,7 @@ namespace Stacker.ScriptableObjects
         [SerializeField] private int defaultTilePositionIndex = 0;
         //[LabelText("Tile Rotation Positions")]
         [FormerlySerializedAs("tileRotationPositions")]
-        [SerializeField] private Vector2[,] tileRotationPositions = new Vector2[3,4];
+        [SerializeField] private Vector2[,] tilePositions = new Vector2[3,4];
 
         public TetroType Type
         {
@@ -29,10 +29,10 @@ namespace Stacker.ScriptableObjects
         {
             get
             {
-                Vector2[] temp = new Vector2[tileRotationPositions.GetLength(1)];
+                Vector2[] temp = new Vector2[tilePositions.GetLength(1)];
                 for (int i = 0; i < temp.Length; i++)
                 {
-                    temp[i] = tileRotationPositions[defaultTilePositionIndex, i];
+                    temp[i] = tilePositions[defaultTilePositionIndex, i];
                 }
                 return temp;
             }
@@ -42,7 +42,7 @@ namespace Stacker.ScriptableObjects
         {
             get
             {
-                return tileRotationPositions;
+                return tilePositions;
             }
         }
     }
