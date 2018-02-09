@@ -14,7 +14,7 @@ TagManager:
   - 
   - 
   - Floor
-  - 
+  - Tetros
   - 
   - 
   - 
@@ -38,6 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Cell
+    uniqueID: 420375169
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
