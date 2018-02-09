@@ -103,6 +103,10 @@ namespace Stacker
             grid.cellSize = cellSize;
         }
 
+
+
+        #region Cell Checkers and Setters
+
         public bool IsCellFull(Vector2 cellPos)
         {
             Vector3Int pos = grid.WorldToCell(cellPos);
@@ -183,7 +187,8 @@ namespace Stacker
         public bool IsOutOfBounds(Vector2 cellPos)
         {
             return IsOutOfBounds(grid.WorldToCell(cellPos));
-        }
+        } 
+        #endregion
 
         #region Editor
 

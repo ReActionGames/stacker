@@ -145,7 +145,6 @@ namespace Stacker.Tetros
 
         public void Die()
         {
-            OnDie?.Invoke();
             foreach (var tile in tiles)
             {
                 grid.SetCellFull(tile.transform.position, tetroType);
@@ -154,6 +153,7 @@ namespace Stacker.Tetros
             SetRotation(0);
             //Falling = false;
             Active = false;
+            OnDie?.Invoke();
         }
     }
 }
