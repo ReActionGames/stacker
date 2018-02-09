@@ -88,15 +88,31 @@ namespace Stacker.Tetros
         {
             index = Mathf.Clamp(index, 0, data.TilePositions.GetLength(0)); // Just in case "index" is out of bounds
             //SetTilePositions(data.TileRotationPositions[index]); // TODO Refractor "TileRotationPositions" as a jagged array instead of a 2D array
-            for (int i = 0; i < tiles.Length; i++)
+            var positions = data.GetPositions(index);
+            SetTilePositions(positions);
+        }
+
+        public Vector2[] GetRotationPositions(int index)
+        {
+            index = Mathf.Clamp(index, 0, data.TilePositions.GetLength(0)); // Just in case "index" is out of bounds
+
+            Vector2[] temp = data.GetPositions(index);
+            for (int i = 0; i < temp.Length; i++)
             {
-                tiles[i].transform.localPosition = data.TilePositions[index, i];
+                temp[i] = temp[i] + grid.GetCellPosAt(transform.position);
             }
+            return temp;
         }
 
         public int Wrap(int rotationIndex)
         {
-            throw new NotImplementedException();
+            int max = tiles.Length - 1;
+
+            if (rotationIndex < 0)
+                rotationIndex = max;
+            else if (rotationIndex > max)
+                rotationIndex = 0;
+            return rotationIndex;
         }
 
         public void SetPool(TetroPool tetroPool)

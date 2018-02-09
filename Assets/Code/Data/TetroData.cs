@@ -45,5 +45,15 @@ namespace Stacker.ScriptableObjects
                 return tilePositions;
             }
         }
+
+        public Vector2[] GetPositions(int index)
+        {
+            Vector2[] temp = new Vector2[tilePositions.GetLength(1)];
+            for (int i = 0; i < temp.Length; i++)
+            {
+                temp[i] = tilePositions[index, i];
+            }
+            return temp;
+        }
     }
 }
