@@ -185,14 +185,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolPos: {fileID: 1055892088}
-  tetroPrefabs:
-  - {fileID: 114452371638203548, guid: 4caf36270ba15274594db7712ae55d0d, type: 2}
-  - {fileID: 114201897014805438, guid: d672c2e14209588448a2cb2de6268da4, type: 2}
-  - {fileID: 114681194903594808, guid: d5e957c5a2a65ae4ea64b3c14dc8a06c, type: 2}
-  - {fileID: 114987249424606522, guid: fae7eda30a178014ab1767c048ec3304, type: 2}
-  - {fileID: 114085457514085170, guid: 738184316f635bf4c8ac56951d79bcee, type: 2}
-  - {fileID: 114742157824819132, guid: 892570ca4936ede4792604dab7d9abcd, type: 2}
-  - {fileID: 114978533116211918, guid: 5a7348e146a20d4469474f39b44fc2c1, type: 2}
+  tetroPrefab: {fileID: 114638465370056626, guid: 8f4ff17acfa68d64db92d3d0389a19db,
+    type: 2}
+  tetroDatas:
+  - {fileID: 11400000, guid: c6a2b70f061afb44ba842bf66b51fc46, type: 2}
+  - {fileID: 11400000, guid: 46deec49acbb81e4aa67a366318c2bdc, type: 2}
+  - {fileID: 11400000, guid: f74f09e6dd471624e8a965ca0d423912, type: 2}
+  - {fileID: 11400000, guid: 948f26af027ddaa48a0e32a1e4d126f5, type: 2}
+  - {fileID: 11400000, guid: 19696718cb144c5488276720823e8ffb, type: 2}
+  - {fileID: 11400000, guid: 1c5905923b9401842a3bcced3b0fab0d, type: 2}
+  - {fileID: 11400000, guid: 2950aefd3b98e8747b81cf632b3f376a, type: 2}
 --- !u!114 &513372212
 MonoBehaviour:
   m_ObjectHideFlags: 0

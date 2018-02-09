@@ -634,9 +634,9 @@ PlayerSettings:
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled: {}
   facebookSdkVersion: 7.9.4
-  apiCompatibilityLevel: 2
+  apiCompatibilityLevel: 3
   cloudProjectId: 2703c976-a8df-4853-90e9-1f01b37f369c
-  projectName: Tetris
+  projectName: Stacker
   organizationId: henderstudiosproduction
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
