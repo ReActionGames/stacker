@@ -1,8 +1,10 @@
 ﻿using Stacker.Enums;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Sirenix.OdinInspector;
+using UnityEngine.Serialization;
 
 namespace Stacker.ScriptableObjects
 {
@@ -10,9 +12,10 @@ namespace Stacker.ScriptableObjects
     public class TetroData : SerializedScriptableObject
     {
         [SerializeField] private TetroType type;
-        [SerializeField] private Vector2[] defaultTilePositions = new Vector2[4];
+        [SerializeField] private int defaultTilePositionIndex = 0;
         //[LabelText("Tile Rotation Positions")]
-        [SerializeField] private Vector2[,] tileRotationPositions = new Vector2[3,4];
+        [FormerlySerializedAs("tileRotationPositions")]
+        [SerializeField] private Vector2[,] tilePositions = new Vector2[3,4];
 
         public TetroType Type
         {
@@ -26,16 +29,31 @@ namespace Stacker.ScriptableObjects
         {
             get
             {
-                return defaultTilePositions;
+                Vector2[] temp = new Vector2[tilePositions.GetLength(1)];
+                for (int i = 0; i < temp.Length; i++)
+                {
+                    temp[i] = tilePositions[defaultTilePositionIndex, i];
+                }
+                return temp;
             }
         }
 
-        public Vector2[,] TileRotationPositions
+        public Vector2[,] TilePositions
         {
             get
             {
-                return tileRotationPositions;
+                return tilePositions;
             }
+        }
+
+        public Vector2[] GetPositions(int index)
+        {
+            Vector2[] temp = new Vector2[tilePositions.GetLength(1)];
+            for (int i = 0; i < temp.Length; i++)
+            {
+                temp[i] = tilePositions[index, i];
+            }
+            return temp;
         }
     }
 }

@@ -25,7 +25,7 @@ namespace Stacker
             tetroPool.PreWarm();
         }
 
-        [Button]
+        [Button(ButtonSizes.Gigantic)]
         public void SpawnRandomTetro()
         {
             int length = System.Enum.GetNames(typeof(TetroType)).Length;

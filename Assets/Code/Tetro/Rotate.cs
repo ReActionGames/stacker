@@ -18,18 +18,22 @@ namespace Stacker.Tetros
 
         private void RotateClockwise(Message msg)
         {
-            rotationIndex++;
-            rotationIndex = tetro.Wrap(rotationIndex);
+            int temp = rotationIndex + 1;
+            temp = tetro.Wrap(temp);
+            if (CanRotate(temp) == false)
+                return;
+            rotationIndex = temp;
             tetro.SetRotation(rotationIndex);
-            //transform.Rotate(Vector3.forward, 90);
         }
 
         private void RotateCounterClockwise(Message msg)
         {
-            rotationIndex--;
-            rotationIndex = tetro.Wrap(rotationIndex);
+            int temp = rotationIndex - 1;
+            temp = tetro.Wrap(temp);
+            if (CanRotate(temp) == false)
+                return;
+            rotationIndex = temp;
             tetro.SetRotation(rotationIndex);
-            //transform.Rotate(Vector3.forward, -90);
         }
     }
 }

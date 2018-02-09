@@ -111,5 +111,16 @@ namespace Stacker.Tetros
             }
             return true;
         }
+
+        protected bool CanRotate(int rotationIndex)
+        {
+            Vector2[] positions = tetro.GetRotationPositions(rotationIndex);
+            foreach (Vector2 pos in positions)
+            {
+                if (grid.IsCellFull(pos) == true)
+                    return false;
+            }
+            return true;
+        }
     }
 }
