@@ -1,4 +1,5 @@
-﻿using HenderStudios.Events;
+﻿using System;
+using HenderStudios.Events;
 using Sirenix.OdinInspector;
 using Stacker.Enums;
 using Stacker.ScriptableObjects;
@@ -34,6 +35,7 @@ namespace Stacker.Tetros
                 return onDie;
             }
         }
+
         public bool Active
         {
             get; private set;
@@ -90,6 +92,11 @@ namespace Stacker.Tetros
             {
                 tiles[i].transform.localPosition = data.TileRotationPositions[index, i];
             }
+        }
+
+        public int Wrap(int rotationIndex)
+        {
+            throw new NotImplementedException();
         }
 
         public void SetPool(TetroPool tetroPool)
