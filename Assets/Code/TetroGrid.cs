@@ -1,6 +1,7 @@
 ﻿using Sirenix.OdinInspector;
 using Stacker.Cells;
 using Stacker.ScriptableObjects;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -13,26 +14,31 @@ namespace Stacker
     {
         [SerializeField] private Vector2 gridSize;
         [OnValueChanged("UpdateGridCellSize")]
-        [SerializeField] private Vector3 cellSize;
+        [SerializeField]
+        private Vector3 cellSize;
         [SerializeField] private Grid grid;
         [Required]
-        [SerializeField] private Cell cellPrefab;
+        [SerializeField]
+        private Cell cellPrefab;
         [SerializeField] private TetroColorPalette colorPalette;
         [SerializeField] private TetroSettings tetroSettings;
 
         [BoxGroup("Gizmos")]
-        [SerializeField] private bool showGizmos, showCoordinates;
+        [SerializeField]
+        private bool showGizmos, showCoordinates;
         [BoxGroup("Gizmos")]
-        [SerializeField] private bool negativeX, negativeY;
-
+        [SerializeField]
+        private bool negativeX, negativeY;
 
         [BoxGroup("Events")]
-        [SerializeField] private UnityEvent onGridUpdated;
+        [SerializeField]
+        private UnityEvent onGridUpdated;
 
         /// <summary>
         /// A 2D array of Cells. Cells are either null, Active, Inactive, Moving, or Dying.
         /// </summary>
         private Cell[,] cells;
+        private FullRowsDeleter rowsDeleter;
 
         public Grid Grid
         {
@@ -66,7 +72,18 @@ namespace Stacker
         private void Awake()
         {
             if (grid == null)
-                grid = gameObject.AddComponent<Grid>();
+            {
+                grid = GetComponent<Grid>();
+                if (grid == null)
+                    grid = gameObject.AddComponent<Grid>();
+            }
+            if (rowsDeleter == null)
+            {
+                rowsDeleter = GetComponent<FullRowsDeleter>();
+                if (rowsDeleter == null)
+                    rowsDeleter = gameObject.AddComponent<FullRowsDeleter>();
+            }
+
             InitializeCellArray();
         }
 
@@ -103,23 +120,43 @@ namespace Stacker
             grid.cellSize = cellSize;
         }
 
+        public void DeleteFullRows()
+        {
+            rowsDeleter.DeleteRows(this, cells);
+        }
 
+        public Cell[] GetCellsInRow(int row)
+        {
+            Cell[] temp = new Cell[cells.GetLength(0)];
+            for (int i = 0; i < temp.Length; i++)
+            {
+                temp[i] = cells[i, row];
+            }
+            return temp;
+        }
 
         #region Cell Checkers and Setters
 
-        public bool IsCellFull(Vector2 cellPos)
+        public bool IsCellFull(Vector2 worldCellPos)
         {
-            Vector3Int pos = grid.WorldToCell(cellPos);
+            Vector3Int pos = grid.WorldToCell(worldCellPos);
             if (IsOutOfBounds(pos))
                 return true;
             if (IsTooHigh(pos))
                 return false;
-            return GetCellAt(cellPos).CurrentState is ActiveCell;
+            return GetCellAt(worldCellPos).CurrentState is ActiveCell;
         }
 
-        public bool IsCellEmpty(Vector2 cellPos)
+        public bool IsCellFull(int x, int y)
         {
-            Vector3Int pos = grid.WorldToCell(cellPos);
+            if (x >= cells.GetLength(0) || y >= cells.GetLength(1) || x < 0 || y < 0)
+                return true;
+            return cells[x, y].CurrentState is ActiveCell;
+        }
+
+        public bool IsCellEmpty(Vector2 worldCellPos)
+        {
+            Vector3Int pos = grid.WorldToCell(worldCellPos);
             if (IsOutOfBounds(pos))
                 return false;
             if (IsTooHigh(pos))
@@ -127,22 +164,34 @@ namespace Stacker
             return !(cells[pos.x, pos.y].CurrentState is ActiveCell);
         }
 
-        public void SetCellFull(Vector2 pos, Enums.TetroType type)
+        public bool IsCellEmpty(int x, int y)
         {
-            Vector3Int cellPos = grid.WorldToCell(pos);
+            if (x >= cells.GetLength(0) || y >= cells.GetLength(1) || x < 0 || y < 0)
+                return true;
+            return !(cells[x, y].CurrentState is ActiveCell);
+        }
+
+        public void SetCellFull(Vector2 worldCellPos, Enums.TetroType type)
+        {
+            Vector3Int cellPos = grid.WorldToCell(worldCellPos);
             if (IsOutOfBounds(cellPos) || IsTooHigh(cellPos))
                 return;
             cells[cellPos.x, cellPos.y].ChangeState(new ActiveCell(type));
             OnGridUpdated?.Invoke();
         }
 
-        public void SetCellEmtpy(Vector2 pos)
+        public void SetCellEmtpy(Vector2 worldCellPos)
         {
-            Vector3Int cellPos = grid.WorldToCell(pos);
+            Vector3Int cellPos = grid.WorldToCell(worldCellPos);
             if (IsOutOfBounds(cellPos) || IsTooHigh(cellPos))
                 return;
             cells[cellPos.x, cellPos.y].ChangeState(new InactiveCell());
             OnGridUpdated?.Invoke();
+        }
+
+        public void RemoveCell(Cell cell)
+        {
+            cell.ChangeState(new DyingCell());
         }
 
         public Vector2 GetCellPosBelow(Vector2 pos)
@@ -187,7 +236,7 @@ namespace Stacker
         public bool IsOutOfBounds(Vector2 cellPos)
         {
             return IsOutOfBounds(grid.WorldToCell(cellPos));
-        } 
+        }
         #endregion
 
         #region Editor
@@ -213,10 +262,18 @@ namespace Stacker
             Vector3 pos = GetCellCenter(row, col);
             Gizmos.DrawWireCube(pos, cellSize);
 
-            if (cells != null && IsCellFull(pos))
+            if (cells != null)
             {
-                Gizmos.color = new Color(0, 1, 0, 0.25f);
-                Gizmos.DrawCube(pos, cellSize);
+                if (IsCellFull(pos))
+                {
+                    Gizmos.color = new Color(0, 1, 0, 0.25f);
+                    Gizmos.DrawCube(pos, cellSize);
+                }
+                else if (GetCellAt(pos).CurrentState is DyingCell)
+                {
+                    Gizmos.color = new Color(1, 0, 0, 0.75f);
+                    Gizmos.DrawCube(pos, cellSize);
+                }
             }
         }
 

@@ -10,10 +10,12 @@ namespace Stacker
     {
 
         private Spawner spawner;
+        private TetroGrid grid;
 
         private void Awake()
         {
             spawner = FindObjectOfType<Spawner>();
+            grid = FindObjectOfType<TetroGrid>();
         }
 
         [Button]
@@ -32,8 +34,9 @@ namespace Stacker
 
         private void OnTetroDie()
         {
+            grid.DeleteFullRows();
             spawner.SpawnRandomTetro();
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }
