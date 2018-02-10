@@ -12,8 +12,15 @@ namespace Stacker.Tetros
         public override void SetUp(TetroMovement movement)
         {
             base.SetUp(movement);
+            tetro.OnDie.AddListener(ResetRotation);
             EventManager.StartListening(EventNames.TetroRotateClockwise, RotateClockwise);
             EventManager.StartListening(EventNames.TetroRotateCounterClockwise, RotateCounterClockwise);
+        }
+
+        private void ResetRotation()
+        {
+            rotationIndex = 0;
+            tetro.SetRotation(0);
         }
 
         private void RotateClockwise(Message msg)

@@ -150,7 +150,7 @@ namespace Stacker.Tetros
                 grid.SetCellFull(tile.transform.position, tetroType);
             }
             pool?.ReturnTetro(this);
-            SetRotation(0);
+            //SetRotation(0);
             //Falling = false;
             Active = false;
             OnDie?.Invoke();
