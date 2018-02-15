@@ -22,6 +22,7 @@ namespace Stacker
         private Cell cellPrefab;
         [SerializeField] private TetroColorPalette colorPalette;
         [SerializeField] private TetroSettings tetroSettings;
+        [SerializeField] private GameSettings gameSettings;
 
         [BoxGroup("Gizmos")]
         [SerializeField]
@@ -38,7 +39,9 @@ namespace Stacker
         /// A 2D array of Cells. Cells are either null, Active, Inactive, Moving, or Dying.
         /// </summary>
         private Cell[,] cells;
+        
         private FullRowsDeleter rowsDeleter;
+        private MovingCellPool movingCellPool;
 
         public Grid Grid
         {
@@ -68,6 +71,13 @@ namespace Stacker
                 return tetroSettings;
             }
         }
+        public GameSettings GameSettings
+        {
+            get
+            {
+                return gameSettings;
+            }
+        }
 
         private void Awake()
         {
@@ -83,6 +93,13 @@ namespace Stacker
                 if (rowsDeleter == null)
                     rowsDeleter = gameObject.AddComponent<FullRowsDeleter>();
             }
+            if (movingCellPool == null)
+            {
+                movingCellPool = FindObjectOfType<MovingCellPool>();
+                if (movingCellPool == null)
+                    Debug.LogWarning("There needs to be a 'MovingCellPool' object in the scene!");
+            }
+            movingCellPool.PreWarm((int)gridSize.x * 4);
 
             InitializeCellArray();
         }
@@ -98,7 +115,7 @@ namespace Stacker
                 {
                     Cell cell = Instantiate(cellPrefab, grid.GetCellCenterWorld(new Vector3Int(x, y, 0)), Quaternion.identity, col.transform);
                     cell.name = $"cell ({x}, {y})";
-                    cell.SetGrid(this);
+                    cell.SetGrid(this, x, y);
                     cells[x, y] = cell;
                 }
             }
@@ -180,6 +197,15 @@ namespace Stacker
             OnGridUpdated?.Invoke();
         }
 
+        public void SetCellFull(Vector2 worldCellPos, Color color)
+        {
+            Vector3Int cellPos = grid.WorldToCell(worldCellPos);
+            if (IsOutOfBounds(cellPos) || IsTooHigh(cellPos))
+                return;
+            cells[cellPos.x, cellPos.y].ChangeState(new ActiveCell(color));
+            OnGridUpdated?.Invoke();
+        }
+
         public void SetCellEmtpy(Vector2 worldCellPos)
         {
             Vector3Int cellPos = grid.WorldToCell(worldCellPos);
@@ -193,7 +219,14 @@ namespace Stacker
         {
             cell.ChangeState(new DyingCell());
         }
-
+        
+        public void MoveCell(int x, int y, int distance)
+        {
+            //cells[i, j].ChangeState(new MovingCell(distance));
+            movingCellPool.MoveCell(this, cells[x, y], GetCellPosAt(new Vector2(x, y)), distance);
+            cells[x, y].ChangeState(new InactiveCell());
+        }
+        
         public Vector2 GetCellPosBelow(Vector2 pos)
         {
             return grid.GetCellCenterWorld(grid.WorldToCell(pos) + Vector3Int.down);

@@ -12,6 +12,7 @@ namespace Stacker.Enums
         J = 4,
         L = 5,
         S = 6,
-        Z = 7
+        Z = 7,
+        None = 0
     }
 }

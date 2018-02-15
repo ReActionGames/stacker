@@ -13,13 +13,23 @@ namespace Stacker.Cells
         internal SpriteRenderer sprite;
         [SerializeField]
         internal TetroGrid grid;
-
+        
         public CellState CurrentState
         {
             get
             {
                 return currentState;
             }
+        }
+
+        public int X
+        {
+            get; private set;
+        }
+
+        public int Y
+        {
+            get; private set;
         }
 
         private void Start()
@@ -35,9 +45,16 @@ namespace Stacker.Cells
             currentState.OnEnterState(this);
         }
 
-        public void SetGrid(TetroGrid grid)
+        public void SetGrid(TetroGrid grid, int x, int y)
         {
             this.grid = grid;
+            X = x;
+            Y = y;
+        }
+
+        public Color GetColor()
+        {
+            return sprite.color;
         }
     }
 }

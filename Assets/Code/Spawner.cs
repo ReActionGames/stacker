@@ -40,7 +40,7 @@ namespace Stacker
         public Tetro SpawnRandomTetro()
         {
             int length = System.Enum.GetNames(typeof(TetroType)).Length;
-            int i = Random.Range(0, length) + 1;
+            int i = Random.Range(1, length - 1);
             TetroType type = (TetroType)i;
             Tetro tetro = tetroPool.GetTetro(type);
             tetro.transform.position = spawnPos.position;

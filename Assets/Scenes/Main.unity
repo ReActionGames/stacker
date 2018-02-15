@@ -526,8 +526,9 @@ MonoBehaviour:
     type: 2}
   colorPalette: {fileID: 11400000, guid: f69306dd397a2874e97fb937e6f754df, type: 2}
   tetroSettings: {fileID: 11400000, guid: 1dc8126af75009042b1ec986f70d72e1, type: 2}
+  gameSettings: {fileID: 11400000, guid: 2e445de5ba7635643b17e41a863a55e5, type: 2}
   showGizmos: 1
-  showCoordinates: 0
+  showCoordinates: 1
   negativeX: 0
   negativeY: 0
   onGridUpdated:
@@ -729,6 +730,49 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1821203834
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1821203836}
+  - component: {fileID: 1821203835}
+  m_Layer: 0
+  m_Name: MovingCellPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1821203835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1821203834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fedf68ed9d0d53a49a77d52b513a1f1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolPos: {fileID: 1821203836}
+  movingCellPrefab: {fileID: 114295222371975838, guid: 5a93211df143a9f42856624c1188887b,
+    type: 2}
+--- !u!4 &1821203836
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1821203834}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.61, y: -5.08, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1863031710
 GameObject:

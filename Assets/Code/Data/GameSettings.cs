@@ -8,6 +8,7 @@ namespace Stacker.ScriptableObjects
     public class GameSettings : ScriptableObject
     {
         [SerializeField] private float tetroRespawnDelay;
+        [SerializeField] private float rowfallSpeed;
 
         public float TetroRespawnDelay
         {
@@ -15,6 +16,15 @@ namespace Stacker.ScriptableObjects
             {
                 return tetroRespawnDelay;
             }
+        }
+
+        public float RowfallSpeed
+        {
+            get
+            {
+                return rowfallSpeed;
+            }
+            
         }
     }
 }
