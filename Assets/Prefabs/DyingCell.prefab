@@ -70,34 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 199ca1499410ff7478d0724bb907f461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 2.6118975
-      outSlope: 2.6118975
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0.22681478
-      value: 0.5038424
-      inSlope: 0.93112236
-      outSlope: 0.93112236
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 1
-      value: -1
-      inSlope: -3.1518435
-      outSlope: -3.1518435
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 0
-    m_RotationOrder: 0
-  jumpLength: 1
-  maxJumpXDistance: 1.5
-  jumpXDistance: 1
-  rotationSpeed: -360
+  settings: {fileID: 11400000, guid: ba32f6606fe5ffc438ce8b9f94b131eb, type: 2}
 --- !u!212 &212803306219322870
 SpriteRenderer:
   m_ObjectHideFlags: 1

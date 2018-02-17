@@ -217,7 +217,7 @@ namespace Stacker
         public void RemoveCell(Cell cell)
         {
             var dyingCell = dyingCellPrefab.Spawn();
-            dyingCell.PlayAnimation();
+            dyingCell.Play(cell.GetColor(), cell.transform.position);
             cell.ChangeState(new InactiveCell());
         }
 
@@ -304,11 +304,6 @@ namespace Stacker
                 if (IsCellFull(pos))
                 {
                     Gizmos.color = new Color(0, 1, 0, 0.25f);
-                    Gizmos.DrawCube(pos, cellSize);
-                }
-                else if (GetCellAt(pos).CurrentState is DyingCell)
-                {
-                    Gizmos.color = new Color(1, 0, 0, 0.75f);
                     Gizmos.DrawCube(pos, cellSize);
                 }
             }
