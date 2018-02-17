@@ -28,6 +28,8 @@ namespace Stacker
                     }
                 }
             }
+            if (fullRowIndexs.Count <= 0)
+                return; 
 
             foreach (int row in fullRowIndexs)
             {
@@ -35,6 +37,17 @@ namespace Stacker
                 cellMoveDistance = AddOneAboveRow(cellMoveDistance, row);
             }
 
+            StartCoroutine(WaitAndMoveCells(grid.GameSettings.RowFallDelay, cellMoveDistance));
+        }
+
+        private IEnumerator WaitAndMoveCells(float waitTime, int[][] cellMoveDistance)
+        {
+            yield return new WaitForSeconds(waitTime);
+            MoveCells(cellMoveDistance);
+        }
+
+        private void MoveCells(int[][] cellMoveDistance)
+        {
             for (int i = 0; i < cellMoveDistance.Length; i++)
             {
                 for (int j = 0; j < cellMoveDistance[i].Length; j++)

@@ -52,6 +52,11 @@ namespace Stacker.Cells
             Y = y;
         }
 
+        public void SetInactive()
+        {
+            ChangeState(new InactiveCell());
+        }
+
         public Color GetColor()
         {
             return sprite.color;

@@ -9,7 +9,9 @@ namespace Stacker.Cells
         public override void OnEnterState(Cell cell)
         {
             base.OnEnterState(cell);
-            cell.ChangeState(new InactiveCell());
+            cell.GetComponent<Animator>().SetTrigger("Die");
+            
+            //cell.ChangeState(new InactiveCell());
         }
     }
 }

@@ -29,7 +29,7 @@ namespace Stacker.Cells
         private IEnumerator LerpDown(Vector2 startPos, Vector2 endPos, System.Action callback)
         {
             float time = 0;
-            float speed = grid.GameSettings.RowfallSpeed;
+            float speed = grid.GameSettings.RowFallSpeed;
             while (time < speed)
             {
                 time += Time.deltaTime;

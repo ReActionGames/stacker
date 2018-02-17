@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Name: Default Game Settings
   m_EditorClassIdentifier: 
   tetroRespawnDelay: 0
-  rowfallSpeed: 0.5
+  rowFallDelay: 0.5
+  rowFallSpeed: 0.5
