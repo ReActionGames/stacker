@@ -20,6 +20,9 @@ namespace Stacker
         [Required]
         [SerializeField]
         private Cell cellPrefab;
+        [Required]
+        [SerializeField]
+        private MovingCell movingCellPrefab;
         [SerializeField] private TetroColorPalette colorPalette;
         [SerializeField] private TetroSettings tetroSettings;
         [SerializeField] private GameSettings gameSettings;
@@ -39,9 +42,8 @@ namespace Stacker
         /// A 2D array of Cells. Cells are either null, Active, Inactive, Moving, or Dying.
         /// </summary>
         private Cell[,] cells;
-        
+
         private FullRowsDeleter rowsDeleter;
-        private MovingCellPool movingCellPool;
 
         public Grid Grid
         {
@@ -93,13 +95,6 @@ namespace Stacker
                 if (rowsDeleter == null)
                     rowsDeleter = gameObject.AddComponent<FullRowsDeleter>();
             }
-            if (movingCellPool == null)
-            {
-                movingCellPool = FindObjectOfType<MovingCellPool>();
-                if (movingCellPool == null)
-                    Debug.LogWarning("There needs to be a 'MovingCellPool' object in the scene!");
-            }
-            movingCellPool.PreWarm((int)gridSize.x * 4);
 
             InitializeCellArray();
         }
@@ -123,6 +118,7 @@ namespace Stacker
 
         private void Start()
         {
+            ObjectPool.CreateStartupPools();
             UpdateGridCellSize();
         }
 
@@ -178,14 +174,14 @@ namespace Stacker
                 return false;
             if (IsTooHigh(pos))
                 return true;
-            return !(cells[pos.x, pos.y].CurrentState is ActiveCell);
+            return cells[pos.x, pos.y].CurrentState is InactiveCell;
         }
 
         public bool IsCellEmpty(int x, int y)
         {
             if (x >= cells.GetLength(0) || y >= cells.GetLength(1) || x < 0 || y < 0)
                 return true;
-            return !(cells[x, y].CurrentState is ActiveCell);
+            return cells[x, y].CurrentState is InactiveCell;
         }
 
         public void SetCellFull(Vector2 worldCellPos, Enums.TetroType type)
@@ -219,14 +215,17 @@ namespace Stacker
         {
             cell.ChangeState(new DyingCell());
         }
-        
+
         public void MoveCell(int x, int y, int distance)
         {
             //cells[i, j].ChangeState(new MovingCell(distance));
-            movingCellPool.MoveCell(this, cells[x, y], GetCellPosAt(new Vector2(x, y)), distance);
+            if (!(cells[x, y].CurrentState is ActiveCell))
+                return;
+            var cell = movingCellPrefab.Spawn();
+            cell.MoveDown(this, cells[x, y], GetCellPosAt(new Vector2(x, y)), distance);
             cells[x, y].ChangeState(new InactiveCell());
         }
-        
+
         public Vector2 GetCellPosBelow(Vector2 pos)
         {
             return grid.GetCellCenterWorld(grid.WorldToCell(pos) + Vector3Int.down);
