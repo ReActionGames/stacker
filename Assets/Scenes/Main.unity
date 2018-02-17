@@ -574,6 +574,8 @@ MonoBehaviour:
   startupPools:
   - size: 32
     prefab: {fileID: 1628705165649914, guid: 5a93211df143a9f42856624c1188887b, type: 2}
+  - size: 32
+    prefab: {fileID: 1786406658574948, guid: 0e13877428a293c4393f6c2cf562eb8d, type: 2}
 --- !u!1 &957283990
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,6 +611,8 @@ MonoBehaviour:
   cellPrefab: {fileID: 114048017345665392, guid: 37982971b7c0f7448a1a9714d1f20e9a,
     type: 2}
   movingCellPrefab: {fileID: 114295222371975838, guid: 5a93211df143a9f42856624c1188887b,
+    type: 2}
+  dyingCellPrefab: {fileID: 114202215649209680, guid: 0e13877428a293c4393f6c2cf562eb8d,
     type: 2}
   colorPalette: {fileID: 11400000, guid: f69306dd397a2874e97fb937e6f754df, type: 2}
   tetroSettings: {fileID: 11400000, guid: 1dc8126af75009042b1ec986f70d72e1, type: 2}
