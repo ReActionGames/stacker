@@ -145,15 +145,15 @@ namespace Stacker.Tetros
 
         public void Die()
         {
-            OnDie?.Invoke();
             foreach (var tile in tiles)
             {
                 grid.SetCellFull(tile.transform.position, tetroType);
             }
             pool?.ReturnTetro(this);
-            SetRotation(0);
+            //SetRotation(0);
             //Falling = false;
             Active = false;
+            OnDie?.Invoke();
         }
     }
 }

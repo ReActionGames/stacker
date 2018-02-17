@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using HenderStudios.Extensions;
+﻿using UnityEngine;
 using Stacker.Enums;
 using Sirenix.OdinInspector;
 using Stacker.Tetros;
+using UnityEngine.Events;
 
 namespace Stacker
 {
@@ -14,27 +12,41 @@ namespace Stacker
         [SerializeField] private TetroPool tetroPool;
         [SerializeField] private float fallSpeed;
 
-        private void Start()
-        {
-            PreWarmPool();
-        }
+        [SerializeField] private UnityEvent onTetroDie;
 
-        [Button]
+        public UnityEvent OnTetroDie
+        {
+            get
+            {
+                return onTetroDie;
+            }
+        }
+        
         public void PreWarmPool()
         {
-            tetroPool.PreWarm();
+            Tetro[] tetros = tetroPool.PreWarm();
+            foreach (var tetro in tetros)
+            {
+                tetro.OnDie.AddListener(InvokeOnTetroDie);
+            }
         }
 
-        [Button(ButtonSizes.Gigantic)]
-        public void SpawnRandomTetro()
+        private void InvokeOnTetroDie()
+        {
+            OnTetroDie?.Invoke();
+        }
+
+        [Button(ButtonSizes.Medium)]
+        public Tetro SpawnRandomTetro()
         {
             int length = System.Enum.GetNames(typeof(TetroType)).Length;
-            int i = Random.Range(0, length) + 1;
+            int i = Random.Range(1, length - 1);
             TetroType type = (TetroType)i;
             Tetro tetro = tetroPool.GetTetro(type);
             tetro.transform.position = spawnPos.position;
             tetro.gameObject.SetActive(true);
             tetro.StartFalling(fallSpeed);
+            return tetro;
         }
     }
 }

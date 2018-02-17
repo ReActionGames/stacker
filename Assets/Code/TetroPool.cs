@@ -18,7 +18,7 @@ namespace Stacker
 
         private Tetro[] pool;
 
-        public void PreWarm()
+        public Tetro[] PreWarm()
         {
             pool = new Tetro[tetroDatas.Length];
             for (int i = 0; i < pool.Length; i++)
@@ -29,6 +29,7 @@ namespace Stacker
                 t.SetPool(this);
                 pool[i] = t;
             }
+            return pool;
         }
 
         public Tetro GetTetro(TetroType type)
