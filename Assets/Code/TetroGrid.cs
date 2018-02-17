@@ -23,6 +23,9 @@ namespace Stacker
         [Required]
         [SerializeField]
         private MovingCell movingCellPrefab;
+        [Required]
+        [SerializeField]
+        private DyingCell dyingCellPrefab;
         [SerializeField] private TetroColorPalette colorPalette;
         [SerializeField] private TetroSettings tetroSettings;
         [SerializeField] private GameSettings gameSettings;
@@ -213,7 +216,9 @@ namespace Stacker
 
         public void RemoveCell(Cell cell)
         {
-            cell.ChangeState(new DyingCell());
+            var dyingCell = dyingCellPrefab.Spawn();
+            dyingCell.PlayAnimation();
+            cell.ChangeState(new InactiveCell());
         }
 
         public void MoveCell(int x, int y, int distance)
