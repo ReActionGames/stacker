@@ -6,20 +6,16 @@ namespace Stacker.Cells
 {
     public class MovingCell : MonoBehaviour
     {
-        private SpriteRenderer sprite;
-        private MovingCellPool pool;
         private TetroGrid grid;
 
-        private void Start()
+        private SpriteRenderer sprite
         {
-            sprite = GetComponent<SpriteRenderer>();
+            get
+            {
+                return GetComponent<SpriteRenderer>();
+            }
         }
-
-        public void SetPool(MovingCellPool pool)
-        {
-            this.pool = pool;
-        }
-
+        
         public void MoveDown(TetroGrid grid, Cell cell, Vector2 startPos, int distance)
         {
             this.grid = grid;
@@ -49,7 +45,7 @@ namespace Stacker.Cells
         {
             //grid.SetCellFull(transform.position);
             grid.SetCellFull(transform.position, GetColor());
-            pool.ReturnCell(this);
+            gameObject.Recycle();
         }
 
         private void SetColor(Color color)
