@@ -10,7 +10,7 @@ namespace Stacker
     {
         private TetroGrid grid;
 
-        public void DeleteRows(TetroGrid grid, Cell[,] cells)
+        public bool DeleteRows(TetroGrid grid, Cell[,] cells)
         {
             this.grid = grid;
             List<int> fullRowIndexs = new List<int>();
@@ -29,7 +29,7 @@ namespace Stacker
                 }
             }
             if (fullRowIndexs.Count <= 0)
-                return; 
+                return false; 
 
             foreach (int row in fullRowIndexs)
             {
@@ -38,6 +38,7 @@ namespace Stacker
             }
 
             StartCoroutine(WaitAndMoveCells(grid.GameSettings.RowFallDelay, cellMoveDistance));
+            return true;
         }
 
         private IEnumerator WaitAndMoveCells(float waitTime, int[][] cellMoveDistance)

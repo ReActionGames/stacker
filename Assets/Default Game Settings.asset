@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b00e8c60b7772b4418d16cfa96490f7a, type: 3}
   m_Name: Default Game Settings
   m_EditorClassIdentifier: 
-  tetroRespawnDelay: 0
+  tetroRespawnDelayShort: 0.75
+  tetroRespawnDelayLong: 2
   rowFallDelay: 0.5
   rowFallSpeed: 0.5

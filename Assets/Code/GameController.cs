@@ -34,9 +34,19 @@ namespace Stacker
 
         private void OnTetroDie()
         {
-            grid.DeleteFullRows();
+            bool fullRowsFound = grid.DeleteFullRows();
+
+            float delay = grid.GameSettings.TetroRespawnDelayShort;
+            if (fullRowsFound)
+                delay = grid.GameSettings.TetroRespawnDelayLong;
+
+            StartCoroutine(SpawnTetroAfterDelay(delay));
+        }
+
+        private IEnumerator SpawnTetroAfterDelay(float delay)
+        {
+            yield return new WaitForSeconds(delay);
             spawner.SpawnRandomTetro();
-            //throw new NotImplementedException();
         }
     }
 }

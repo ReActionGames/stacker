@@ -16,14 +16,16 @@ namespace Stacker.Tetros
         
         private void ShiftRight(Message msg)
         {
-            if (CanMoveRight())
+            if (tetro.Active && CanMoveRight())
                 StartCoroutine(LerpShift(grid.Grid.cellSize.x));
         }
 
         private void ShiftLeft(Message msg)
         {
-            if (CanMoveLeft())
+            if (tetro.Active && CanMoveLeft())
+            {
                 StartCoroutine(LerpShift(grid.Grid.cellSize.x * -1));
+            }
         }
         
         private IEnumerator LerpShift(float newXPos)
@@ -31,12 +33,19 @@ namespace Stacker.Tetros
             Snap(SnapAxis.X);
 
             Vector3 startPos = tetro.transform.position;
+            //Debug.Log("Start Pos: " + startPos);
 
             Vector2 nextCellPos = newXPos > 0 ? grid.GetCellPosRight(startPos) : grid.GetCellPosLeft(startPos);
-            Vector2 endPos = new Vector2(nextCellPos.x, transform.position.y);
+            //Debug.Log("Next Cell Pos: " + nextCellPos);
 
-            if (grid.IsOutOfBounds(endPos))
-                yield break;
+            Vector2 endPos = new Vector2(nextCellPos.x, transform.position.y);
+            //Debug.Log("End Pos: " + endPos);
+
+            //if (grid.IsOutOfBounds(endPos))
+            //{
+            //    Debug.LogWarning("End Pos is out of bounds! Ending shift...");
+            //    yield break;
+            //}
 
             float time = 0;
             while (tetro.Active /*&& tetro.Falling*/ && time < settings.ShiftSpeed)

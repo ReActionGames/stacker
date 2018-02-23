@@ -8,15 +8,16 @@ namespace Stacker.ScriptableObjects
     [CreateAssetMenu(menuName = "Data/Game Settings")]
     public class GameSettings : ScriptableObject
     {
-        [SerializeField] private float tetroRespawnDelay;
+        [SerializeField] private float tetroRespawnDelayShort;
+        [SerializeField] private float tetroRespawnDelayLong;
         [SerializeField] private float rowFallDelay;
         [SerializeField] private float rowFallSpeed;
 
-        public float TetroRespawnDelay
+        public float TetroRespawnDelayShort
         {
             get
             {
-                return tetroRespawnDelay;
+                return tetroRespawnDelayShort;
             }
         }
 
@@ -34,6 +35,14 @@ namespace Stacker.ScriptableObjects
             get
             {
                 return rowFallDelay;
+            }
+        }
+
+        public float TetroRespawnDelayLong
+        {
+            get
+            {
+                return tetroRespawnDelayLong;
             }
         }
     }

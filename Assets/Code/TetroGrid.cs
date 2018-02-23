@@ -136,9 +136,9 @@ namespace Stacker
             grid.cellSize = cellSize;
         }
 
-        public void DeleteFullRows()
+        public bool DeleteFullRows()
         {
-            rowsDeleter.DeleteRows(this, cells);
+            return rowsDeleter.DeleteRows(this, cells);
         }
 
         public Cell[] GetCellsInRow(int row)
@@ -245,7 +245,18 @@ namespace Stacker
 
         public Vector2 GetCellPosLeft(Vector2 pos)
         {
-            return grid.GetCellCenterWorld(grid.WorldToCell(pos) + Vector3Int.left);
+            //Debug.Log("World Pos: " + pos.ToString());
+
+            Vector3Int cellPos = grid.WorldToCell(pos);
+            //Debug.Log("Cell Pos: " + cellPos.ToString());
+
+            Vector3Int left = cellPos + Vector3Int.left;
+            //Debug.Log("Left Of Cell Pos: " + left.ToString());
+
+            Vector3 leftWorld = grid.GetCellCenterWorld(left);
+            //Debug.Log("Left Of Cell World Pos: " + leftWorld.ToString());
+
+            return leftWorld;
             //return Vector2.down;
         }
 

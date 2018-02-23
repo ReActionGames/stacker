@@ -97,7 +97,10 @@ namespace Stacker.Tetros
             foreach (var tile in tiles)
             {
                 if (tile.CanMove(grid, Tile.Side.Left) == false)
+                {
+                    Debug.LogWarning("Tile (" + tile.name + ") cannot move left! Breaking loop...");
                     return false;
+                }
             }
             return true;
         }
