@@ -154,6 +154,7 @@ namespace Stacker.Tetros
             //Falling = false;
             Active = false;
             OnDie?.Invoke();
+            EventManager.TriggerEvent(EventNames.TetroEndFalling);
         }
     }
 }

@@ -35,8 +35,8 @@ namespace Stacker.Tetros
         {
             Vector3 startPos = tetro.transform.position;
 
-            if (grid.IsOutOfBounds(endPos))
-                yield break;
+            //if (grid.IsOutOfBounds(endPos))
+            //    yield break;
 
             float time = 0;
             while (time < settings.DropSpeed)

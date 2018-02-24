@@ -1,4 +1,5 @@
-﻿using Sirenix.OdinInspector;
+﻿using HenderStudios.Events;
+using Sirenix.OdinInspector;
 using Stacker.Cells;
 using Stacker.ScriptableObjects;
 using System;
@@ -121,6 +122,7 @@ namespace Stacker
 
         private void Start()
         {
+            EventManager.StartListening(EventNames.TetroEndFalling, DeleteFullRows);
             ObjectPool.CreateStartupPools();
             UpdateGridCellSize();
         }
@@ -136,9 +138,9 @@ namespace Stacker
             grid.cellSize = cellSize;
         }
 
-        public bool DeleteFullRows()
+        public void DeleteFullRows(Message message)
         {
-            return rowsDeleter.DeleteRows(this, cells);
+            /*return*/ rowsDeleter.DeleteRows(this, cells);
         }
 
         public Cell[] GetCellsInRow(int row)

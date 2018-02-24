@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using HenderStudios.Events;
 using Stacker.Cells;
 using UnityEngine;
 
@@ -9,8 +10,8 @@ namespace Stacker
     public class FullRowsDeleter : MonoBehaviour
     {
         private TetroGrid grid;
-
-        public bool DeleteRows(TetroGrid grid, Cell[,] cells)
+        
+        public void DeleteRows(TetroGrid grid, Cell[,] cells)
         {
             this.grid = grid;
             List<int> fullRowIndexs = new List<int>();
@@ -29,7 +30,10 @@ namespace Stacker
                 }
             }
             if (fullRowIndexs.Count <= 0)
-                return false; 
+            {
+                EventManager.TriggerEvent(EventNames.GridFinishedUpdating, new Message(0.0f));
+                return /*false*/; 
+            }
 
             foreach (int row in fullRowIndexs)
             {
@@ -38,7 +42,7 @@ namespace Stacker
             }
 
             StartCoroutine(WaitAndMoveCells(grid.GameSettings.RowFallDelay, cellMoveDistance));
-            return true;
+            //return true;
         }
 
         private IEnumerator WaitAndMoveCells(float waitTime, int[][] cellMoveDistance)
@@ -57,6 +61,7 @@ namespace Stacker
                         grid.MoveCell(i, j, cellMoveDistance[i][j]);
                 }
             }
+            EventManager.TriggerEvent(EventNames.GridFinishedUpdating, new Message(grid.GameSettings.RowFallSpeed));
         }
 
         private int[][] AddOneAboveRow(int[][] array, int row)

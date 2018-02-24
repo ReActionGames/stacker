@@ -13,5 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tetroRespawnDelayShort: 0.75
   tetroRespawnDelayLong: 2
+  tetroRespawnDelay: 0.75
   rowFallDelay: 0.5
   rowFallSpeed: 0.5

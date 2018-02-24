@@ -1,4 +1,5 @@
-﻿using Stacker.Cells;
+﻿using HenderStudios.Events;
+using Stacker.Cells;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -25,7 +26,7 @@ namespace Stacker
 
         private void UpdateGrid()
         {
-            FindObjectOfType<TetroGrid>().DeleteFullRows();
+            EventManager.TriggerEvent(EventNames.TetroEndFalling);
         }
 
         private void EditGrid()

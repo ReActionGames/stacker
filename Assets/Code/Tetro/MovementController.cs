@@ -11,7 +11,7 @@ namespace Stacker.Tetros
         protected TetroGrid grid;
         protected TetroSettings settings;
         protected TetroMovement movement;
-        
+
         protected enum SnapAxis
         {
             X,
@@ -27,7 +27,7 @@ namespace Stacker.Tetros
             grid = movement.Grid;
             settings = movement.Settings;
         }
-        
+
         protected void Snap(SnapAxis axis)
         {
             Vector2 cellPos = grid.GetCellPosAt(transform.position);
@@ -57,7 +57,10 @@ namespace Stacker.Tetros
             foreach (var tile in tiles)
             {
                 if (tile.CanMove(grid, Tile.Side.Down) == false)
+                {
+                    //Debug.LogWarning("Tile (" + tile.name + ") cannot move down! Returning false...");
                     return false;
+                }
             }
             return true;
         }
@@ -67,7 +70,10 @@ namespace Stacker.Tetros
             foreach (var tile in tiles)
             {
                 if (tile.CanMove(grid, Tile.Side.Down, offset) == false)
+                {
+                    //Debug.LogWarning("Tile (" + tile.name + ") with offset (" + offset + ") cannot move down! Returning false...");
                     return false;
+                }
             }
             return true;
         }
@@ -98,7 +104,7 @@ namespace Stacker.Tetros
             {
                 if (tile.CanMove(grid, Tile.Side.Left) == false)
                 {
-                    Debug.LogWarning("Tile (" + tile.name + ") cannot move left! Breaking loop...");
+                    //Debug.LogWarning("Tile (" + tile.name + ") cannot move left! Breaking loop...");
                     return false;
                 }
             }

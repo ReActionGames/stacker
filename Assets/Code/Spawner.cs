@@ -12,29 +12,29 @@ namespace Stacker
         [SerializeField] private TetroPool tetroPool;
         [SerializeField] private float fallSpeed;
 
-        [SerializeField] private UnityEvent onTetroDie;
+        //[SerializeField] private UnityEvent onTetroDie;
 
-        public UnityEvent OnTetroDie
-        {
-            get
-            {
-                return onTetroDie;
-            }
-        }
+        //public UnityEvent OnTetroDie
+        //{
+        //    get
+        //    {
+        //        return onTetroDie;
+        //    }
+        //}
         
         public void PreWarmPool()
         {
             Tetro[] tetros = tetroPool.PreWarm();
-            foreach (var tetro in tetros)
-            {
-                tetro.OnDie.AddListener(InvokeOnTetroDie);
-            }
+            //foreach (var tetro in tetros)
+            //{
+            //    //tetro.OnDie.AddListener(InvokeOnTetroDie);
+            //}
         }
 
-        private void InvokeOnTetroDie()
-        {
-            OnTetroDie?.Invoke();
-        }
+        //private void InvokeOnTetroDie()
+        //{
+        //    //OnTetroDie?.Invoke();
+        //}
 
         [Button(ButtonSizes.Medium)]
         public Tetro SpawnRandomTetro()

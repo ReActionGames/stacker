@@ -1,4 +1,5 @@
-﻿using Sirenix.OdinInspector;
+﻿using HenderStudios.Events;
+using Sirenix.OdinInspector;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -22,7 +23,9 @@ namespace Stacker
         public void StartGame()
         {
             spawner.PreWarmPool();
-            spawner.OnTetroDie.AddListener(OnTetroDie);
+            //spawner.OnTetroDie.AddListener(OnTetroDie);
+            //EventManager.StartListening(EventNames.TetroEndFalling, OnTetroDie);
+            EventManager.StartListening(EventNames.GridFinishedUpdating, OnGridFinishedUpdating);
             StartCoroutine(WaitAndSpawnFirstTetro());
         }
 
@@ -32,15 +35,23 @@ namespace Stacker
             spawner.SpawnRandomTetro();
         }
 
-        private void OnTetroDie()
+        //private void OnTetroDie(Message message)
+        //{
+        //    //grid.DeleteFullRows();
+        //    //bool fullRowsFound = grid.DeleteFullRows();
+
+        //    //float delay = grid.GameSettings.TetroRespawnDelayShort;
+        //    //if (fullRowsFound)
+        //    //    delay = grid.GameSettings.TetroRespawnDelayLong;
+
+        //    //StartCoroutine(SpawnTetroAfterDelay(delay));
+        //}
+
+        private void OnGridFinishedUpdating(Message message)
         {
-            bool fullRowsFound = grid.DeleteFullRows();
-
-            float delay = grid.GameSettings.TetroRespawnDelayShort;
-            if (fullRowsFound)
-                delay = grid.GameSettings.TetroRespawnDelayLong;
-
+            float delay = (float)message.Data + grid.GameSettings.TetroRespawnDelay;
             StartCoroutine(SpawnTetroAfterDelay(delay));
+            //SpawnTetroAfterDelay(delay);
         }
 
         private IEnumerator SpawnTetroAfterDelay(float delay)
