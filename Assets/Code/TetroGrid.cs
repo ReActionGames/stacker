@@ -123,6 +123,7 @@ namespace Stacker
         private void Start()
         {
             EventManager.StartListening(EventNames.TetroEndFalling, DeleteFullRows);
+            EventManager.StartListening(EventNames.TetroOutOfBounds, ClearGrid);
             ObjectPool.CreateStartupPools();
             UpdateGridCellSize();
         }
@@ -140,7 +141,16 @@ namespace Stacker
 
         public void DeleteFullRows(Message message)
         {
-            /*return*/ rowsDeleter.DeleteRows(this, cells);
+            rowsDeleter.DeleteRows(this, cells);
+        }
+
+        [Button]
+        private void ClearGrid(Message message)
+        {
+            foreach (Cell cell in cells)
+            {
+                RemoveCell(cell);
+            }
         }
 
         public Cell[] GetCellsInRow(int row)
@@ -189,13 +199,14 @@ namespace Stacker
             return cells[x, y].CurrentState is InactiveCell;
         }
 
-        public void SetCellFull(Vector2 worldCellPos, Enums.TetroType type)
+        public bool SetCellFull(Vector2 worldCellPos, Enums.TetroType type)
         {
             Vector3Int cellPos = grid.WorldToCell(worldCellPos);
             if (IsOutOfBounds(cellPos) || IsTooHigh(cellPos))
-                return;
+                return false;
             cells[cellPos.x, cellPos.y].ChangeState(new ActiveCell(type));
             OnGridUpdated?.Invoke();
+            return true;
         }
 
         public void SetCellFull(Vector2 worldCellPos, Color color)
@@ -218,6 +229,8 @@ namespace Stacker
 
         public void RemoveCell(Cell cell)
         {
+            if (!(cell.CurrentState is ActiveCell))
+                return;
             var dyingCell = dyingCellPrefab.Spawn();
             dyingCell.Play(cell.GetColor(), cell.transform.position);
             cell.ChangeState(new InactiveCell());

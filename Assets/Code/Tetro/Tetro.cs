@@ -147,7 +147,13 @@ namespace Stacker.Tetros
         {
             foreach (var tile in tiles)
             {
-                grid.SetCellFull(tile.transform.position, tetroType);
+                bool inBounds = grid.SetCellFull(tile.transform.position, tetroType);
+                if (inBounds == false)
+                {
+                    pool?.ReturnTetro(this);
+                    EventManager.TriggerEvent(EventNames.TetroOutOfBounds);
+                    return;
+                }
             }
             pool?.ReturnTetro(this);
             //SetRotation(0);

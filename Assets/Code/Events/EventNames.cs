@@ -7,8 +7,11 @@ namespace Stacker
     public static class EventNames
     {
         public const string InputReceived = "input-received";
+
         public const string NewTetroFalling = "new-tetro-falling";
         public const string TetroEndFalling = "tetro-end-falling";
+        public const string TetroOutOfBounds = "tetro-out-of-bounds";
+
         public const string GridFinishedUpdating = "grid-finished-updating";
 
         public const string TetroMoveRight = "tetro-move-right";
@@ -16,7 +19,5 @@ namespace Stacker
         public const string TetroMoveDrop = "tetro-move-drop";
         public const string TetroRotateClockwise = "tetro-rotate-clockwise";
         public const string TetroRotateCounterClockwise = "tetro-rotate-counter-clockwise";
-
-
     }
 }

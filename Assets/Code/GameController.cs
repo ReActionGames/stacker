@@ -34,24 +34,11 @@ namespace Stacker
             yield return new WaitForEndOfFrame();
             spawner.SpawnRandomTetro();
         }
-
-        //private void OnTetroDie(Message message)
-        //{
-        //    //grid.DeleteFullRows();
-        //    //bool fullRowsFound = grid.DeleteFullRows();
-
-        //    //float delay = grid.GameSettings.TetroRespawnDelayShort;
-        //    //if (fullRowsFound)
-        //    //    delay = grid.GameSettings.TetroRespawnDelayLong;
-
-        //    //StartCoroutine(SpawnTetroAfterDelay(delay));
-        //}
-
+        
         private void OnGridFinishedUpdating(Message message)
         {
             float delay = (float)message.Data + grid.GameSettings.TetroRespawnDelay;
             StartCoroutine(SpawnTetroAfterDelay(delay));
-            //SpawnTetroAfterDelay(delay);
         }
 
         private IEnumerator SpawnTetroAfterDelay(float delay)
