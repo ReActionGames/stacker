@@ -9,6 +9,7 @@ namespace Stacker
 {
     public class GameController : MonoBehaviour
     {
+        public bool startGameOnStart;
 
         private Spawner spawner;
         private TetroGrid grid;
@@ -17,6 +18,14 @@ namespace Stacker
         {
             spawner = FindObjectOfType<Spawner>();
             grid = FindObjectOfType<TetroGrid>();
+        }
+
+        private void Start()
+        {
+            if (startGameOnStart)
+            {
+                StartGame();
+            }
         }
 
         [Button]

@@ -280,7 +280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preferredScreenSize: {x: 9, y: 15.5}
-  screenSizeIncrementValue: 0.05
+  adjustmentAccuracy: 0.05
 --- !u!81 &576785969
 AudioListener:
   m_ObjectHideFlags: 0
@@ -315,7 +315,7 @@ Camera:
   far clip plane: 100
   field of view: 60
   orthographic: 1
-  orthographic size: 7.6
+  orthographic size: 7.7426376
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -709,6 +709,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1150831095}
   - component: {fileID: 1150831096}
+  - component: {fileID: 1150831097}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -740,6 +741,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eeea17a3658ca04faac56862cd9fc3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startGameOnStart: 1
+--- !u!114 &1150831097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1150831094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f20d6fddc8847d148802dac5585e2adb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tetroSettings: {fileID: 11400000, guid: 1dc8126af75009042b1ec986f70d72e1, type: 2}
 --- !u!1001 &1277403103
 Prefab:
   m_ObjectHideFlags: 0

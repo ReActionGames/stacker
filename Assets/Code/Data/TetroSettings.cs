@@ -1,14 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Sirenix.OdinInspector;
 
 namespace Stacker.ScriptableObjects
 {
     [CreateAssetMenu(menuName = "Data/Tetro Settings")]
     public class TetroSettings : ScriptableObject
     {
-        [SerializeField] private float fallingSpeed;
+        [SerializeField] private float defaultFallingSpeed;
+        [SerializeField] private float fallingSpeedIncreaseRate;
         [SerializeField] private float shiftSpeed;
         [SerializeField] private float dropSpeed;
+
+        [ReadOnly]
+        [SerializeField] private float fallingSpeed;
 
         public float DropSpeed
         {
@@ -30,6 +35,15 @@ namespace Stacker.ScriptableObjects
             {
                 return fallingSpeed;
             }
+        }
+
+        public void ResetFallingSpeed()
+        {
+            fallingSpeed = defaultFallingSpeed;
+        }
+        public void IncreaseFallingSpeed()
+        {
+            fallingSpeed += fallingSpeedIncreaseRate;
         }
     }
 }
