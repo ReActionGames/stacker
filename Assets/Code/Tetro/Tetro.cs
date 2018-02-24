@@ -151,6 +151,7 @@ namespace Stacker.Tetros
                 if (inBounds == false)
                 {
                     pool?.ReturnTetro(this);
+                    Debug.Log("Tile (" + tile.name + ") is out of bounds. Triggering Event...");
                     EventManager.TriggerEvent(EventNames.TetroOutOfBounds);
                     return;
                 }

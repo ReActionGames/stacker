@@ -143,10 +143,10 @@ namespace Stacker
         {
             rowsDeleter.DeleteRows(this, cells);
         }
-
-        [Button]
+        
         private void ClearGrid(Message message)
         {
+            Debug.Log("Clearing Grid");
             foreach (Cell cell in cells)
             {
                 RemoveCell(cell);

@@ -249,11 +249,6 @@ MonoBehaviour:
   spawnPos: {fileID: 448402017}
   tetroPool: {fileID: 513372211}
   fallSpeed: 0.5
-  onTetroDie:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &576785967
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,6 +260,7 @@ GameObject:
   - component: {fileID: 576785971}
   - component: {fileID: 576785970}
   - component: {fileID: 576785969}
+  - component: {fileID: 576785968}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -272,6 +268,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &576785968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 576785967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13a8a9095b88ca1498e11a8a22999423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  preferredScreenSize: {x: 9, y: 15.5}
+  screenSizeIncrementValue: 0.05
 --- !u!81 &576785969
 AudioListener:
   m_ObjectHideFlags: 0
@@ -306,7 +315,7 @@ Camera:
   far clip plane: 100
   field of view: 60
   orthographic: 1
-  orthographic size: 7.61
+  orthographic size: 7.6
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2

@@ -51,11 +51,13 @@ namespace HenderStudios.Events
             MessageEvent thisEvent = null;
             if (instance.eventDictionary.TryGetValue(eventName, out thisEvent))
             {
+                thisEvent.RemoveListener(listener);
                 thisEvent.AddListener(listener);
             }
             else
             {
                 thisEvent = new MessageEvent();
+                thisEvent.RemoveListener(listener);
                 thisEvent.AddListener(listener);
                 instance.eventDictionary.Add(eventName, thisEvent);
             }
