@@ -43,7 +43,8 @@ namespace Stacker.ScriptableObjects
         }
         public void IncreaseFallingSpeed()
         {
-            fallingSpeed += fallingSpeedIncreaseRate;
+            fallingSpeed -= fallingSpeedIncreaseRate;
+            fallingSpeed = Mathf.Clamp(fallingSpeed, 0.001f, defaultFallingSpeed);
         }
     }
 }
