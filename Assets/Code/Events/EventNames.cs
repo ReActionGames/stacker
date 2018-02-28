@@ -7,12 +7,17 @@ namespace Stacker
     public static class EventNames
     {
         public const string InputReceived = "input-received";
+        public const string StartGameUpdate = "start-update";
+        public const string StopGameUpdate = "stop-update";
+        public const string EndGame = "end-game";
+        public const string SetScore = "set-score";
 
         public const string NewTetroFalling = "new-tetro-falling";
         public const string TetroEndFalling = "tetro-end-falling";
         public const string TetroOutOfBounds = "tetro-out-of-bounds";
 
         public const string GridFinishedUpdating = "grid-finished-updating";
+        public const string RowCompleted = "row-completed";
 
         public const string TetroMoveRight = "tetro-move-right";
         public const string TetroMoveLeft = "tetro-move-left";

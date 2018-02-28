@@ -40,6 +40,7 @@ namespace Stacker
                 DeleteRow(row);
                 cellMoveDistance = AddOneAboveRow(cellMoveDistance, row);
             }
+            EventManager.TriggerEvent(EventNames.RowCompleted, new Message(fullRowIndexs.Count));
 
             StartCoroutine(WaitAndMoveCells(grid.GameSettings.RowFallDelay, cellMoveDistance));
             //return true;

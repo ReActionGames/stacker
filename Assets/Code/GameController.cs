@@ -35,7 +35,15 @@ namespace Stacker
             //spawner.OnTetroDie.AddListener(OnTetroDie);
             //EventManager.StartListening(EventNames.TetroEndFalling, OnTetroDie);
             EventManager.StartListening(EventNames.GridFinishedUpdating, OnGridFinishedUpdating);
+            EventManager.StartListening(EventNames.TetroOutOfBounds, EndGame);
+            EventManager.TriggerEvent(EventNames.StartGameUpdate);
             StartCoroutine(WaitAndSpawnFirstTetro());
+        }
+
+        private void EndGame(Message message)
+        {
+            EventManager.TriggerEvent(EventNames.StopGameUpdate);
+            EventManager.TriggerEvent(EventNames.EndGame);
         }
 
         private IEnumerator WaitAndSpawnFirstTetro()
