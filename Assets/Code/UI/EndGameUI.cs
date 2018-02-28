@@ -37,6 +37,7 @@ namespace Stacker
                 time += Time.deltaTime;
                 yield return null;
             }
+            SetAlpha(1);
         }
 
         private void SetAlpha(float percent)
