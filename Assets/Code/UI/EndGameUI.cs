@@ -1,4 +1,5 @@
 ﻿using HenderStudios.Events;
+using Sirenix.OdinInspector;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,8 +10,12 @@ namespace Stacker
 {
     public class EndGameUI : MonoBehaviour {
 
+        [Required]
         [SerializeField] private CanvasGroup canvasGroup;
+        [Required]
         [SerializeField] private TextMeshProUGUI scoreText;
+        [Required]
+        [SerializeField] private TextMeshProUGUI highScoreText;
         [SerializeField] private float speed;
 
         private void Start()
@@ -22,6 +27,8 @@ namespace Stacker
         {
             float score = (float)message.Data;
             scoreText.text = $"{score,0:00000}";
+            HighScoreWrapper.TestScore((int)score);
+            highScoreText.text = $"BEST {HighScoreWrapper.HighScore,0:00000}";
 
             StartCoroutine(FadeIn());
         }
