@@ -20,11 +20,13 @@ namespace Stacker
 
         private void Start()
         {
+            canvasGroup.blocksRaycasts = false;
             EventManager.StartListening(EventNames.SetScore, ShowUI);
         }
 
         private void ShowUI(Message message)
         {
+            canvasGroup.blocksRaycasts = true;
             int score = FindObjectOfType<Score>().score;
             scoreText.text = $"{score,0:00000}";
             HighScoreWrapper.TestScore(score);

@@ -9,6 +9,8 @@ namespace Stacker
         public const string InputReceived = "input-received";
         public const string StartGameUpdate = "start-update";
         public const string StopGameUpdate = "stop-update";
+        public const string PauseGame = "pause-game";
+        public const string ResumeGame = "resume-game";
         public const string EndGame = "end-game";
         public const string SetScore = "set-score";
 
