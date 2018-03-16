@@ -18,6 +18,7 @@ namespace Stacker
 
         public const string GridFinishedUpdating = "grid-finished-updating";
         public const string RowCompleted = "row-completed";
+        public const string SuccessfulDrop = "successful-drop";
 
         public const string TetroMoveRight = "tetro-move-right";
         public const string TetroMoveLeft = "tetro-move-left";

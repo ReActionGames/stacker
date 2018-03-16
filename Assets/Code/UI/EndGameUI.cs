@@ -25,9 +25,9 @@ namespace Stacker
 
         private void ShowUI(Message message)
         {
-            float score = (float)message.Data;
+            int score = FindObjectOfType<Score>().score;
             scoreText.text = $"{score,0:00000}";
-            HighScoreWrapper.TestScore((int)score);
+            HighScoreWrapper.TestScore(score);
             highScoreText.text = $"BEST {HighScoreWrapper.HighScore,0:00000}";
 
             StartCoroutine(FadeIn());
