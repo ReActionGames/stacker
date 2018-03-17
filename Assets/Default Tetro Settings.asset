@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Default Tetro Settings
   m_EditorClassIdentifier: 
   defaultFallingSpeed: 1
-  fallingSpeedIncreaseRate: 0.00001
+  fallingSpeedIncreaseRate: 0.0001
   shiftSpeed: 0.1
   dropSpeed: 0.05
-  fallingSpeed: 0.001
+  fallingSpeed: 1

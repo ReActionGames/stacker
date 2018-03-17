@@ -17,17 +17,17 @@ namespace Stacker
         private void Start()
         {
             canvasGroup.blocksRaycasts = false;
-            //EventManager.StartListening(EventNames.PauseGame, ShowUI);
-            //EventManager.StartListening(EventNames.ResumeGame, HideUI);
+            EventManager.StartListening(EventNames.PauseGame, ShowUI);
+            EventManager.StartListening(EventNames.ResumeGame, HideUI);
         }
 
-        private void ShowUI(/*Message message*/)
+        private void ShowUI(Message message)
         {
             canvasGroup.blocksRaycasts = true;
             StartCoroutine(FadeIn());
         }
 
-        private void HideUI(/*Message message*/)
+        private void HideUI(Message message)
         {
             canvasGroup.blocksRaycasts = false;
             StartCoroutine(FadeOut());
@@ -41,24 +41,24 @@ namespace Stacker
             {
                 float perc = time / speed;
                 SetAlpha(perc);
-                time += Time.deltaTime;
+                time += Time.unscaledDeltaTime;
                 yield return null;
             }
             SetAlpha(1);
 
-            EventManager.TriggerEvent(EventNames.PauseGame);
+            //EventManager.TriggerEvent(EventNames.PauseGame);
         }
 
         private IEnumerator FadeOut()
         {
-            EventManager.TriggerEvent(EventNames.ResumeGame);
+            //EventManager.TriggerEvent(EventNames.ResumeGame);
             float time = 0;
 
             while (time < speed)
             {
                 float perc = time / speed;
                 SetAlpha(1 - perc);
-                time += Time.deltaTime;
+                time += Time.unscaledDeltaTime;
                 yield return null;
             }
             SetAlpha(0);
@@ -71,14 +71,14 @@ namespace Stacker
 
         public void PauseButtonClick()
         {
-            ShowUI();
-            //EventManager.TriggerEvent(EventNames.PauseGame);
+            //ShowUI();
+            EventManager.TriggerEvent(EventNames.PauseGame);
         }
 
         public void ResumeButtonClick()
         {
-            HideUI();
-            //EventManager.TriggerEvent(EventNames.ResumeGame);
+            //HideUI();
+            EventManager.TriggerEvent(EventNames.ResumeGame);
         }
 
         public void HomeButtonClick()

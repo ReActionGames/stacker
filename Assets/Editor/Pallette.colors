@@ -22,3 +22,5 @@ MonoBehaviour:
     m_Color: {r: 0.18129799, g: 0.734, b: 0.18350877, a: 1}
   - m_Name: Icon
     m_Color: {r: 0.96470594, g: 0.96470594, b: 0.96470594, a: 1}
+  - m_Name: Purchase Background
+    m_Color: {r: 0.197, g: 0.197, b: 0.197, a: 1}
