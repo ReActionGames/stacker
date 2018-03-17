@@ -27,6 +27,7 @@ namespace Stacker.Tetros
             Snap(SnapAxis.X);
             Vector3 dropPos = transform.position + offset;
             Vector2 cellPos = grid.GetCellPosAt(dropPos);
+            EventManager.TriggerEvent(EventNames.SuccessfulDrop, new Message(-offset.y));
             StartCoroutine(LerpDrop(cellPos));
             //tetro.Falling = false;
         }
