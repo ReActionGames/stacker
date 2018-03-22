@@ -16,3 +16,4 @@ MonoBehaviour:
   tetroRespawnDelay: 0.75
   rowFallDelay: 0.5
   rowFallSpeed: 0.5
+  coinSpawnChance: 0.508

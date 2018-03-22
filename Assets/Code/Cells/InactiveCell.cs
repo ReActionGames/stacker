@@ -9,6 +9,7 @@ namespace Stacker.Cells
         public override void OnEnterState(Cell cell)
         {
             cell.sprite.color = new Color(0, 0, 0, 0f);
+            cell.CoinImage.SetActive(false);
         }
     }
 }

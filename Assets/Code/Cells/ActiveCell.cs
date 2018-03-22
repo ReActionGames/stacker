@@ -7,33 +7,53 @@ namespace Stacker.Cells
 {
     public class ActiveCell : CellState
     {
-        private TetroType type;
-        private Color _color;
+        public TetroType Type
+        {
+            get;
+            private set;
+        }
+        public Color Color
+        {
+            get;
+            private set;
+        }
+
+        public bool HasCoin
+        {
+            get;
+            private set;
+        }
 
         public ActiveCell(TetroType tetroType)
         {
-            type = tetroType;
+            Type = tetroType;
         }
 
         public ActiveCell(Color color)
         {
-            type = TetroType.None;
-            _color = color;
+            Type = TetroType.None;
+            Color = color;
         }
 
         public override void OnEnterState(Cell cell)
         {
-            if (type == TetroType.None)
+            if (Type == TetroType.None)
             {
-                SetColor(cell, _color);
+                SetColor(cell, Color);
                 return;
             }
-            SetColor(cell, cell.grid.ColorPalette.GetColorBasedOnType(type));
+            SetColor(cell, cell.grid.ColorPalette.GetColorBasedOnType(Type));
         }
 
         private void SetColor(Cell cell, Color color)
         {
             cell.sprite.color = color;
+        }
+
+        public void ActivateCoin(Cell cell)
+        {
+            cell.CoinImage.SetActive(true);
+            HasCoin = true;
         }
     }
 }

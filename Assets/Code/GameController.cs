@@ -1,5 +1,6 @@
 ﻿using HenderStudios.Events;
 using Sirenix.OdinInspector;
+using Stacker.ScriptableObjects;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,9 +11,18 @@ namespace Stacker
     public class GameController : MonoBehaviour
     {
         public bool startGameOnStart;
+        [SerializeField] private GameSettings gameSettings;
 
         private Spawner spawner;
         private TetroGrid grid;
+
+        public GameSettings GameSettings
+        {
+            get
+            {
+                return gameSettings;
+            }
+        }
 
         private void Awake()
         {

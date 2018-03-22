@@ -143,7 +143,7 @@ namespace Stacker
         {
             rowsDeleter.DeleteRows(this, cells);
         }
-        
+
         private void ClearGrid(Message message)
         {
             Debug.Log("Clearing Grid");
@@ -216,6 +216,16 @@ namespace Stacker
                 return;
             cells[cellPos.x, cellPos.y].ChangeState(new ActiveCell(color));
             OnGridUpdated?.Invoke();
+        }
+
+        public void SetCellCoin(Vector2 worldCellPos)
+        {
+            Vector3Int cellPos = grid.WorldToCell(worldCellPos);
+            if (IsOutOfBounds(cellPos) || IsTooHigh(cellPos))
+                return;
+            Cell cell = cells[cellPos.x, cellPos.y];
+            ActiveCell state = (ActiveCell)cell.CurrentState;
+            state?.ActivateCoin(cell);
         }
 
         public void SetCellEmtpy(Vector2 worldCellPos)

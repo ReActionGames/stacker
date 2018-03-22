@@ -2362,6 +2362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startGameOnStart: 1
+  gameSettings: {fileID: 11400000, guid: 2e445de5ba7635643b17e41a863a55e5, type: 2}
 --- !u!114 &1150831097
 MonoBehaviour:
   m_ObjectHideFlags: 0

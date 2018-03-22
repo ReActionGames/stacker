@@ -13,6 +13,7 @@ namespace Stacker.Cells
         internal SpriteRenderer sprite;
         [SerializeField]
         internal TetroGrid grid;
+        [SerializeField] private GameObject coinImage;
         
         public CellState CurrentState
         {
@@ -30,6 +31,14 @@ namespace Stacker.Cells
         public int Y
         {
             get; private set;
+        }
+
+        public GameObject CoinImage
+        {
+            get
+            {
+                return coinImage;
+            }
         }
 
         private void Start()
