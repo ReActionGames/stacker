@@ -63,3 +63,5 @@ MonoBehaviour:
   maxJumpXDistance: 5
   rotationSpeed: -360
   rotationDampener: 0.3
+  earnedCoinPrefab: {fileID: 1954863125886944, guid: ce7ea70e32687204fbc1b3c638d80255,
+    type: 2}

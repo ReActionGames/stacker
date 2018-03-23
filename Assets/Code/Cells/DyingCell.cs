@@ -1,4 +1,5 @@
-﻿using Sirenix.OdinInspector;
+﻿using HenderStudios.Events;
+using Sirenix.OdinInspector;
 using Stacker.ScriptableObjects;
 using System.Collections;
 using System.Collections.Generic;
@@ -20,13 +21,23 @@ namespace Stacker.Cells
             }
         }
         
-        public void Play(Color color, Vector2 position)
+        public void Play(Color color, Vector2 position, bool hasCoin)
         {
             transform.position = position;
             jumpXDistance = settings.JumpXDistance;
             sprite.color = color;
+            if (hasCoin)
+                SpawnCoin();
             PlayAnimation();
             rotate = true;
+        }
+
+        private void SpawnCoin()
+        {
+            GameObject coin = settings.EarnedCoinPrefab.Spawn();
+            coin.transform.position = transform.position;
+            coin.transform.position += Vector3.up;
+            Currency.AddCoins(1);
         }
 
         private void PlayAnimation()

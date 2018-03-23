@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56ec224b5cf20964a8319dcc418609a5, type: 3}
   m_Name: Default Colors
   m_EditorClassIdentifier: 
-  I: {r: 0.9333334, g: 0.9450981, b: 0.56078434, a: 1}
+  I: {r: 0.56078434, g: 0.9450981, b: 0.9381805, a: 1}
   O: {r: 1, g: 0.32941177, b: 0.32941177, a: 1}
   T: {r: 1, g: 0.6901961, b: 0.6901961, a: 1}
   J: {r: 0.43529415, g: 0.454902, b: 0.82745105, a: 1}

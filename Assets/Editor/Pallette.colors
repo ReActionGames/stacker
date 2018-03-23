@@ -24,3 +24,5 @@ MonoBehaviour:
     m_Color: {r: 0.96470594, g: 0.96470594, b: 0.96470594, a: 1}
   - m_Name: Purchase Background
     m_Color: {r: 0.197, g: 0.197, b: 0.197, a: 1}
+  - m_Name: Coin
+    m_Color: {r: 1, g: 0.96470594, b: 0.24313727, a: 1}
