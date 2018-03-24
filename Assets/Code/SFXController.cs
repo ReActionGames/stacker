@@ -2,12 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace Stacker
 {
     public class SFXController : MonoBehaviour
     {
         [SerializeField] private int maxSimultaneousSFX;
+        [SerializeField] private AudioMixerGroup SFXGroup;
 
         private bool playFXFlag = false;
         private List<AudioClip> clipsToPlay = new List<AudioClip>();
@@ -27,6 +29,7 @@ namespace Stacker
             for (int i = 0; i < maxSimultaneousSFX; i++)
             {
                 var source = gameObject.AddComponent<AudioSource>();
+                source.outputAudioMixerGroup = SFXGroup;
                 audioSources[i] = source;
             }
         }
