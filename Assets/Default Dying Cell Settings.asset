@@ -65,4 +65,4 @@ MonoBehaviour:
   rotationDampener: 0.3
   earnedCoinPrefab: {fileID: 1954863125886944, guid: ce7ea70e32687204fbc1b3c638d80255,
     type: 2}
-  soundFX: {fileID: 8300000, guid: 7bef0064f8567430cac22499c6b93d4f, type: 3}
+  soundFX: {fileID: 8300000, guid: ffb159a21c8a04135a5616979c828fab, type: 3}
