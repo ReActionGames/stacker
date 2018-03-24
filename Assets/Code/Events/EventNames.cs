@@ -19,6 +19,8 @@ namespace Stacker
         public const string RemoveCoins = "remove-coins";
         public const string UpdateCoins = "update-coins";
 
+        public const string PlaySFX = "play-sfx";
+
         public const string NewTetroFalling = "new-tetro-falling";
         public const string TetroEndFalling = "tetro-end-falling";
         public const string TetroOutOfBounds = "tetro-out-of-bounds";

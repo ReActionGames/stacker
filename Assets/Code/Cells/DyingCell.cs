@@ -28,8 +28,14 @@ namespace Stacker.Cells
             sprite.color = color;
             if (hasCoin)
                 SpawnCoin();
+            PlaySFX();
             PlayAnimation();
             rotate = true;
+        }
+
+        private void PlaySFX()
+        {
+            EventManager.TriggerEvent(EventNames.PlaySFX, new Message(settings.SoundFX));
         }
 
         private void SpawnCoin()

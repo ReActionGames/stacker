@@ -16,6 +16,7 @@ namespace Stacker.ScriptableObjects
         [SerializeField] private float rotationDampener;
         [Space]
         [SerializeField] private GameObject earnedCoinPrefab;
+        [SerializeField] private AudioClip soundFX;
 
 
         public AnimationCurve JumpCurve
@@ -71,6 +72,14 @@ namespace Stacker.ScriptableObjects
             get
             {
                 return earnedCoinPrefab;
+            }
+        }
+
+        public AudioClip SoundFX
+        {
+            get
+            {
+                return soundFX;
             }
         }
     }
