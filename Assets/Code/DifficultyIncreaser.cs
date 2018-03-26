@@ -12,7 +12,7 @@ namespace Stacker
 
         private bool update = false;
 
-        private void Start()
+        private void Awake()
         {
             EventManager.StartListening(EventNames.StartGameUpdate, delegate
             {

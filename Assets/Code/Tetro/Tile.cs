@@ -14,6 +14,10 @@ namespace Stacker.Tetros
             Down
         }
 
+        [SerializeField] private GameObject coinImage;
+
+        private bool hasCoin;
+
         /// <summary>
         /// Checks whether the cell on the side "side" is empty. If it is, return true. Otherwise, return false.
         /// </summary>
@@ -62,9 +66,10 @@ namespace Stacker.Tetros
             GetComponent<SpriteRenderer>().color = grid.ColorPalette.GetColorBasedOnType(type);
         }
 
-        private void OnDrawGizmos()
+        public void SetHasCoin(bool hasCoin)
         {
-            //Gizmos.DrawRay(transform.position + (Vector3.down * (size.y / 2)), Vector2.down * lookDist);
+            this.hasCoin = hasCoin;
+            coinImage.SetActive(hasCoin);
         }
     }
 }

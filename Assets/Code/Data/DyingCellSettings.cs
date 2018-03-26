@@ -14,6 +14,9 @@ namespace Stacker.ScriptableObjects
         [SerializeField] private float maxJumpXDistance;
         [SerializeField] private float rotationSpeed;
         [SerializeField] private float rotationDampener;
+        [Space]
+        [SerializeField] private GameObject earnedCoinPrefab;
+        [SerializeField] private AudioClip soundFX;
 
 
         public AnimationCurve JumpCurve
@@ -61,6 +64,22 @@ namespace Stacker.ScriptableObjects
             get
             {
                 return fadeCurve;
+            }
+        }
+
+        public GameObject EarnedCoinPrefab
+        {
+            get
+            {
+                return earnedCoinPrefab;
+            }
+        }
+
+        public AudioClip SoundFX
+        {
+            get
+            {
+                return soundFX;
             }
         }
     }

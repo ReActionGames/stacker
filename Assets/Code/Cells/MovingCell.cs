@@ -6,6 +6,7 @@ namespace Stacker.Cells
 {
     public class MovingCell : MonoBehaviour
     {
+        [SerializeField] private GameObject coinImage;
         private TetroGrid grid;
 
         private SpriteRenderer sprite
@@ -21,6 +22,8 @@ namespace Stacker.Cells
             this.grid = grid;
             sprite.color = cell.GetColor();
             transform.position = startPos;
+            ActiveCell state = (ActiveCell)cell.CurrentState;
+            coinImage.SetActive(state.HasCoin);
 
             Vector2 endPos = grid.GetCellPosAt(new Vector2(startPos.x, startPos.y - distance));
             StartCoroutine(LerpDown(startPos, endPos, ReturnToPool));
@@ -45,6 +48,10 @@ namespace Stacker.Cells
         {
             //grid.SetCellFull(transform.position);
             grid.SetCellFull(transform.position, GetColor());
+            if (coinImage.activeSelf == true)
+            {
+                grid.SetCellCoin(transform.position);
+            }
             gameObject.Recycle();
         }
 

@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 222831227282405730}
   - component: {fileID: 114864630983632810}
   - component: {fileID: 114684409413587310}
+  - component: {fileID: 114868824074166114}
   m_Layer: 5
   m_Name: Toggle_Audio
   m_TagString: Untagged
@@ -75,7 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.966, g: 0.966, b: 0.966, a: 1}
+  m_Color: {r: 0.96470594, g: 0.96470594, b: 0.96470594, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -224,7 +225,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.703}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -240,7 +241,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114864630983632810}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114868824074166114}
+        m_MethodName: ToggleAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114864630983632810
@@ -255,7 +267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9, g: 0.37789476, b: 0.324, a: 1}
+  m_Color: {r: 0.90196085, g: 0.3832979, b: 0.32549024, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -270,6 +282,26 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 1
+--- !u!114 &114868824074166114
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1856241872660760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 884cc417beea00e4e805086b935f5fa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterAudio: {fileID: 24100000, guid: 54be0e965bf902342b419e6364986158, type: 2}
+  border: {fileID: 114864630983632810}
+  icon: {fileID: 114457314118019116}
+  activeState:
+    borderColor: {r: 0.90196085, g: 0.3832979, b: 0.32549024, a: 1}
+    iconColor: {r: 0.96470594, g: 0.96470594, b: 0.96470594, a: 1}
+  inactiveState:
+    borderColor: {r: 0.5921569, g: 0.30588236, b: 0.27450982, a: 1}
+    iconColor: {r: 0.7607843, g: 0.7607843, b: 0.7607843, a: 1}
 --- !u!222 &222831227282405730
 CanvasRenderer:
   m_ObjectHideFlags: 1

@@ -143,13 +143,13 @@ namespace Stacker
         {
             rowsDeleter.DeleteRows(this, cells);
         }
-        
+
         private void ClearGrid(Message message)
         {
             Debug.Log("Clearing Grid");
             foreach (Cell cell in cells)
             {
-                RemoveCell(cell);
+                RemoveCell(cell, true);
             }
         }
 
@@ -218,6 +218,16 @@ namespace Stacker
             OnGridUpdated?.Invoke();
         }
 
+        public void SetCellCoin(Vector2 worldCellPos)
+        {
+            Vector3Int cellPos = grid.WorldToCell(worldCellPos);
+            if (IsOutOfBounds(cellPos) || IsTooHigh(cellPos))
+                return;
+            Cell cell = cells[cellPos.x, cellPos.y];
+            ActiveCell state = (ActiveCell)cell.CurrentState;
+            state?.ActivateCoin(cell);
+        }
+
         public void SetCellEmtpy(Vector2 worldCellPos)
         {
             Vector3Int cellPos = grid.WorldToCell(worldCellPos);
@@ -227,15 +237,16 @@ namespace Stacker
             OnGridUpdated?.Invoke();
         }
 
-        public void RemoveCell(Cell cell)
+        public void RemoveCell(Cell cell, bool ignoreCoin = false)
         {
             if (!(cell.CurrentState is ActiveCell))
                 return;
             var dyingCell = dyingCellPrefab.Spawn();
-            dyingCell.Play(cell.GetColor(), cell.transform.position);
+            bool hasCoin = ((ActiveCell)cell.CurrentState).HasCoin;
+            dyingCell.Play(cell.GetColor(), cell.transform.position, hasCoin && !ignoreCoin);
             cell.ChangeState(new InactiveCell());
         }
-
+        
         public void MoveCell(int x, int y, int distance)
         {
             //cells[i, j].ChangeState(new MovingCell(distance));

@@ -13,6 +13,8 @@ namespace Stacker.ScriptableObjects
         [SerializeField] private float tetroRespawnDelay;
         [SerializeField] private float rowFallDelay;
         [SerializeField] private float rowFallSpeed;
+        [Range(0, 1)]
+        [SerializeField] private float coinSpawnChance;
 
         public float TetroRespawnDelayShort
         {
@@ -52,6 +54,14 @@ namespace Stacker.ScriptableObjects
             get
             {
                 return tetroRespawnDelay;
+            }
+        }
+
+        public float CoinSpawnChance
+        {
+            get
+            {
+                return coinSpawnChance;
             }
         }
     }

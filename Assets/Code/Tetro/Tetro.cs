@@ -156,11 +156,11 @@ namespace Stacker.Tetros
                     return;
                 }
             }
+            OnDie?.Invoke();
             pool?.ReturnTetro(this);
             //SetRotation(0);
             //Falling = false;
             Active = false;
-            OnDie?.Invoke();
             EventManager.TriggerEvent(EventNames.TetroEndFalling);
         }
     }
