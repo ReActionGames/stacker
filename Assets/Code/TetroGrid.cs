@@ -5,7 +5,9 @@ using Stacker.ScriptableObjects;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -315,6 +317,7 @@ namespace Stacker
 
         #region Editor
 
+#if UNITY_EDITOR
         private void OnDrawGizmos()
         {
             if (showGizmos == false)
@@ -363,7 +366,8 @@ namespace Stacker
             pos = grid.GetCellCenterWorld(grid.WorldToCell(pos));
             return pos;
         }
+#endif
 
-        #endregion
+#endregion
     }
 }
