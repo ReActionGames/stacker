@@ -772,6 +772,11 @@
             Gets an icon of a lock locked symbol.
             </summary>
         </member>
+        <member name="P:Sirenix.Utilities.Editor.EditorIcons.LockUnlocked">
+            <summary>
+            Gets an icon of a lock unlocked symbol.
+            </summary>
+        </member>
         <member name="P:Sirenix.Utilities.Editor.EditorIcons.LockUnloacked">
             <summary>
             Gets an icon of a lock unloacked symbol.
@@ -1057,9 +1062,49 @@
             Gets an icon of an x symbol.
             </summary>
         </member>
+        <member name="P:Sirenix.Utilities.Editor.EditorIcons.TestInconclusive">
+            <summary>
+            Gets a texture of a test inconclusive symbol.
+            </summary>
+        </member>
+        <member name="P:Sirenix.Utilities.Editor.EditorIcons.TestFailed">
+            <summary>
+            Gets a texture of a test failed symbol.
+            </summary>
+        </member>
+        <member name="P:Sirenix.Utilities.Editor.EditorIcons.TestNormal">
+            <summary>
+            Gets a texture of a test normal symbol.
+            </summary>
+        </member>
+        <member name="P:Sirenix.Utilities.Editor.EditorIcons.TestPassed">
+            <summary>
+            Gets a texture of a test passed symbol.
+            </summary>
+        </member>
+        <member name="P:Sirenix.Utilities.Editor.EditorIcons.ConsoleInfoIcon">
+            <summary>
+            Gets a texture of a console info icon symbol.
+            </summary>
+        </member>
+        <member name="P:Sirenix.Utilities.Editor.EditorIcons.ConsoleWarnicon">
+            <summary>
+            Gets a texture of a console warnicon symbol.
+            </summary>
+        </member>
+        <member name="P:Sirenix.Utilities.Editor.EditorIcons.ConsoleErroricon">
+            <summary>
+            Gets a texture of a console error icon symbol.
+            </summary>
+        </member>
         <member name="P:Sirenix.Utilities.Editor.EditorIcons.OdinInspectorLogo">
             <summary>
             Gets a texture of an odin inspector logo symbol.
+            </summary>
+        </member>
+        <member name="P:Sirenix.Utilities.Editor.EditorIcons.UnityLogo">
+            <summary>
+            Gets a texture of a scene asset icon symbol.
             </summary>
         </member>
         <member name="P:Sirenix.Utilities.Editor.EditorIcons.UnityInfoIcon">
@@ -1145,6 +1190,11 @@
         <member name="T:Sirenix.Utilities.Editor.DragAndDropUtilities">
             <summary>
             Drag and drop utilities for both Unity and non-unity objects.
+            </summary>
+        </member>
+        <member name="P:Sirenix.Utilities.Editor.DragAndDropUtilities.IsDragging">
+            <summary>
+            Gets a value indicating whether an instance is currently being dragged.
             </summary>
         </member>
         <member name="M:Sirenix.Utilities.Editor.DragAndDropUtilities.GetDragAndDropId(UnityEngine.Rect)">
@@ -1514,8 +1564,9 @@
         </member>
         <member name="T:Sirenix.Utilities.Editor.DragAndDropManager">
             <summary>
-            This class is due to undergo refactoring.
+            <para>This class is due to undergo refactoring. Use the new DragAndDropUtilities instead.</para>
             </summary>
+            <seealso cref="T:Sirenix.Utilities.Editor.DragAndDropUtilities"/>
         </member>
         <member name="P:Sirenix.Utilities.Editor.DragAndDropManager.CurrentDraggingHandle">
             <summary>
@@ -2756,12 +2807,64 @@
         </member>
         <member name="M:Sirenix.Utilities.Editor.GUIHelper.GetAssetThumbnail(UnityEngine.Object,System.Type,System.Boolean)">
             <summary>
-            Gets the a thumbnail icon for the given object.
+            Gets the best thumbnail icon given the provided arguments provided.
             </summary>
             <param name="obj"></param>
             <param name="type"></param>
             <param name="preferObjectPreviewOverFileIcon"></param>
             <returns></returns>
+        </member>
+        <member name="T:Sirenix.Utilities.Editor.ProgressBarConfig">
+            <summary>
+            Configuration for progress bar fields.
+            </summary>
+        </member>
+        <member name="F:Sirenix.Utilities.Editor.ProgressBarConfig.Height">
+            <summary>
+            The height of the progress bar field. Default 12 pixel.
+            </summary>
+        </member>
+        <member name="F:Sirenix.Utilities.Editor.ProgressBarConfig.ForegroundColor">
+            <summary>
+            The foreground color of the progress bar field.
+            </summary>
+        </member>
+        <member name="F:Sirenix.Utilities.Editor.ProgressBarConfig.BackgroundColor">
+            <summary>
+            The background color of the progress bar field.
+            </summary>
+        </member>
+        <member name="F:Sirenix.Utilities.Editor.ProgressBarConfig.DrawValueLabel">
+            <summary>
+            If <c>true</c> the progress bar field will draw a label ontop to show the current value.
+            </summary>
+        </member>
+        <member name="F:Sirenix.Utilities.Editor.ProgressBarConfig.ValueLabelAlignment">
+            <summary>
+            Alignment of the progress bar field overlay.
+            </summary>
+        </member>
+        <member name="P:Sirenix.Utilities.Editor.ProgressBarConfig.Default">
+            <summary>
+            Default configuration.
+            </summary>
+        </member>
+        <member name="M:Sirenix.Utilities.Editor.ProgressBarConfig.#ctor(Sirenix.Utilities.Editor.ProgressBarConfig)">
+            <summary>
+            Creates a copy of the configuration.
+            </summary>
+            <param name="config">The configuration to copy.</param>
+        </member>
+        <member name="M:Sirenix.Utilities.Editor.ProgressBarConfig.#ctor(System.Int32,UnityEngine.Color,UnityEngine.Color,System.Boolean,UnityEngine.TextAlignment)">
+            <summary>
+            Creates a progress bar configuration.
+            </summary>
+            <param name="height">The height of the progress bar.</param>
+            <param name="foregroundColor">The foreground color of the progress bar.</param>
+            <param name="backgroundColor">The background color of the progress bar.</param>
+            <param name="textOverlay">If <c>true</c> there will be drawn a overlay on top of the field.</param>
+            <param name="overlayAlignment">The alignment of the text overlay.</param>
+            <param name="isReadonly">If <c>true</c> the user will not be able to change the value of the field.</param>
         </member>
         <member name="T:Sirenix.Utilities.Editor.QuaternionDrawMode">
             <summary>
@@ -2861,28 +2964,35 @@
         <member name="M:Sirenix.Utilities.Editor.SirenixEditorFields.PreviewObjectField``1(UnityEngine.Rect,``0,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
             <summary>
             Draws a square ObjectField which renders a preview for UnityEngine.Object types.
-            This object field also adds support for drag and drop, dragging an object to another square object field, swaps the values. 
+            This object field also adds support for drag and drop, dragging an object to another square object field, swaps the values.
+            If you hold down control while letting go it will replace the value, And you can control + click the object field to quickly delete the value it holds.
+            </summary>
+        </member>
+        <member name="M:Sirenix.Utilities.Editor.SirenixEditorFields.UnityPreviewObjectField(UnityEngine.Rect,UnityEngine.Object,UnityEngine.Texture,System.Type,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Draws a square ObjectField which renders a preview for UnityEngine.Object types.
+            This object field also adds support for drag and drop, dragging an object to another square object field, swaps the values.
             If you hold down control while letting go it will replace the value, And you can control + click the object field to quickly delete the value it holds.
             </summary>
         </member>
         <member name="M:Sirenix.Utilities.Editor.SirenixEditorFields.UnityPreviewObjectField(UnityEngine.Rect,UnityEngine.GUIContent,UnityEngine.Object,System.Type,Sirenix.Utilities.Editor.ObjectFieldAlignment,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
             <summary>
             Draws a square ObjectField which renders a preview for UnityEngine.Object types.
-            This object field also adds support for drag and drop, dragging an object to another square object field, swaps the values. 
+            This object field also adds support for drag and drop, dragging an object to another square object field, swaps the values.
             If you hold down control while letting go it will replace the value, And you can control + click the object field to quickly delete the value it holds.
             </summary>
         </member>
         <member name="M:Sirenix.Utilities.Editor.SirenixEditorFields.UnityPreviewObjectField(UnityEngine.Rect,UnityEngine.Object,System.Type,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
             <summary>
             Draws a square ObjectField which renders a preview for UnityEngine.Object types.
-            This object field also adds support for drag and drop, dragging an object to another square object field, swaps the values. 
+            This object field also adds support for drag and drop, dragging an object to another square object field, swaps the values.
             If you hold down control while letting go it will replace the value, And you can control + click the object field to quickly delete the value it holds.
             </summary>
         </member>
         <member name="M:Sirenix.Utilities.Editor.SirenixEditorFields.UnityPreviewObjectField(UnityEngine.Rect,UnityEngine.GUIContent,UnityEngine.Object,System.Type,System.Boolean,Sirenix.Utilities.Editor.ObjectFieldAlignment)">
             <summary>
             Draws a square ObjectField which renders a preview for UnityEngine.Object types.
-            This object field also adds support for drag and drop, dragging an object to another square object field, swaps the values. 
+            This object field also adds support for drag and drop, dragging an object to another square object field, swaps the values.
             If you hold down control while letting go it will replace the value, And you can control + click the object field to quickly delete the value it holds.
             </summary>
             <param name="rect">Position and size of the field.</param>
@@ -2895,7 +3005,7 @@
         <member name="M:Sirenix.Utilities.Editor.SirenixEditorFields.UnityPreviewObjectField(UnityEngine.Rect,System.String,UnityEngine.Object,System.Type,System.Boolean,Sirenix.Utilities.Editor.ObjectFieldAlignment)">
             <summary>
             Draws a square ObjectField which renders a preview for UnityEngine.Object types.
-            This object field also adds support for drag and drop, dragging an object to another square object field, swaps the values. 
+            This object field also adds support for drag and drop, dragging an object to another square object field, swaps the values.
             If you hold down control while letting go it will replace the value, And you can control + click the object field to quickly delete the value it holds.
             </summary>
             <param name="rect">Position and size of the field.</param>
@@ -2908,7 +3018,7 @@
         <member name="M:Sirenix.Utilities.Editor.SirenixEditorFields.UnityPreviewObjectField(UnityEngine.Rect,UnityEngine.Object,System.Type,System.Boolean,Sirenix.Utilities.Editor.ObjectFieldAlignment)">
             <summary>
             Draws a square ObjectField which renders a preview for UnityEngine.Object types.
-            This object field also adds support for drag and drop, dragging an object to another square object field, swaps the values. 
+            This object field also adds support for drag and drop, dragging an object to another square object field, swaps the values.
             If you hold down control while letting go it will replace the value, And you can control + click the object field to quickly delete the value it holds.
             </summary>
             <param name="rect">Position and size of the field.</param>
@@ -2920,7 +3030,7 @@
         <member name="M:Sirenix.Utilities.Editor.SirenixEditorFields.UnityPreviewObjectField(UnityEngine.GUIContent,UnityEngine.Object,System.Type,System.Boolean,System.Single,Sirenix.Utilities.Editor.ObjectFieldAlignment)">
             <summary>
             Draws a square ObjectField which renders a preview for UnityEngine.Object types.
-            This object field also adds support for drag and drop, dragging an object to another square object field, swaps the values. 
+            This object field also adds support for drag and drop, dragging an object to another square object field, swaps the values.
             If you hold down control while letting go it will replace the value, And you can control + click the object field to quickly delete the value it holds.
             </summary>
             <param name="label">The label to use, or null if no label should be used.</param>
@@ -2933,7 +3043,7 @@
         <member name="M:Sirenix.Utilities.Editor.SirenixEditorFields.UnityPreviewObjectField(System.String,UnityEngine.Object,System.Type,System.Boolean,System.Single,Sirenix.Utilities.Editor.ObjectFieldAlignment)">
             <summary>
             Draws a square ObjectField which renders a preview for UnityEngine.Object types.
-            This object field also adds support for drag and drop, dragging an object to another square object field, swaps the values. 
+            This object field also adds support for drag and drop, dragging an object to another square object field, swaps the values.
             If you hold down control while letting go it will replace the value, And you can control + click the object field to quickly delete the value it holds.
             </summary>
             <param name="label">The label to use, or null if no label should be used.</param>
@@ -2946,7 +3056,7 @@
         <member name="M:Sirenix.Utilities.Editor.SirenixEditorFields.UnityPreviewObjectField(UnityEngine.Object,System.Type,System.Boolean,System.Single,Sirenix.Utilities.Editor.ObjectFieldAlignment)">
             <summary>
             Draws a square ObjectField which renders a preview for UnityEngine.Object types.
-            This object field also adds support for drag and drop, dragging an object to another square object field, swaps the values. 
+            This object field also adds support for drag and drop, dragging an object to another square object field, swaps the values.
             If you hold down control while letting go it will replace the value, And you can control + click the object field to quickly delete the value it holds.
             </summary>
             <param name="value">The Unity object.</param>
@@ -3315,6 +3425,269 @@
             <param name="max">Maximum value.</param>
             <param name="options">Layout options.</param>
             <returns>Value assigned to the field.</returns>
+        </member>
+        <member name="M:Sirenix.Utilities.Editor.SirenixEditorFields.ProgressBarField(UnityEngine.Rect,UnityEngine.GUIContent,System.Double,System.Double,System.Double,Sirenix.Utilities.Editor.ProgressBarConfig)">
+            <summary>
+            Draws a colored progress bar field.
+            </summary>
+            <param name="rect">Position and size of the field.</param>
+            <param name="label">The label to use, or null if no label should be used.</param>
+            <param name="value">The current value of the progress bar.</param>
+            <param name="minValue">The left hand side value of the progress bar.</param>
+            <param name="maxValue">The right hand side value of the progress bar.</param>
+            <param name="config">The configuration for the progress bar field.</param>
+        </member>
+        <member name="M:Sirenix.Utilities.Editor.SirenixEditorFields.ProgressBarField(UnityEngine.Rect,System.String,System.Double,System.Double,System.Double,Sirenix.Utilities.Editor.ProgressBarConfig)">
+            <summary>
+            Draws a colored progress bar field.
+            </summary>
+            <param name="rect">Position and size of the field.</param>
+            <param name="label">The label to use, or null if no label should be used.</param>
+            <param name="value">The current value of the progress bar.</param>
+            <param name="minValue">The left hand side value of the progress bar.</param>
+            <param name="maxValue">The right hand side value of the progress bar.</param>
+            <param name="config">The configuration for the progress bar field.</param>
+        </member>
+        <member name="M:Sirenix.Utilities.Editor.SirenixEditorFields.ProgressBarField(UnityEngine.Rect,System.Double,System.Double,System.Double,Sirenix.Utilities.Editor.ProgressBarConfig)">
+            <summary>
+            Draws a colored progress bar field.
+            </summary>
+            <param name="rect">Position and size of the field.</param>
+            <param name="value">The current value of the progress bar.</param>
+            <param name="minValue">The left hand side value of the progress bar.</param>
+            <param name="maxValue">The right hand side value of the progress bar.</param>
+            <param name="config">The configuration for the progress bar field.</param>
+        </member>
+        <member name="M:Sirenix.Utilities.Editor.SirenixEditorFields.ProgressBarField(UnityEngine.Rect,UnityEngine.GUIContent,System.Double,System.Double,System.Double)">
+            <summary>
+            Draws a colored progress bar field.
+            </summary>
+            <param name="rect">Position and size of the field.</param>
+            <param name="label">The label to use, or null if no label should be used.</param>
+            <param name="value">The current value of the progress bar.</param>
+            <param name="minValue">The left hand side value of the progress bar.</param>
+            <param name="maxValue">The right hand side value of the progress bar.</param>
+        </member>
+        <member name="M:Sirenix.Utilities.Editor.SirenixEditorFields.ProgressBarField(UnityEngine.Rect,System.String,System.Double,System.Double,System.Double)">
+            <summary>
+            Draws a colored progress bar field.
+            </summary>
+            <param name="rect">Position and size of the field.</param>
+            <param name="label">The label to use, or null if no label should be used.</param>
+            <param name="value">The current value of the progress bar.</param>
+            <param name="minValue">The left hand side value of the progress bar.</param>
+            <param name="maxValue">The right hand side value of the progress bar.</param>
+        </member>
+        <member name="M:Sirenix.Utilities.Editor.SirenixEditorFields.ProgressBarField(UnityEngine.Rect,System.Double,System.Double,System.Double)">
+            <summary>
+            Draws a colored progress bar field.
+            </summary>
+            <param name="rect">Position and size of the field.</param>
+            <param name="value">The current value of the progress bar.</param>
+            <param name="minValue">The left hand side value of the progress bar.</param>
+            <param name="maxValue">The right hand side value of the progress bar.</param>
+        </member>
+        <member name="M:Sirenix.Utilities.Editor.SirenixEditorFields.ProgressBarField(UnityEngine.GUIContent,System.Double,System.Double,System.Double,Sirenix.Utilities.Editor.ProgressBarConfig,UnityEngine.GUILayoutOption[])">
+            <summary>
+            Draws a colored progress bar field.
+            </summary>
+            <param name="label">The label to use, or null if no label should be used.</param>
+            <param name="value">The current value of the progress bar.</param>
+            <param name="minValue">The left hand side value of the progress bar.</param>
+            <param name="maxValue">The right hand side value of the progress bar.</param>
+            <param name="config">The configuration for the progress bar field.</param>
+            <param name="options">Layout options.</param>
+        </member>
+        <member name="M:Sirenix.Utilities.Editor.SirenixEditorFields.ProgressBarField(System.String,System.Double,System.Double,System.Double,Sirenix.Utilities.Editor.ProgressBarConfig,UnityEngine.GUILayoutOption[])">
+            <summary>
+            Draws a colored progress bar field.
+            </summary>
+            <param name="label">The label to use, or null if no label should be used.</param>
+            <param name="value">The current value of the progress bar.</param>
+            <param name="minValue">The left hand side value of the progress bar.</param>
+            <param name="maxValue">The right hand side value of the progress bar.</param>
+            <param name="config">The configuration for the progress bar field.</param>
+            <param name="options">Layout options.</param>
+        </member>
+        <member name="M:Sirenix.Utilities.Editor.SirenixEditorFields.ProgressBarField(System.Double,System.Double,System.Double,Sirenix.Utilities.Editor.ProgressBarConfig,UnityEngine.GUILayoutOption[])">
+            <summary>
+            Draws a colored progress bar field.
+            </summary>
+            <param name="value">The current value of the progress bar.</param>
+            <param name="minValue">The left hand side value of the progress bar.</param>
+            <param name="maxValue">The right hand side value of the progress bar.</param>
+            <param name="config">The configuration for the progress bar field.</param>
+            <param name="options">Layout options.</param>
+        </member>
+        <member name="M:Sirenix.Utilities.Editor.SirenixEditorFields.ProgressBarField(UnityEngine.GUIContent,System.Double,System.Double,System.Double,UnityEngine.GUILayoutOption[])">
+            <summary>
+            Draws a colored progress bar field.
+            </summary>
+            <param name="label">The label to use, or null if no label should be used.</param>
+            <param name="value">The current value of the progress bar.</param>
+            <param name="minValue">The left hand side value of the progress bar.</param>
+            <param name="maxValue">The right hand side value of the progress bar.</param>
+            <param name="options">Layout options.</param>
+        </member>
+        <member name="M:Sirenix.Utilities.Editor.SirenixEditorFields.ProgressBarField(System.String,System.Double,System.Double,System.Double,UnityEngine.GUILayoutOption[])">
+            <summary>
+            Draws a colored progress bar field.
+            </summary>
+            <param name="label">The label to use, or null if no label should be used.</param>
+            <param name="value">The current value of the progress bar.</param>
+            <param name="minValue">The left hand side value of the progress bar.</param>
+            <param name="maxValue">The right hand side value of the progress bar.</param>
+            <param name="options">Layout options.</param>
+        </member>
+        <member name="M:Sirenix.Utilities.Editor.SirenixEditorFields.ProgressBarField(System.Double,System.Double,System.Double,UnityEngine.GUILayoutOption[])">
+            <summary>
+            Draws a colored progress bar field.
+            </summary>
+            <param name="value">The current value of the progress bar.</param>
+            <param name="minValue">The left hand side value of the progress bar.</param>
+            <param name="maxValue">The right hand side value of the progress bar.</param>
+            <param name="options">Layout options.</param>
+        </member>
+        <member name="M:Sirenix.Utilities.Editor.SirenixEditorFields.SegmentedProgressBarField(UnityEngine.Rect,UnityEngine.GUIContent,System.Int64,System.Int64,System.Int64,Sirenix.Utilities.Editor.ProgressBarConfig)">
+            <summary>
+            Draws a colored segmented progress bar field.
+            </summary>
+            <param name="rect">Position and size of the field.</param>
+            <param name="label">The label to use, or null if no label should be used.</param>
+            <param name="value">The current value of the progress bar.</param>
+            <param name="minValue">The left hand side value of the progress bar.</param>
+            <param name="maxValue">The right hand side value of the progress bar.</param>
+            <param name="config">The configuration for the progress bar field.</param>
+        </member>
+        <member name="M:Sirenix.Utilities.Editor.SirenixEditorFields.SegmentedProgressBarField(UnityEngine.Rect,System.String,System.Int64,System.Int64,System.Int64,Sirenix.Utilities.Editor.ProgressBarConfig)">
+            <summary>
+            Draws a colored segmented progress bar field.
+            </summary>
+            <param name="rect">Position and size of the field.</param>
+            <param name="label">The label to use, or null if no label should be used.</param>
+            <param name="value">The current value of the progress bar.</param>
+            <param name="minValue">The left hand side value of the progress bar.</param>
+            <param name="maxValue">The right hand side value of the progress bar.</param>
+            <param name="config">The configuration for the progress bar field.</param>
+        </member>
+        <member name="M:Sirenix.Utilities.Editor.SirenixEditorFields.SegmentedProgressBarField(UnityEngine.Rect,System.Int64,System.Int64,System.Int64,Sirenix.Utilities.Editor.ProgressBarConfig)">
+            <summary>
+            Draws a colored segmented progress bar field.
+            </summary>
+            <param name="rect">Position and size of the field.</param>
+            <param name="value">The current value of the progress bar.</param>
+            <param name="minValue">The left hand side value of the progress bar.</param>
+            <param name="maxValue">The right hand side value of the progress bar.</param>
+            <param name="config">The configuration for the progress bar field.</param>
+        </member>
+        <member name="M:Sirenix.Utilities.Editor.SirenixEditorFields.SegmentedProgressBarField(UnityEngine.Rect,UnityEngine.GUIContent,System.Int64,System.Int64,System.Int64)">
+            <summary>
+            Draws a colored segmented progress bar field.
+            </summary>
+            <param name="rect">Position and size of the field.</param>
+            <param name="label">The label to use, or null if no label should be used.</param>
+            <param name="value">The current value of the progress bar.</param>
+            <param name="minValue">The left hand side value of the progress bar.</param>
+            <param name="maxValue">The right hand side value of the progress bar.</param>
+        </member>
+        <member name="M:Sirenix.Utilities.Editor.SirenixEditorFields.SegmentedProgressBarField(UnityEngine.Rect,System.String,System.Int64,System.Int64,System.Int64)">
+            <summary>
+            Draws a colored segmented progress bar field.
+            </summary>
+            <param name="rect">Position and size of the field.</param>
+            <param name="label">The label to use, or null if no label should be used.</param>
+            <param name="value">The current value of the progress bar.</param>
+            <param name="minValue">The left hand side value of the progress bar.</param>
+            <param name="maxValue">The right hand side value of the progress bar.</param>
+        </member>
+        <member name="M:Sirenix.Utilities.Editor.SirenixEditorFields.SegmentedProgressBarField(UnityEngine.Rect,System.Int64,System.Int64,System.Int64)">
+            <summary>
+            Draws a colored segmented progress bar field.
+            </summary>
+            <param name="rect">Position and size of the field.</param>
+            <param name="value">The current value of the progress bar.</param>
+            <param name="minValue">The left hand side value of the progress bar.</param>
+            <param name="maxValue">The right hand side value of the progress bar.</param>
+            <param name="config">The configuration for the progress bar field.</param>
+        </member>
+        <member name="M:Sirenix.Utilities.Editor.SirenixEditorFields.SegmentedProgressBarField(UnityEngine.GUIContent,System.Int64,System.Int64,System.Int64,Sirenix.Utilities.Editor.ProgressBarConfig,UnityEngine.GUILayoutOption[])">
+            <summary>
+            Draws a colored segmented progress bar field.
+            </summary>
+            <param name="label">The label to use, or null if no label should be used.</param>
+            <param name="value">The current value of the progress bar.</param>
+            <param name="minValue">The left hand side value of the progress bar.</param>
+            <param name="maxValue">The right hand side value of the progress bar.</param>
+            <param name="config">The configuration for the progress bar field.</param>
+            <param name="options">Layout options.</param>
+        </member>
+        <member name="M:Sirenix.Utilities.Editor.SirenixEditorFields.SegmentedProgressBarField(System.String,System.Int64,System.Int64,System.Int64,Sirenix.Utilities.Editor.ProgressBarConfig,UnityEngine.GUILayoutOption[])">
+            <summary>
+            Draws a colored segmented progress bar field.
+            </summary>
+            <param name="label">The label to use, or null if no label should be used.</param>
+            <param name="value">The current value of the progress bar.</param>
+            <param name="minValue">The left hand side value of the progress bar.</param>
+            <param name="maxValue">The right hand side value of the progress bar.</param>
+            <param name="config">The configuration for the progress bar field.</param>
+            <param name="options">Layout options.</param>
+        </member>
+        <member name="M:Sirenix.Utilities.Editor.SirenixEditorFields.SegmentedProgressBarField(System.Int64,System.Int64,System.Int64,Sirenix.Utilities.Editor.ProgressBarConfig,UnityEngine.GUILayoutOption[])">
+            <summary>
+            Draws a colored segmented progress bar field.
+            </summary>
+            <param name="value">The current value of the progress bar.</param>
+            <param name="minValue">The left hand side value of the progress bar.</param>
+            <param name="maxValue">The right hand side value of the progress bar.</param>
+            <param name="config">The configuration for the progress bar field.</param>
+            <param name="options">Layout options.</param>
+        </member>
+        <member name="M:Sirenix.Utilities.Editor.SirenixEditorFields.SegmentedProgressBarField(UnityEngine.GUIContent,System.Int64,System.Int64,System.Int64,UnityEngine.GUILayoutOption[])">
+            <summary>
+            Draws a colored segmented progress bar field.
+            </summary>
+            <param name="label">The label to use, or null if no label should be used.</param>
+            <param name="value">The current value of the progress bar.</param>
+            <param name="minValue">The left hand side value of the progress bar.</param>
+            <param name="maxValue">The right hand side value of the progress bar.</param>
+            <param name="options">Layout options.</param>
+        </member>
+        <member name="M:Sirenix.Utilities.Editor.SirenixEditorFields.SegmentedProgressBarField(System.String,System.Int64,System.Int64,System.Int64,UnityEngine.GUILayoutOption[])">
+            <summary>
+            Draws a colored segmented progress bar field.
+            </summary>
+            <param name="label">The label to use, or null if no label should be used.</param>
+            <param name="value">The current value of the progress bar.</param>
+            <param name="minValue">The left hand side value of the progress bar.</param>
+            <param name="maxValue">The right hand side value of the progress bar.</param>
+            <param name="options">Layout options.</param>
+        </member>
+        <member name="M:Sirenix.Utilities.Editor.SirenixEditorFields.SegmentedProgressBarField(System.Int64,System.Int64,System.Int64,UnityEngine.GUILayoutOption[])">
+            <summary>
+            Draws a colored segmented progress bar field.
+            </summary>
+            <param name="value">The current value of the progress bar.</param>
+            <param name="minValue">The left hand side value of the progress bar.</param>
+            <param name="maxValue">The right hand side value of the progress bar.</param>
+            <param name="options">Layout options.</param>
+        </member>
+        <member name="M:Sirenix.Utilities.Editor.SirenixEditorFields.ProgressBarOverlayLabel(UnityEngine.Rect,UnityEngine.GUIContent,System.Single,Sirenix.Utilities.Editor.ProgressBarConfig)">
+            <summary>
+            Draws an overlay on top of a progress bar field.
+            </summary>
+            <param name="rect">The rect used to draw the progress bar field with. (Minus the Rect for the prefix label, if any.)</param>
+            <param name="label">The label to draw ontop of the progress bar field.</param>
+            <param name="progress">The relative value of the progress bar, from 0 to 1.</param>
+            <param name="config">The configuration used to draw the progress bar field.</param>
+        </member>
+        <member name="M:Sirenix.Utilities.Editor.SirenixEditorFields.ProgressBarOverlayLabel(UnityEngine.Rect,System.String,System.Single,Sirenix.Utilities.Editor.ProgressBarConfig)">
+            <summary>
+            Draws an overlay on top of a progress bar field.
+            </summary>
+            <param name="rect">The rect used to draw the progress bar field with. (Minus the Rect for the prefix label, if any.)</param>
+            <param name="label">The label to draw ontop of the progress bar field.</param>
+            <param name="progress">The relative value of the progress bar, from 0 to 1.</param>
+            <param name="config">The configuration used to draw the progress bar field.</param>
         </member>
         <member name="M:Sirenix.Utilities.Editor.SirenixEditorFields.LongField(UnityEngine.Rect,UnityEngine.GUIContent,System.Int64,UnityEngine.GUIStyle)">
             <summary>
@@ -5235,6 +5608,16 @@
             <param name="message">The message.</param>
             <param name="wide">If set to <c>true</c> the message box will be wide.</param>
         </member>
+        <member name="M:Sirenix.Utilities.Editor.SirenixEditorGUI.DrawHorizontalLineSeperator(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Draws a horizontal line seperator.
+            </summary>
+        </member>
+        <member name="M:Sirenix.Utilities.Editor.SirenixEditorGUI.DrawVerticalLineSeperator(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Draws a vertical line seperator.
+            </summary>
+        </member>
         <member name="M:Sirenix.Utilities.Editor.SirenixEditorGUI.ErrorMessageBox(System.String,System.Boolean)">
             <summary>
             Draws an error message box.
@@ -5549,6 +5932,11 @@
             <param name="forceFocus">If set to <c>true</c> the force focus on the field.</param>
             <param name="marginLeftRight">The left and right margin.</param>
             <returns>The current search text.</returns>
+        </member>
+        <member name="M:Sirenix.Utilities.Editor.SirenixEditorGUI.SearchField(UnityEngine.Rect,System.String,System.Boolean,System.String)">
+            <summary>
+            Draws a search field.
+            </summary>
         </member>
         <member name="M:Sirenix.Utilities.Editor.SirenixEditorGUI.BeginHorizontalToolbar(System.Single,System.Int32)">
             <summary>
@@ -5999,6 +6387,21 @@
             <typeparam name="T">The type to check.</typeparam>
             <returns>True if the type can be drawn, otherwise false.</returns>
         </member>
+        <member name="M:Sirenix.Utilities.Editor.SirenixEditorGUI.GetFeatureRichControlRect(UnityEngine.GUIContent,System.Int32@,System.Boolean@,UnityEngine.Rect@)">
+            <summary>
+            Gets the feature rich control rect.
+            </summary>
+        </member>
+        <member name="M:Sirenix.Utilities.Editor.SirenixEditorGUI.GetFeatureRichControlRect(UnityEngine.GUIContent,System.Int32,System.Int32@,System.Boolean@,UnityEngine.Rect@)">
+            <summary>
+            Gets the feature rich control rect.
+            </summary>
+        </member>
+        <member name="M:Sirenix.Utilities.Editor.SirenixEditorGUI.FeatureRichPrefixLabel(UnityEngine.Rect,UnityEngine.GUIContent,System.Int32@,System.Boolean@)">
+            <summary>
+            Gets the feature rich control rect.
+            </summary>
+        </member>
         <member name="T:Sirenix.Utilities.Editor.SirenixGUIStyles">
             <summary>
             Collection of GUIStyles used by Sirenix.
@@ -6134,6 +6537,11 @@
             Box container style.
             </summary>
         </member>
+        <member name="P:Sirenix.Utilities.Editor.SirenixGUIStyles.Popup">
+            <summary>
+            Popup style.
+            </summary>
+        </member>
         <member name="P:Sirenix.Utilities.Editor.SirenixGUIStyles.BoxHeaderStyle">
             <summary>
             Box header style.
@@ -6254,6 +6662,11 @@
             Centered label style.
             </summary>
         </member>
+        <member name="P:Sirenix.Utilities.Editor.SirenixGUIStyles.LeftAlignedCenteredLabel">
+            <summary>
+            Left Aligned Centered Label
+            </summary>
+        </member>
         <member name="P:Sirenix.Utilities.Editor.SirenixGUIStyles.LeftAlignedGreyMiniLabel">
             <summary>
             Left aligned grey mini label style.
@@ -6264,7 +6677,7 @@
             Centered grey mini label
             </summary>
         </member>
-        <member name="P:Sirenix.Utilities.Editor.SirenixGUIStyles.LeftRightAlignedWhiteMiniLabel">
+        <member name="P:Sirenix.Utilities.Editor.SirenixGUIStyles.LeftAlignedWhiteMiniLabel">
             <summary>
             Left right aligned white mini label style.
             </summary>
@@ -6442,6 +6855,11 @@
         <member name="P:Sirenix.Utilities.Editor.SirenixGUIStyles.MultiLineLabel">
             <summary>
             Multiline Label
+            </summary>
+        </member>
+        <member name="P:Sirenix.Utilities.Editor.SirenixGUIStyles.MultiLineCenteredLabel">
+            <summary>
+            Centered Multiline Label
             </summary>
         </member>
         <member name="P:Sirenix.Utilities.Editor.SirenixGUIStyles.CenteredTextField">

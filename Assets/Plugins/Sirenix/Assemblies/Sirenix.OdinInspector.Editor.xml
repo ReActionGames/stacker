@@ -313,6 +313,11 @@
             <param name="attribute">The attribute.</param>
             <param name="label">The label. This can be null, so make sure your drawer supports that.</param>
         </member>
+        <member name="T:Sirenix.OdinInspector.Editor.Drawers.MarkObjectsDirtyOnButtonClickDrawer">
+            <summary>
+            Ensures all buttons are marked dirty when clicked. This can be customized in the GeneralDrawerConfig.
+            </summary>
+        </member>
         <member name="T:Sirenix.OdinInspector.Editor.Drawers.TableListAttributeDrawer">
             <summary>
             Attribute drawer for the TableList attribute
@@ -527,6 +532,22 @@
             Draws The Property.
             </summary>
         </member>
+        <member name="T:Sirenix.OdinInspector.Editor.Drawers.BaseProgressBarAttributeDrawer`1">
+            <summary>
+            Common base implementation for progress bar attribute drawers.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.Drawers.BaseProgressBarAttributeDrawer`1.DrawPropertyLayout(Sirenix.OdinInspector.Editor.IPropertyValueEntry{`0},Sirenix.OdinInspector.ProgressBarAttribute,UnityEngine.GUIContent)">
+            <summary>
+            Draws the property.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.Drawers.BaseProgressBarAttributeDrawer`1.DrawProgressBar(UnityEngine.Rect,UnityEngine.GUIContent,`0,Sirenix.OdinInspector.ProgressBarAttribute,Sirenix.Utilities.Editor.ProgressBarConfig,System.String)">
+            <summary>
+            Generic implementation of progress bar field drawing.
+            </summary>
+        </member>
         <member name="T:Sirenix.OdinInspector.Editor.Drawers.ProgressBarAttributeByteDrawer">
             <summary>
             Draws values decorated with <see cref="T:Sirenix.OdinInspector.ProgressBarAttribute"/>.
@@ -534,9 +555,9 @@
             <seealso cref="T:Sirenix.OdinInspector.PropertyRangeAttribute"/>
             <seealso cref="T:Sirenix.OdinInspector.MinMaxSliderAttribute"/>
         </member>
-        <member name="M:Sirenix.OdinInspector.Editor.Drawers.ProgressBarAttributeByteDrawer.DrawPropertyLayout(Sirenix.OdinInspector.Editor.IPropertyValueEntry{System.Byte},Sirenix.OdinInspector.ProgressBarAttribute,UnityEngine.GUIContent)">
+        <member name="M:Sirenix.OdinInspector.Editor.Drawers.ProgressBarAttributeByteDrawer.DrawProgressBar(UnityEngine.Rect,UnityEngine.GUIContent,System.Byte,Sirenix.OdinInspector.ProgressBarAttribute,Sirenix.Utilities.Editor.ProgressBarConfig,System.String)">
             <summary>
-            Draws the property.
+            Draws a progress bar for a byte property.
             </summary>
         </member>
         <member name="T:Sirenix.OdinInspector.Editor.Drawers.ProgressBarAttributeSbyteDrawer">
@@ -546,9 +567,9 @@
             <seealso cref="T:Sirenix.OdinInspector.PropertyRangeAttribute"/>
             <seealso cref="T:Sirenix.OdinInspector.MinMaxSliderAttribute"/>
         </member>
-        <member name="M:Sirenix.OdinInspector.Editor.Drawers.ProgressBarAttributeSbyteDrawer.DrawPropertyLayout(Sirenix.OdinInspector.Editor.IPropertyValueEntry{System.SByte},Sirenix.OdinInspector.ProgressBarAttribute,UnityEngine.GUIContent)">
+        <member name="M:Sirenix.OdinInspector.Editor.Drawers.ProgressBarAttributeSbyteDrawer.DrawProgressBar(UnityEngine.Rect,UnityEngine.GUIContent,System.SByte,Sirenix.OdinInspector.ProgressBarAttribute,Sirenix.Utilities.Editor.ProgressBarConfig,System.String)">
             <summary>
-            Draws the property.
+            Draws a progress bar for a sbyte property.
             </summary>
         </member>
         <member name="T:Sirenix.OdinInspector.Editor.Drawers.ProgressBarAttributeShortDrawer">
@@ -558,9 +579,9 @@
             <seealso cref="T:Sirenix.OdinInspector.PropertyRangeAttribute"/>
             <seealso cref="T:Sirenix.OdinInspector.MinMaxSliderAttribute"/>
         </member>
-        <member name="M:Sirenix.OdinInspector.Editor.Drawers.ProgressBarAttributeShortDrawer.DrawPropertyLayout(Sirenix.OdinInspector.Editor.IPropertyValueEntry{System.Int16},Sirenix.OdinInspector.ProgressBarAttribute,UnityEngine.GUIContent)">
+        <member name="M:Sirenix.OdinInspector.Editor.Drawers.ProgressBarAttributeShortDrawer.DrawProgressBar(UnityEngine.Rect,UnityEngine.GUIContent,System.Int16,Sirenix.OdinInspector.ProgressBarAttribute,Sirenix.Utilities.Editor.ProgressBarConfig,System.String)">
             <summary>
-            Draws the property.
+            Draws a progress bar for a short property.
             </summary>
         </member>
         <member name="T:Sirenix.OdinInspector.Editor.Drawers.ProgressBarAttributeUshortDrawer">
@@ -570,21 +591,21 @@
             <seealso cref="T:Sirenix.OdinInspector.PropertyRangeAttribute"/>
             <seealso cref="T:Sirenix.OdinInspector.MinMaxSliderAttribute"/>
         </member>
-        <member name="M:Sirenix.OdinInspector.Editor.Drawers.ProgressBarAttributeUshortDrawer.DrawPropertyLayout(Sirenix.OdinInspector.Editor.IPropertyValueEntry{System.UInt16},Sirenix.OdinInspector.ProgressBarAttribute,UnityEngine.GUIContent)">
+        <member name="M:Sirenix.OdinInspector.Editor.Drawers.ProgressBarAttributeUshortDrawer.DrawProgressBar(UnityEngine.Rect,UnityEngine.GUIContent,System.UInt16,Sirenix.OdinInspector.ProgressBarAttribute,Sirenix.Utilities.Editor.ProgressBarConfig,System.String)">
             <summary>
-            Draws the property.
+            Draws a progress bar for a ushort property.
             </summary>
         </member>
-        <member name="T:Sirenix.OdinInspector.Editor.Drawers.ProgressBarAttributeInt32Drawer">
+        <member name="T:Sirenix.OdinInspector.Editor.Drawers.ProgressBarAttributeIntDrawer">
             <summary>
             Draws values decorated with <see cref="T:Sirenix.OdinInspector.ProgressBarAttribute"/>.
             </summary>
             <seealso cref="T:Sirenix.OdinInspector.PropertyRangeAttribute"/>
             <seealso cref="T:Sirenix.OdinInspector.MinMaxSliderAttribute"/>
         </member>
-        <member name="M:Sirenix.OdinInspector.Editor.Drawers.ProgressBarAttributeInt32Drawer.DrawPropertyLayout(Sirenix.OdinInspector.Editor.IPropertyValueEntry{System.Int32},Sirenix.OdinInspector.ProgressBarAttribute,UnityEngine.GUIContent)">
+        <member name="M:Sirenix.OdinInspector.Editor.Drawers.ProgressBarAttributeIntDrawer.DrawProgressBar(UnityEngine.Rect,UnityEngine.GUIContent,System.Int32,Sirenix.OdinInspector.ProgressBarAttribute,Sirenix.Utilities.Editor.ProgressBarConfig,System.String)">
             <summary>
-            Draws the property.
+            Draws a progress bar for an int property.
             </summary>
         </member>
         <member name="T:Sirenix.OdinInspector.Editor.Drawers.ProgressBarAttributeUintDrawer">
@@ -594,9 +615,9 @@
             <seealso cref="T:Sirenix.OdinInspector.PropertyRangeAttribute"/>
             <seealso cref="T:Sirenix.OdinInspector.MinMaxSliderAttribute"/>
         </member>
-        <member name="M:Sirenix.OdinInspector.Editor.Drawers.ProgressBarAttributeUintDrawer.DrawPropertyLayout(Sirenix.OdinInspector.Editor.IPropertyValueEntry{System.UInt32},Sirenix.OdinInspector.ProgressBarAttribute,UnityEngine.GUIContent)">
+        <member name="M:Sirenix.OdinInspector.Editor.Drawers.ProgressBarAttributeUintDrawer.DrawProgressBar(UnityEngine.Rect,UnityEngine.GUIContent,System.UInt32,Sirenix.OdinInspector.ProgressBarAttribute,Sirenix.Utilities.Editor.ProgressBarConfig,System.String)">
             <summary>
-            Draws the property.
+            Draws a progress bar for a uint property.
             </summary>
         </member>
         <member name="T:Sirenix.OdinInspector.Editor.Drawers.ProgressBarAttributeLongDrawer">
@@ -606,9 +627,9 @@
             <seealso cref="T:Sirenix.OdinInspector.PropertyRangeAttribute"/>
             <seealso cref="T:Sirenix.OdinInspector.MinMaxSliderAttribute"/>
         </member>
-        <member name="M:Sirenix.OdinInspector.Editor.Drawers.ProgressBarAttributeLongDrawer.DrawPropertyLayout(Sirenix.OdinInspector.Editor.IPropertyValueEntry{System.Int64},Sirenix.OdinInspector.ProgressBarAttribute,UnityEngine.GUIContent)">
+        <member name="M:Sirenix.OdinInspector.Editor.Drawers.ProgressBarAttributeLongDrawer.DrawProgressBar(UnityEngine.Rect,UnityEngine.GUIContent,System.Int64,Sirenix.OdinInspector.ProgressBarAttribute,Sirenix.Utilities.Editor.ProgressBarConfig,System.String)">
             <summary>
-            Draws the property.
+            Draws a progress bar for a long property.
             </summary>
         </member>
         <member name="T:Sirenix.OdinInspector.Editor.Drawers.ProgressBarAttributeUlongDrawer">
@@ -618,9 +639,9 @@
             <seealso cref="T:Sirenix.OdinInspector.PropertyRangeAttribute"/>
             <seealso cref="T:Sirenix.OdinInspector.MinMaxSliderAttribute"/>
         </member>
-        <member name="M:Sirenix.OdinInspector.Editor.Drawers.ProgressBarAttributeUlongDrawer.DrawPropertyLayout(Sirenix.OdinInspector.Editor.IPropertyValueEntry{System.UInt64},Sirenix.OdinInspector.ProgressBarAttribute,UnityEngine.GUIContent)">
+        <member name="M:Sirenix.OdinInspector.Editor.Drawers.ProgressBarAttributeUlongDrawer.DrawProgressBar(UnityEngine.Rect,UnityEngine.GUIContent,System.UInt64,Sirenix.OdinInspector.ProgressBarAttribute,Sirenix.Utilities.Editor.ProgressBarConfig,System.String)">
             <summary>
-            Draws the property.
+            Draws a progress bar for a ulong property.
             </summary>
         </member>
         <member name="T:Sirenix.OdinInspector.Editor.Drawers.ProgressBarAttributeFloatDrawer">
@@ -630,33 +651,33 @@
             <seealso cref="T:Sirenix.OdinInspector.PropertyRangeAttribute"/>
             <seealso cref="T:Sirenix.OdinInspector.MinMaxSliderAttribute"/>
         </member>
-        <member name="M:Sirenix.OdinInspector.Editor.Drawers.ProgressBarAttributeFloatDrawer.DrawPropertyLayout(Sirenix.OdinInspector.Editor.IPropertyValueEntry{System.Single},Sirenix.OdinInspector.ProgressBarAttribute,UnityEngine.GUIContent)">
+        <member name="M:Sirenix.OdinInspector.Editor.Drawers.ProgressBarAttributeFloatDrawer.DrawProgressBar(UnityEngine.Rect,UnityEngine.GUIContent,System.Single,Sirenix.OdinInspector.ProgressBarAttribute,Sirenix.Utilities.Editor.ProgressBarConfig,System.String)">
             <summary>
-            Draws the property.
+            Draws a progress bar for a float property.
             </summary>
         </member>
-        <member name="T:Sirenix.OdinInspector.Editor.Drawers.ProgressBarAttributeDoubleDrawer">
+        <member name="T:Sirenix.OdinInspector.Editor.Drawers.ProgressBarAttributedoubleDrawer">
             <summary>
             Draws values decorated with <see cref="T:Sirenix.OdinInspector.ProgressBarAttribute"/>.
             </summary>
             <seealso cref="T:Sirenix.OdinInspector.PropertyRangeAttribute"/>
             <seealso cref="T:Sirenix.OdinInspector.MinMaxSliderAttribute"/>
         </member>
-        <member name="M:Sirenix.OdinInspector.Editor.Drawers.ProgressBarAttributeDoubleDrawer.DrawPropertyLayout(Sirenix.OdinInspector.Editor.IPropertyValueEntry{System.Double},Sirenix.OdinInspector.ProgressBarAttribute,UnityEngine.GUIContent)">
+        <member name="M:Sirenix.OdinInspector.Editor.Drawers.ProgressBarAttributedoubleDrawer.DrawProgressBar(UnityEngine.Rect,UnityEngine.GUIContent,System.Double,Sirenix.OdinInspector.ProgressBarAttribute,Sirenix.Utilities.Editor.ProgressBarConfig,System.String)">
             <summary>
-            Draws the property.
+            Draws a progress bar for a double property.
             </summary>
         </member>
-        <member name="T:Sirenix.OdinInspector.Editor.Drawers.ProgressBarAttributeDecimalDrawer">
+        <member name="T:Sirenix.OdinInspector.Editor.Drawers.ProgressBarAttributedecimalDrawer">
             <summary>
             Draws values decorated with <see cref="T:Sirenix.OdinInspector.ProgressBarAttribute"/>.
             </summary>
             <seealso cref="T:Sirenix.OdinInspector.PropertyRangeAttribute"/>
             <seealso cref="T:Sirenix.OdinInspector.MinMaxSliderAttribute"/>
         </member>
-        <member name="M:Sirenix.OdinInspector.Editor.Drawers.ProgressBarAttributeDecimalDrawer.DrawPropertyLayout(Sirenix.OdinInspector.Editor.IPropertyValueEntry{System.Decimal},Sirenix.OdinInspector.ProgressBarAttribute,UnityEngine.GUIContent)">
+        <member name="M:Sirenix.OdinInspector.Editor.Drawers.ProgressBarAttributedecimalDrawer.DrawProgressBar(UnityEngine.Rect,UnityEngine.GUIContent,System.Decimal,Sirenix.OdinInspector.ProgressBarAttribute,Sirenix.Utilities.Editor.ProgressBarConfig,System.String)">
             <summary>
-            Draws the property.
+            Draws a progress bar for a decimal property.
             </summary>
         </member>
         <member name="T:Sirenix.OdinInspector.Editor.Drawers.PropertyRangeAttributeByteDrawer">
@@ -2777,6 +2798,11 @@
             Unity event drawer.
             </summary>
         </member>
+        <member name="M:Sirenix.OdinInspector.Editor.Drawers.UnityEventDrawer`1.DrawPropertyLayout(Sirenix.OdinInspector.Editor.IPropertyValueEntry{`0},UnityEngine.GUIContent)">
+            <summary>
+            Draws the property.
+            </summary>
+        </member>
         <member name="T:Sirenix.OdinInspector.Editor.Drawers.UnityObjectDrawer`1">
             <summary>
             Unity object drawer.
@@ -2833,55 +2859,55 @@
             </summary>
         </member>
         <member name="T:Sirenix.OdinInspector.Editor.OdinMenuEditorWindow">
-            <summary>
-            Draws an editor window with a menu tree.
-            </summary>
-            <example>
-            <code>
-            public class OdinMenuEditorWindowExample : OdinMenuEditorWindow
-            {
-                [SerializeField, HideLabel]
-                private SomeData someData = new SomeData();
+             <summary>
+             Draws an editor window with a menu tree.
+             </summary>
+             <example>
+             <code>
+             public class OdinMenuEditorWindowExample : OdinMenuEditorWindow
+             {
+                 [SerializeField, HideLabel]
+                 private SomeData someData = new SomeData();
             
-                protected override OdinMenuTree BuildMenuTree()
-                {
-                    OdinMenuTree tree = new OdinMenuTree(supportsMultiSelect: true)
-                    {
-                        { "Home",                           this,                           EditorIcons.House       }, // draws the someDataField in this case.
-                        { "Odin Settings",                  null,                           EditorIcons.SettingsCog },
-                        { "Odin Settings/Color Palettes",   ColorPaletteManager.Instance,   EditorIcons.EyeDropper  },
-                        { "Odin Settings/AOT Generation",   AOTGenerationConfig.Instance,   EditorIcons.SmartPhone  },
-                        { "Camera current",                 Camera.current                                          },
-                        { "Some Class",                     this.someData                                           }
-                    };
+                 protected override OdinMenuTree BuildMenuTree()
+                 {
+                     OdinMenuTree tree = new OdinMenuTree(supportsMultiSelect: true)
+                     {
+                         { "Home",                           this,                           EditorIcons.House       }, // draws the someDataField in this case.
+                         { "Odin Settings",                  null,                           EditorIcons.SettingsCog },
+                         { "Odin Settings/Color Palettes",   ColorPaletteManager.Instance,   EditorIcons.EyeDropper  },
+                         { "Odin Settings/AOT Generation",   AOTGenerationConfig.Instance,   EditorIcons.SmartPhone  },
+                         { "Camera current",                 Camera.current                                          },
+                         { "Some Class",                     this.someData                                           }
+                     };
             
-                    tree.AddAllAssetsAtPath("More Odin Settings", SirenixAssetPaths.OdinEditorConfigsPath, typeof(ScriptableObject), true)
-                        .AddThumbnailIcons();
+                     tree.AddAllAssetsAtPath("More Odin Settings", SirenixAssetPaths.OdinEditorConfigsPath, typeof(ScriptableObject), true)
+                         .AddThumbnailIcons();
             
-                    tree.AddAssetAtPath("Odin Getting Started", SirenixAssetPaths.SirenixPluginPath + "Getting Started With Odin.asset");
+                     tree.AddAssetAtPath("Odin Getting Started", SirenixAssetPaths.SirenixPluginPath + "Getting Started With Odin.asset");
             
-                    var customMenuItem = new OdinMenuItem(tree, "Menu Style", tree.DefaultMenuStyle);
-                    tree.MenuItems.Insert(2, customMenuItem);
+                     var customMenuItem = new OdinMenuItem(tree, "Menu Style", tree.DefaultMenuStyle);
+                     tree.MenuItems.Insert(2, customMenuItem);
             
-                    tree.Add("Menu/Items/Are/Created/As/Needed", new GUIContent());
-                    tree.Add("Menu/Items/Are/Created", new GUIContent("And can be overridden"));
+                     tree.Add("Menu/Items/Are/Created/As/Needed", new GUIContent());
+                     tree.Add("Menu/Items/Are/Created", new GUIContent("And can be overridden"));
             
-                    // As you can see, Odin provides a few ways to quickly add editors / objects to your menu tree.
-                    // The API also gives you full control over the selection, etc..
-                    // Make sure to check out the API Documentation for OdinMenuEditorWindow, OdinMenuTree and OdinMenuItem for more information on what you can do!
+                     // As you can see, Odin provides a few ways to quickly add editors / objects to your menu tree.
+                     // The API also gives you full control over the selection, etc..
+                     // Make sure to check out the API Documentation for OdinMenuEditorWindow, OdinMenuTree and OdinMenuItem for more information on what you can do!
             
-                    return tree;
-                }
-            }
-            </code>
-            </example>
-            <seealso cref="T:Sirenix.OdinInspector.Editor.OdinEditorWindow" />
-            <seealso cref="T:Sirenix.OdinInspector.Editor.OdinMenuTree" />
-            <seealso cref="T:Sirenix.OdinInspector.Editor.OdinMenuItem" />
-            <seealso cref="T:Sirenix.OdinInspector.Editor.OdinMenuStyle" />
-            <seealso cref="T:Sirenix.OdinInspector.Editor.OdinMenuTreeSelection" />
-            <seealso cref="T:Sirenix.OdinInspector.Editor.OdinMenuTreeExtensions" />
-            <seealso cref="T:Sirenix.OdinInspector.Editor.OdinMenuEditorWindow" />
+                     return tree;
+                 }
+             }
+             </code>
+             </example>
+             <seealso cref="T:Sirenix.OdinInspector.Editor.OdinEditorWindow" />
+             <seealso cref="T:Sirenix.OdinInspector.Editor.OdinMenuTree" />
+             <seealso cref="T:Sirenix.OdinInspector.Editor.OdinMenuItem" />
+             <seealso cref="T:Sirenix.OdinInspector.Editor.OdinMenuStyle" />
+             <seealso cref="T:Sirenix.OdinInspector.Editor.OdinMenuTreeSelection" />
+             <seealso cref="T:Sirenix.OdinInspector.Editor.OdinMenuTreeExtensions" />
+             <seealso cref="T:Sirenix.OdinInspector.Editor.OdinMenuEditorWindow" />
         </member>
         <member name="M:Sirenix.OdinInspector.Editor.OdinMenuEditorWindow.OnDestroy">
             <summary>
@@ -2906,6 +2932,16 @@
         <member name="P:Sirenix.OdinInspector.Editor.OdinMenuEditorWindow.MenuTree">
             <summary>
             Gets the menu tree.
+            </summary>
+        </member>
+        <member name="P:Sirenix.OdinInspector.Editor.OdinMenuEditorWindow.DrawMenuSearchBar">
+            <summary>
+            Gets or sets a value indicating whether to draw the menu search bar.
+            </summary>
+        </member>
+        <member name="P:Sirenix.OdinInspector.Editor.OdinMenuEditorWindow.CustomSearchFunction">
+            <summary>
+            Gets or sets the custom search function.
             </summary>
         </member>
         <member name="M:Sirenix.OdinInspector.Editor.OdinMenuEditorWindow.ForceMenuTreeRebuild">
@@ -2935,7 +2971,7 @@
         </member>
         <member name="T:Sirenix.OdinInspector.Editor.OdinMenuItem">
             <summary>
-            A menu item that repricents one or more objects.
+            A menu item that represents one or more objects.
             </summary>
             <seealso cref="T:Sirenix.OdinInspector.Editor.OdinMenuTree" />
             <seealso cref="T:Sirenix.OdinInspector.Editor.OdinMenuStyle" />
@@ -2982,6 +3018,12 @@
             Gets the index location of the menu item.
             </summary>
         </member>
+        <member name="P:Sirenix.OdinInspector.Editor.OdinMenuItem.IsVisible">
+            <summary>
+            Gets or sets a value indicating whether the menu item is visible.
+            Not that setting this to false will not hide its children as well. For that see use Toggled.
+            </summary>
+        </member>
         <member name="P:Sirenix.OdinInspector.Editor.OdinMenuItem.Icon">
             <summary>
             Gets or sets the icon that is used when the menu item is not selected.
@@ -3007,6 +3049,11 @@
             Gets or sets the raw menu item name.
             </summary>
         </member>
+        <member name="P:Sirenix.OdinInspector.Editor.OdinMenuItem.SearchString">
+            <summary>
+            Gets or sets the search string used when searching for menu items.
+            </summary>
+        </member>
         <member name="P:Sirenix.OdinInspector.Editor.OdinMenuItem.NextVisualMenuItem">
             <summary>
             Gets the next visual menu item.
@@ -3025,6 +3072,11 @@
         <member name="P:Sirenix.OdinInspector.Editor.OdinMenuItem.Rect">
             <summary>
             Gets the drawn rect.
+            </summary>
+        </member>
+        <member name="P:Sirenix.OdinInspector.Editor.OdinMenuItem.LabelRect">
+            <summary>
+            Gets the drawn label rect.
             </summary>
         </member>
         <member name="P:Sirenix.OdinInspector.Editor.OdinMenuItem.Style">
@@ -3048,6 +3100,12 @@
             </summary>
             <param name="includeSelf">Whether to include it self in the collection.</param>
         </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuItem.GetParentMenuItemsRecursive(System.Boolean,System.Boolean)">
+            <summary>
+            Gets the child menu items recursive in a DFS.
+            </summary>
+            <param name="includeSelf">Whether to include it self in the collection.</param>
+        </member>
         <member name="M:Sirenix.OdinInspector.Editor.OdinMenuItem.GetFullPath">
             <summary>
             Gets the full menu item path.
@@ -3061,6 +3119,16 @@
         <member name="P:Sirenix.OdinInspector.Editor.OdinMenuItem.ObjectInstances">
             <summary>
             Gets the object instances the menu item represents
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuItem.SetObjectInstance(System.Object)">
+            <summary>
+            Sets the object instance
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuItem.SetObjectInstances(System.Collections.IList)">
+            <summary>
+            Sets the object instances
             </summary>
         </member>
         <member name="P:Sirenix.OdinInspector.Editor.OdinMenuItem.SmartName">
@@ -3152,6 +3220,11 @@
             The padding between the icon and other content.
             </summary>
         </member>
+        <member name="F:Sirenix.OdinInspector.Editor.OdinMenuStyle.DrawFoldoutTriangle">
+            <summary>
+            Whether to draw the a foldout triangle for menu items with children.
+            </summary>
+        </member>
         <member name="F:Sirenix.OdinInspector.Editor.OdinMenuStyle.TriangleSize">
             <summary>
             The size of the foldout triangle icon.
@@ -3185,12 +3258,93 @@
         </member>
         <member name="F:Sirenix.OdinInspector.Editor.OdinMenuStyle.SelectedColorDarkSkin">
             <summary>
-            The border alpha.
+            The background color for when a menu item is selected.
             </summary>
         </member>
         <member name="F:Sirenix.OdinInspector.Editor.OdinMenuStyle.SelectedColorLightSkin">
             <summary>
-            The border alpha.
+            The background color for when a menu item is selected.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuStyle.SetHeight(System.Int32)">
+            <summary>
+            Sets the height of the menu item.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuStyle.SetOffset(System.Single)">
+            <summary>
+            Sets the global offset of the menu item content
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuStyle.SetIndentAmount(System.Single)">
+            <summary>
+            Sets the number of pixels to indent per level indent level.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuStyle.SetIconSize(System.Single)">
+            <summary>
+            Sets the size of the icon.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuStyle.SetIconOffset(System.Single)">
+            <summary>
+            Sets the size of the icon.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuStyle.SetNotSelectedIconAlpha(System.Single)">
+            <summary>
+            Sets the transparency of icons when the menu item is not selected.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuStyle.SetIconPadding(System.Single)">
+            <summary>
+            Sets the padding between the icon and other content.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuStyle.SetDrawFoldoutTriangle(System.Boolean)">
+            <summary>
+            Sets whether to draw the a foldout triangle for menu items with children.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuStyle.SetTriangleSize(System.Single)">
+            <summary>
+            Sets the size of the foldout triangle icon.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuStyle.SetTrianglePadding(System.Single)">
+            <summary>
+            Sets the padding between the foldout triangle icon and other content.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuStyle.SetAlignTriangleLeft(System.Boolean)">
+            <summary>
+            Sets whether or not to align the triangle left or right of the content.
+            If right, then the icon is pushed all the way to the right at a fixed position ignoring the indent level.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuStyle.SetBorders(System.Boolean)">
+            <summary>
+            Sets whether to draw borders between menu items.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuStyle.SetBorderPadding(System.Single)">
+            <summary>
+            Sets the border alpha.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuStyle.SetBorderAlpha(System.Single)">
+            <summary>
+            Sets the border alpha.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuStyle.SetSelectedColorDarkSkin(UnityEngine.Color)">
+            <summary>
+            Sets the background color for when a menu item is selected.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuStyle.SetSelectedColorLightSkin(UnityEngine.Color)">
+            <summary>
+            Sets the background color for when a menu item is selected.
             </summary>
         </member>
         <member name="P:Sirenix.OdinInspector.Editor.OdinMenuStyle.TreeViewStyle">
@@ -3253,6 +3407,11 @@
             The menu items.
             </value>
         </member>
+        <member name="P:Sirenix.OdinInspector.Editor.OdinMenuTree.DrawInSearchMode">
+            <summary>
+            If true, all indent levels will be ignored, and all menu items with IsVisible == true will be drawn.
+            </summary>
+        </member>
         <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTree.Add(System.String,System.Object)">
             <summary>
             Adds a menu item with the specified object instance at the the specified path.
@@ -3276,13 +3435,25 @@
             <param name="instance">The object instance.</param>
             <param name="icon">The icon.</param>
         </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTree.AddRange``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String})">
+            <summary>
+            Adds a collection of objects to the menu tree and returns all menu items created in random order.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTree.AddRange``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.Func{``0,UnityEngine.Texture})">
+            <summary>
+            Adds a collection of objects to the menu tree and returns all menu items created in random order.
+            </summary>
+        </member>
         <member name="P:Sirenix.OdinInspector.Editor.OdinMenuTree.DefaultMenuStyle">
             <summary>
-            Gets or sets the default menu item style.
+            Gets or sets the default menu item style from Config.DefaultStyle.
             </summary>
-            <value>
-            The default menu style.
-            </value>
+        </member>
+        <member name="P:Sirenix.OdinInspector.Editor.OdinMenuTree.Config">
+            <summary>
+            Gets or sets the default drawing configuration.
+            </summary>
         </member>
         <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTree.#ctor(System.Boolean)">
             <summary>
@@ -3297,16 +3468,43 @@
             <param name="supportsMultiSelect">if set to <c>true</c> [supports multi select].</param>
             <param name="defaultMenuStyle">The default menu item style.</param>
         </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTree.#ctor(System.Boolean,Sirenix.OdinInspector.Editor.OdinMenuTreeDrawingConfig)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sirenix.OdinInspector.Editor.OdinMenuTree"/> class.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTree.ScrollToMenuItem(Sirenix.OdinInspector.Editor.OdinMenuItem,System.Boolean)">
+            <summary>
+            Scrolls to the specified menu item.
+            </summary>
+        </member>
         <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTree.EnumerateTree(System.Boolean)">
             <summary>
             Enumerates the tree with a DFS.
             </summary>
             <param name="includeRootNode">if set to <c>true</c> then the invisible root menu item is included.</param>
         </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTree.EnumerateTree(System.Func{Sirenix.OdinInspector.Editor.OdinMenuItem,System.Boolean},System.Boolean)">
+            <summary>
+            Enumerates the tree with a DFS.
+            </summary>
+            <param name="includeRootNode">if set to <c>true</c> then the invisible root menu item is included.</param>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTree.EnumerateTree(System.Action{Sirenix.OdinInspector.Editor.OdinMenuItem})">
+            <summary>
+            Enumerates the tree with a DFS.
+            </summary>
+        </member>
         <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTree.DrawMenuTree">
             <summary>
             Draws the menu tree recursively.
             </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTree.DrawSearchToolbar(UnityEngine.GUIStyle)">
+            <summary>
+            Not yet documented.
+            </summary>
+            <param name="toolbarStyle">Not yet documented.</param>
         </member>
         <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTree.UpdateMenuTree">
             <summary>
@@ -3324,6 +3522,61 @@
             This class fixes a bug where Unity's Undo.RecordObject does not mark ScriptableObjects dirty when
             a change is recorded for them. It does this by subscribing to the Undo.postprocessModifications
             event, and marking all modified ScriptableObjects dirty manually.
+            </summary>
+        </member>
+        <member name="T:Sirenix.OdinInspector.Editor.OdinMenuTreeDrawingConfig">
+            <summary>
+            The config used by OdinMenuTree to specify which features of the Menu Tree should be used when drawing.
+            </summary>
+        </member>
+        <member name="P:Sirenix.OdinInspector.Editor.OdinMenuTreeDrawingConfig.DefaultMenuStyle">
+            <summary>
+            Gets or sets the default menu item style.
+            </summary>
+        </member>
+        <member name="F:Sirenix.OdinInspector.Editor.OdinMenuTreeDrawingConfig.AutoScrollOnSelectionChanged">
+            <summary>
+            The automatic scroll on selection changed. True by default.
+            </summary>
+        </member>
+        <member name="F:Sirenix.OdinInspector.Editor.OdinMenuTreeDrawingConfig.DrawScrollView">
+            <summary>
+            Whether to draw the tree in a scrollable view. True by default.
+            </summary>
+        </member>
+        <member name="F:Sirenix.OdinInspector.Editor.OdinMenuTreeDrawingConfig.AutoHandleKeyboardNavigation">
+            <summary>
+            Whether to handle keyboard navigation after it's done drawing. True by default.
+            </summary>
+        </member>
+        <member name="F:Sirenix.OdinInspector.Editor.OdinMenuTreeDrawingConfig.DrawSearchToolbar">
+            <summary>
+            Whether to draw a searchbar above the menu tree. True by default.
+            </summary>
+        </member>
+        <member name="F:Sirenix.OdinInspector.Editor.OdinMenuTreeDrawingConfig.AutoFocusSearchBar">
+            <summary>
+            Whether to automatically set focus on the search bar when the tree is drawn for the first time. True by default.
+            </summary>
+        </member>
+        <member name="F:Sirenix.OdinInspector.Editor.OdinMenuTreeDrawingConfig.ScrollPos">
+            <summary>
+            The scroll-view position.
+            </summary>
+        </member>
+        <member name="F:Sirenix.OdinInspector.Editor.OdinMenuTreeDrawingConfig.SearchTerm">
+            <summary>
+            The search term.
+            </summary>
+        </member>
+        <member name="F:Sirenix.OdinInspector.Editor.OdinMenuTreeDrawingConfig.SearchToolbarHeight">
+            <summary>
+            The height of the search toolbar.
+            </summary>
+        </member>
+        <member name="P:Sirenix.OdinInspector.Editor.OdinMenuTreeDrawingConfig.SearchFunction">
+            <summary>
+            Gets or sets the search function.
             </summary>
         </member>
         <member name="T:Sirenix.OdinInspector.Editor.OdinMenuTreeExtensions">
@@ -3345,7 +3598,7 @@
             <seealso cref="T:Sirenix.OdinInspector.Editor.OdinMenuTreeSelection" />
             <seealso cref="T:Sirenix.OdinInspector.Editor.OdinMenuEditorWindow" />
         </member>
-        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTreeExtensions.AddMenuItemAtPath(Sirenix.OdinInspector.Editor.OdinMenuTree,System.Collections.Generic.List{Sirenix.OdinInspector.Editor.OdinMenuItem},System.String,Sirenix.OdinInspector.Editor.OdinMenuItem)">
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTreeExtensions.AddMenuItemAtPath(Sirenix.OdinInspector.Editor.OdinMenuTree,System.Collections.Generic.ICollection{Sirenix.OdinInspector.Editor.OdinMenuItem},System.String,Sirenix.OdinInspector.Editor.OdinMenuItem)">
             <summary>
             Adds the menu item at the specified menu item path and populates the result list with all menu items created in order to add the menuItem at the specified path.
             </summary>
@@ -3405,7 +3658,7 @@
         </member>
         <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTreeExtensions.AddAssetAtPath(Sirenix.OdinInspector.Editor.OdinMenuTree,System.String,System.String)">
             <summary>
-            Adds the asset at the specified menu item path and returns all menu items created in order to add in order to end up at the specified menu path.
+            Adds the asset at the specified menu item path and returns all menu items created in order to end up at the specified menu path.
             </summary>
             <param name="tree">The tree.</param>
             <param name="menuItemPath">The menu item path.</param>
@@ -3414,7 +3667,7 @@
         </member>
         <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTreeExtensions.AddAssetAtPath(Sirenix.OdinInspector.Editor.OdinMenuTree,System.String,System.String,System.Type)">
             <summary>
-            Adds the asset at the specified menu item path and returns all menu items created in order to add in order to end up at the specified menu path.
+            Adds the asset at the specified menu item path and returns all menu items created in order to end up at the specified menu path.
             </summary>
             <param name="tree">The tree.</param>
             <param name="menuItemPath">The menu item path.</param>
@@ -3422,19 +3675,19 @@
             <param name="type">The type.</param>
             <returns>Returns all menu items created in order to add the menu item at the specified menu item path.</returns>
         </member>
-        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTreeExtensions.SortMenuItemsByName(Sirenix.OdinInspector.Editor.OdinMenuTree)">
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTreeExtensions.SortMenuItemsByName(Sirenix.OdinInspector.Editor.OdinMenuTree,System.Boolean)">
             <summary>
             Sorts the entire tree of menu items recursively by name with respects to numbers.
             </summary>
         </member>
-        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTreeExtensions.SortMenuItemsByName(System.Collections.Generic.IEnumerable{Sirenix.OdinInspector.Editor.OdinMenuItem})">
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTreeExtensions.SortMenuItemsByName(System.Collections.Generic.IEnumerable{Sirenix.OdinInspector.Editor.OdinMenuItem},System.Boolean)">
             <summary>
             Sorts the collection of menu items recursively by name with respects to numbers.
             </summary>
         </member>
         <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTreeExtensions.AddObjectAtPath(Sirenix.OdinInspector.Editor.OdinMenuTree,System.String,System.Object,System.Boolean)">
             <summary>
-            Adds the specified object at the specified menu item path and returns all menu items created in order to add in order to end up at the specified menu path.
+            Adds the specified object at the specified menu item path and returns all menu items created in order to end up at the specified menu path.
             </summary>
             <param name="tree">The tree.</param>
             <param name="menuPath">The menu path.</param>
@@ -3442,17 +3695,57 @@
             <param name="forceShowOdinSerializedMembers">Set this to true if you want Odin serialzied members such as dictionaries and generics to be shown as well.</param>
             <returns>Returns all menu items created in order to add the menu item at the specified menu item path.</returns>
         </member>
-        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTreeExtensions.AddIcon(System.Collections.Generic.IEnumerable{Sirenix.OdinInspector.Editor.OdinMenuItem},Sirenix.Utilities.Editor.EditorIcon)">
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTreeExtensions.AddIcons``1(System.Collections.Generic.IEnumerable{Sirenix.OdinInspector.Editor.OdinMenuItem},System.Func{``0,UnityEngine.Texture})">
+            <summary>
+            Assigns the specified icon to all menu items in the collection with the specified ObjectInstanceType.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTreeExtensions.AddIcons``1(System.Collections.Generic.IEnumerable{Sirenix.OdinInspector.Editor.OdinMenuItem},System.Func{``0,UnityEngine.Sprite})">
+            <summary>
+            Assigns the specified icon to all menu items in the collection with the specified ObjectInstanceType.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTreeExtensions.AddIcons(System.Collections.Generic.IEnumerable{Sirenix.OdinInspector.Editor.OdinMenuItem},System.Func{Sirenix.OdinInspector.Editor.OdinMenuItem,UnityEngine.Texture})">
             <summary>
             Assigns the specified icon to all menu items in the collection.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTreeExtensions.AddIcons(System.Collections.Generic.IEnumerable{Sirenix.OdinInspector.Editor.OdinMenuItem},System.Func{Sirenix.OdinInspector.Editor.OdinMenuItem,UnityEngine.Sprite})">
+            <summary>
+            Assigns the specified icon to all menu items in the collection.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTreeExtensions.AddIcon(System.Collections.Generic.IEnumerable{Sirenix.OdinInspector.Editor.OdinMenuItem},UnityEngine.Sprite)">
+            <summary>
+            Assigns the specified icon to the last menu item in the collection.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTreeExtensions.AddIcon(System.Collections.Generic.IEnumerable{Sirenix.OdinInspector.Editor.OdinMenuItem},Sirenix.Utilities.Editor.EditorIcon)">
+            <summary>
+            Assigns the specified icon to the last menu item in the collection.
             </summary>
         </member>
         <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTreeExtensions.AddIcon(System.Collections.Generic.IEnumerable{Sirenix.OdinInspector.Editor.OdinMenuItem},UnityEngine.Texture)">
             <summary>
-            Assigns the specified icon to all menu items in the collection.
+            Assigns the specified icon to the last menu item in the collection.
             </summary>
         </member>
         <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTreeExtensions.AddIcon(System.Collections.Generic.IEnumerable{Sirenix.OdinInspector.Editor.OdinMenuItem},UnityEngine.Texture,UnityEngine.Texture)">
+            <summary>
+            Assigns the specified icon to the last menu item in the collection.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTreeExtensions.AddIcons(System.Collections.Generic.IEnumerable{Sirenix.OdinInspector.Editor.OdinMenuItem},Sirenix.Utilities.Editor.EditorIcon)">
+            <summary>
+            Assigns the specified icon to all menu items in the collection.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTreeExtensions.AddIcons(System.Collections.Generic.IEnumerable{Sirenix.OdinInspector.Editor.OdinMenuItem},UnityEngine.Texture)">
+            <summary>
+            Assigns the specified icon to all menu items in the collection.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTreeExtensions.AddIcons(System.Collections.Generic.IEnumerable{Sirenix.OdinInspector.Editor.OdinMenuItem},UnityEngine.Texture,UnityEngine.Texture)">
             <summary>
             Assigns the specified icon to all menu items in the collection.
             </summary>
@@ -3460,6 +3753,27 @@
         <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTreeExtensions.AddThumbnailIcons(System.Collections.Generic.IEnumerable{Sirenix.OdinInspector.Editor.OdinMenuItem},System.Boolean)">
             <summary>
             Assigns the asset mini thumbnail as an icon to all menu items in the collection. If the menu items object is null then a Unity folder icon is assigned.
+            </summary>
+        </member>
+        <member name="T:Sirenix.OdinInspector.Editor.SelectionChangedType">
+            <summary>
+            Constants which describe the type of change that was made to the OdinMenuTrees's Selection
+            </summary>
+            <seealso cref="T:Sirenix.OdinInspector.Editor.OdinMenuTreeSelection"/>
+        </member>
+        <member name="F:Sirenix.OdinInspector.Editor.SelectionChangedType.ItemRemoved">
+            <summary>
+            A menu item was removed.
+            </summary>
+        </member>
+        <member name="F:Sirenix.OdinInspector.Editor.SelectionChangedType.ItemAdded">
+            <summary>
+            A menu item was selected.
+            </summary>
+        </member>
+        <member name="F:Sirenix.OdinInspector.Editor.SelectionChangedType.SelectionCleared">
+            <summary>
+            The selection was cleared.
             </summary>
         </member>
         <member name="T:Sirenix.OdinInspector.Editor.OdinMenuTreeSelection">
@@ -3483,6 +3797,16 @@
             Occurs whenever the selection has changed.
             </summary>
         </member>
+        <member name="E:Sirenix.OdinInspector.Editor.OdinMenuTreeSelection.SelectionChanged">
+            <summary>
+            Occurs whenever the selection has changed.
+            </summary>
+        </member>
+        <member name="E:Sirenix.OdinInspector.Editor.OdinMenuTreeSelection.SelectionConfirmed">
+            <summary>
+            Usually occurs whenever the user hits return, or double click a menu item.
+            </summary>
+        </member>
         <member name="P:Sirenix.OdinInspector.Editor.OdinMenuTreeSelection.Count">
             <summary>
             Gets the count.
@@ -3502,7 +3826,7 @@
             <summary>
             Adds a menu item to the selection. If the menu item is already selected, then the item is pushed to the bottom of the selection list.
             If multi selection is off, then the previous selected menu item is removed first.
-            Adding a item to the selection triggers <see cref="E:Sirenix.OdinInspector.Editor.OdinMenuTreeSelection.OnSelectionChanged"/>.
+            Adding a item to the selection triggers <see cref="E:Sirenix.OdinInspector.Editor.OdinMenuTreeSelection.SelectionChanged"/>.
             </summary>
             <param name="item">The item.</param>
         </member>
@@ -3533,12 +3857,401 @@
         </member>
         <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTreeSelection.Remove(Sirenix.OdinInspector.Editor.OdinMenuItem)">
             <summary>
-            Removes the specified menu item and triggers <see cref="E:Sirenix.OdinInspector.Editor.OdinMenuTreeSelection.OnSelectionChanged"/>.
+            Removes the specified menu item and triggers <see cref="E:Sirenix.OdinInspector.Editor.OdinMenuTreeSelection.SelectionChanged"/>.
             </summary>
         </member>
         <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTreeSelection.RemoveAt(System.Int32)">
             <summary>
-            Removes the menu item at the specified index and triggers <see cref="E:Sirenix.OdinInspector.Editor.OdinMenuTreeSelection.OnSelectionChanged"/>.
+            Removes the menu item at the specified index and triggers <see cref="E:Sirenix.OdinInspector.Editor.OdinMenuTreeSelection.SelectionChanged"/>.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTreeSelection.ConfirmSelection">
+            <summary>
+            Triggers OnSelectionConfirmed.
+            </summary>
+        </member>
+        <member name="T:Sirenix.OdinInspector.Editor.EnumSelector`1">
+            <summary>
+            A feature-rich enum selector with support for flag enums.
+            </summary>
+            <example>
+            <code>
+            KeyCode someEnumValue;
+            
+            [OnInspectorGUI]
+            void OnInspectorGUI()
+            {
+                // Use the selector manually. See the documentation for OdinSelector for more information.
+                if (GUILayout.Button("Open Enum Selector"))
+                {
+                    EnumSelector&lt;KeyCode&gt; selector = new EnumSelector&lt;KeyCode&gt;();
+                    selector.SetSelection(this.someEnumValue);
+                    selector.SelectionConfirmed += selection =&gt; this.someEnumValue = selection.FirstOrDefault();
+                    selector.ShowInPopup(); // Returns the Odin Editor Window instance, in case you want to mess around with that as well.
+                }
+                
+                // Draw an enum dropdown field which uses the EnumSelector popup:
+                this.someEnumValue = EnumSelector&lt;KeyCode&gt;.DrawEnumField(new GUIContent("My Label"), this.someEnumValue);
+            }
+            
+            // All Odin Selectors can be rendered anywhere with Odin. This includes the EnumSelector.
+            EnumSelector&lt;KeyCode&gt; inlineSelector;
+            
+            [ShowInInspector]
+            EnumSelector&lt;KeyCode&gt; InlineSelector
+            {
+                get { return this.inlineSelector ?? (this.inlineSelector = new EnumSelector&lt;KeyCode&gt;()); }
+                set { }
+            }
+            </code>
+            </example>
+            <seealso cref="T:Sirenix.OdinInspector.Editor.OdinSelector`1"/>
+            <seealso cref="T:Sirenix.OdinInspector.Editor.TypeSelector"/>
+            <seealso cref="T:Sirenix.OdinInspector.Editor.GenericSelector`1"/>
+            <seealso cref="T:Sirenix.OdinInspector.Editor.OdinMenuTree"/>
+            <seealso cref="T:Sirenix.OdinInspector.Editor.OdinEditorWindow"/>
+        </member>
+        <member name="P:Sirenix.OdinInspector.Editor.EnumSelector`1.Title">
+            <summary>
+            By default, the enum type will be drawn as the title for the selector. No title will be drawn if the string is null or empty.
+            </summary>
+        </member>
+        <member name="P:Sirenix.OdinInspector.Editor.EnumSelector`1.IsFlagEnum">
+            <summary>
+            Gets a value indicating whether this instance is flag enum.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.EnumSelector`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sirenix.OdinInspector.Editor.EnumSelector`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.EnumSelector`1.BuildSelectionTree(Sirenix.OdinInspector.Editor.OdinMenuTree)">
+            <summary>
+            Populates the tree with all enum values.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.EnumSelector`1.DefaultWindowWidth">
+            <summary>
+            When ShowInPopup is called, without a specified window width, this method gets called.
+            Here you can calculate and give a good default width for the popup.
+            The default implementation returns 0, which will let the popup window determine the width itself. This is usually a fixed value.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.EnumSelector`1.GetCurrentSelection">
+            <summary>
+            Gets the currently selected enum value.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.EnumSelector`1.SetSelection(`0)">
+            <summary>
+            Selects an enum.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.EnumSelector`1.DrawEnumField(UnityEngine.GUIContent,`0)">
+            <summary>
+            Draws an enum selector field using the enum selector.
+            </summary>
+        </member>
+        <member name="T:Sirenix.OdinInspector.Editor.GenericSelector`1">
+            <summary>
+            In simple one-off use cases, making a custom OdinSelector might not be needed, as the GenericSelecor 
+            can be populated with anything and customized a great deal.
+            </summary>
+            <example>
+            <code>
+            SomeType someValue;
+            
+            [OnInspectorGUI]
+            void OnInspectorGUI()
+            {
+                if (GUILayout.Button("Open Generic Selector Popup"))
+                {
+                    List&lt;SomeType&gt; source = ...;
+                    GenericSelector&lt;SomeType&gt; selector = new GenericSelector&lt;SomeType&gt;("Title", false, x => x.Path, source);
+                    selector.SetSelection(this.someValue);
+                    selector.SelectionTree.Config.DrawSearchToolbar = false;
+                    selector.SelectionTree.DefaultMenuStyle.Height = 22;
+                    selector.SelectionConfirmed += selection =&gt; this.someValue = selection.FirstOrDefault()
+                    var window = selector.ShowInPopup();
+                    window.OnEndGUI += () =&gt; { EditorGUILayout.HelpBox("A quick way of injecting custom GUI to the editor window popup instance.", MessageType.Info); };
+                    window.OnClose += selector.SelectionTree.Selection.ConfirmSelection; // Confirm selection when window clses.
+                }
+            }
+            </code>
+            </example>
+            <seealso cref="T:Sirenix.OdinInspector.Editor.OdinSelector`1"/>
+            <seealso cref="T:Sirenix.OdinInspector.Editor.EnumSelector`1"/>
+            <seealso cref="T:Sirenix.OdinInspector.Editor.TypeSelector"/>
+            <seealso cref="T:Sirenix.OdinInspector.Editor.OdinMenuTree"/>
+            <seealso cref="T:Sirenix.OdinInspector.Editor.OdinEditorWindow"/>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.GenericSelector`1.#ctor(System.String,System.Collections.Generic.IEnumerable{`0},System.Boolean,System.Func{`0,System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sirenix.OdinInspector.Editor.GenericSelector`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.GenericSelector`1.#ctor(System.String,System.Boolean,System.Func{`0,System.String},`0[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sirenix.OdinInspector.Editor.GenericSelector`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.GenericSelector`1.#ctor(System.String,System.Boolean,`0[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sirenix.OdinInspector.Editor.GenericSelector`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.GenericSelector`1.#ctor(System.String,`0[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sirenix.OdinInspector.Editor.GenericSelector`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.GenericSelector`1.#ctor(`0[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sirenix.OdinInspector.Editor.GenericSelector`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.GenericSelector`1.#ctor(System.String,System.Boolean,System.Func{`0,System.String},System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sirenix.OdinInspector.Editor.GenericSelector`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.GenericSelector`1.#ctor(System.String,System.Boolean,System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sirenix.OdinInspector.Editor.GenericSelector`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.GenericSelector`1.#ctor(System.String,System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sirenix.OdinInspector.Editor.GenericSelector`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.GenericSelector`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sirenix.OdinInspector.Editor.GenericSelector`1"/> class.
+            </summary>
+        </member>
+        <member name="P:Sirenix.OdinInspector.Editor.GenericSelector`1.Title">
+            <summary>
+            Gets the title. No title will be drawn if the string is null or empty.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.GenericSelector`1.BuildSelectionTree(Sirenix.OdinInspector.Editor.OdinMenuTree)">
+            <summary>
+            Builds the selection tree.
+            </summary>
+        </member>
+        <member name="T:Sirenix.OdinInspector.Editor.OdinSelector`1">
+            <summary>
+            OdinSelectors is an abstract base class that combines OdinMenuTrees and OdinEditorWindows to help making feature-rich selectors and popup selectors.
+            </summary>
+            <example>
+            <code>
+            public class MySelector : OdinSelector&lt;SomeType&gt;
+            {
+                private readonly List&lt;SomeType&gt; source;
+                private readonly bool supportsMultiSelect;
+            
+                public MySelector(List&lt;SomeType&gt; source, bool supportsMultiSelect)
+                {
+                    this.source = source;
+                    this.supportsMultiSelect = supportsMultiSelect;
+                }
+            
+                protected override void BuildSelectionTree(OdinMenuTree tree)
+                {
+                    tree.Config.DrawSearchToolbar = true;
+                    tree.Selection.SupportsMultiSelect = this.supportsMultiSelect;
+                    
+                    tree.Add("Defaults/None", null);
+                    tree.Add("Defaults/A", new SomeType());
+                    tree.Add("Defaults/B", new SomeType());
+            
+                    tree.AddRange(this.source, x =&gt; x.Path, x =&gt; x.SomeTexture);
+                }
+            
+                [OnInspectorGUI]
+                private void DrawInfoAboutSelectedItem()
+                {
+                    SomeType selected = this.GetCurrentSelection().FirstOrDefault();
+            
+                    if (selected != null)
+                    {
+                        GUILayout.Label("Name: " + selected.Name);
+                        GUILayout.Label("Data: " + selected.Data);
+                    }
+                }
+            }
+            </code>
+            Usage:
+            <code>
+            void OnGUI()
+            {
+                if (GUILayout.Button("Open My Selector"))
+                {
+                    List&lt;SomeType&gt; source = this.GetListOfThingsToSelectFrom();
+                    MySelector selector = new MySelector(source, false);
+            
+                    selector.SetSelection(this.someValue);
+            
+                    selector.SelectionCancelled += () =&gt; { };  // Occurs when the popup window is closed, and no slection was confirmed.
+                    selector.SelectionChanged += col =&gt; { };
+                    selector.SelectionConfirmed += col =&gt; this.someValue = col.FirstOrDefault();
+            
+                    selector.ShowInPopup(); // Returns the Odin Editor Window instance, in case you want to mess around with that as well.
+                }
+            }
+            
+            // All Odin Selectors can be rendered anywhere with Odin.
+            [ShowInInspector]
+            MySelector inlineSelector;
+            </code>
+            </example>
+            <seealso cref="T:Sirenix.OdinInspector.Editor.EnumSelector`1"/>
+            <seealso cref="T:Sirenix.OdinInspector.Editor.TypeSelector"/>
+            <seealso cref="T:Sirenix.OdinInspector.Editor.GenericSelector`1"/>
+            <seealso cref="T:Sirenix.OdinInspector.Editor.OdinMenuTree"/>
+            <seealso cref="T:Sirenix.OdinInspector.Editor.OdinEditorWindow"/>
+        </member>
+        <member name="E:Sirenix.OdinInspector.Editor.OdinSelector`1.SelectionCancelled">
+            <summary>
+            Occurs when the window is closed, and no slection was confirmed.
+            </summary>
+        </member>
+        <member name="E:Sirenix.OdinInspector.Editor.OdinSelector`1.SelectionChanged">
+            <summary>
+            Occurs when the menuTrees selection is changed and IsValidSelection returns true.
+            </summary>
+        </member>
+        <member name="E:Sirenix.OdinInspector.Editor.OdinSelector`1.SelectionConfirmed">
+            <summary>
+            Occurs when the menuTrees selection is confirmed and IsValidSelection returns true.
+            </summary>
+        </member>
+        <member name="P:Sirenix.OdinInspector.Editor.OdinSelector`1.SelectionTree">
+            <summary>
+            Gets the selection menu tree.
+            </summary>
+        </member>
+        <member name="P:Sirenix.OdinInspector.Editor.OdinSelector`1.Title">
+            <summary>
+            Gets the title. No title will be drawn if the string is null or empty.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinSelector`1.GetCurrentSelection">
+            <summary>
+            Gets the current selection from the menu tree whether it's valid or not.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinSelector`1.IsValidSelection(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Determines whether the specified collection is a valid collection.
+            If false, the SlectionChanged and SelectionConfirm events will not be called.
+            By default, this returns true if the collection contains one or more items.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinSelector`1.SetSelection(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Sets the selection.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinSelector`1.SetSelection(`0)">
+            <summary>
+            Sets the selection.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinSelector`1.ShowInPopup">
+            <summary>
+            Opens up the selector instance in a popup at the specified rect position.
+            The width of the popup is determined by DefaultWindowWidth, and the height is automatically calculated.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinSelector`1.ShowInPopup(UnityEngine.Rect,System.Single)">
+            <summary>
+            Opens up the selector instance in a popup at the specified rect position.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinSelector`1.ShowInPopup(System.Single)">
+            <summary>
+            The mouse position is used as the position for the window.
+            Opens up the selector instance in a popup at the specified position.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinSelector`1.ShowInPopup(UnityEngine.Vector2,System.Single)">
+            <summary>
+            Opens up the selector instance in a popup at the specified position.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinSelector`1.ShowInPopup(UnityEngine.Rect,UnityEngine.Vector2)">
+            <summary>
+            Opens up the selector instance in a popup at the specified rect position.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinSelector`1.ShowInPopup(UnityEngine.Vector2)">
+            <summary>
+            Opens up the selector instance in a popup at the specified position.
+            The width of the popup is determined by DefaultWindowWidth, and the height is automatically calculated.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinSelector`1.ShowInPopup(System.Single,System.Single)">
+            <summary>
+            Opens up the selector instance in a popup with the specified width and height.
+            The mouse position is used as the position for the window.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinSelector`1.DefaultWindowWidth">
+            <summary>
+            When ShowInPopup is called, without a specifed window width, this methods gets called.
+            Here you can calculate and give a good default width for the popup. 
+            The default implementation returns 0, which will let the popup window determain the width itself. This is usually a fixed value.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinSelector`1.TriggerSelectionChanged">
+            <summary>
+            Triggers the selection changed event, but only if the current selection is valid.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinSelector`1.DrawSelectionTree">
+            <summary>
+            Draws the selection tree. This gets drawn using the OnInspectorGUI attribute.
+            </summary>
+        </member>
+        <member name="T:Sirenix.OdinInspector.Editor.TypeSelector">
+            <summary>
+            A feature-rich type selector.
+            </summary>
+            <example>
+            <code>
+            Type[] selectedTypes;
+            
+            void OnGUI()
+            {
+                // Use the selector manually. See the documentation for OdinSelector for more information.
+                if (GUILayout.Button("Open My Selector"))
+                {
+                    TypeSelector selector = new TypeSelector(customListOfTypes);
+                    TypeSelector selector = new TypeSelector(AssemblyTypeFlags.CustomTypes, supportsMultiSelect: true);
+                    selector.SetSelection(this.selectedTypes);
+                    selector.SelectionConfirmed += selection =&gt; this.selectedTypes = selection.ToArray();
+                    selector.ShowInPopup(); // Returns the Odin Editor Window instance, in case you want to mess around with that as well.
+                }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.TypeSelector.BuildSelectionTree(Sirenix.OdinInspector.Editor.OdinMenuTree)">
+            <summary>
+            Builds the selection tree.
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.TypeSelector.DefaultWindowWidth">
+            <summary>
+            450
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.TypeSelector.SetSelection(System.Type)">
+            <summary>
+            Sets the selected types.
             </summary>
         </member>
         <member name="T:Sirenix.OdinInspector.Editor.EditorOnlyModeConfig">
@@ -3595,6 +4308,11 @@
             If set to true, most foldouts throughout the inspector will be expanded by default.
             </summary>
         </member>
+        <member name="P:Sirenix.OdinInspector.Editor.GeneralDrawerConfig.MarkObjectsDirtyOnButtonClick">
+            <summary>
+            Gets or sets a value indicating whether [use improved enum drop down].
+            </summary>
+        </member>
         <member name="P:Sirenix.OdinInspector.Editor.GeneralDrawerConfig.GUIFoldoutAnimationDuration">
             <summary>
             Specify the animation speed for most foldouts throughout the inspector.
@@ -3618,6 +4336,16 @@
         <member name="P:Sirenix.OdinInspector.Editor.GeneralDrawerConfig.QuaternionDrawMode">
             <summary>
             Specify how the Quaternion struct should be shown in the inspector.
+            </summary>
+        </member>
+        <member name="P:Sirenix.OdinInspector.Editor.GeneralDrawerConfig.UseImprovedEnumDropDown">
+            <summary>
+            Gets or sets a value indicating whether [use improved enum drop down].
+            </summary>
+        </member>
+        <member name="P:Sirenix.OdinInspector.Editor.GeneralDrawerConfig.DrawEnumTypeTitle">
+            <summary>
+            Gets or sets a value indicating whether [use improved enum drop down].
             </summary>
         </member>
         <member name="P:Sirenix.OdinInspector.Editor.GeneralDrawerConfig.HideFoldoutWhileEmpty">
@@ -5273,12 +6001,48 @@
             </para>
             <para>Protip: You can subscribe to OnClose if you want to know when that occurs.</para>
             </summary>
-            <param name="obj">The object.</param>
-            <param name="btnRect">The BTN rect.</param>
-            <param name="windowWidth">Width of the window.</param>
-            <returns></returns>
         </member>
         <member name="M:Sirenix.OdinInspector.Editor.OdinEditorWindow.InspectObjectInDropDown(System.Object,UnityEngine.Rect,UnityEngine.Vector2)">
+            <summary>
+            <para>
+            Pops up an editor window for the given object in a drop-down window which closes when it loses its focus. 
+            </para>
+            <para>Protip: You can subscribe to OnClose if you want to know when that occurs.</para>
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinEditorWindow.InspectObjectInDropDown(System.Object,UnityEngine.Vector2)">
+            <summary>
+            <para>
+            Pops up an editor window for the given object in a drop-down window which closes when it loses its focus. 
+            </para>
+            <para>Protip: You can subscribe to OnClose if you want to know when that occurs.</para>
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinEditorWindow.InspectObjectInDropDown(System.Object,System.Single)">
+            <summary>
+            <para>
+            Pops up an editor window for the given object in a drop-down window which closes when it loses its focus. 
+            </para>
+            <para>Protip: You can subscribe to OnClose if you want to know when that occurs.</para>
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinEditorWindow.InspectObjectInDropDown(System.Object,UnityEngine.Vector2,System.Single)">
+            <summary>
+            <para>
+            Pops up an editor window for the given object in a drop-down window which closes when it loses its focus. 
+            </para>
+            <para>Protip: You can subscribe to OnClose if you want to know when that occurs.</para>
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinEditorWindow.InspectObjectInDropDown(System.Object,System.Single,System.Single)">
+            <summary>
+            <para>
+            Pops up an editor window for the given object in a drop-down window which closes when it loses its focus. 
+            </para>
+            <para>Protip: You can subscribe to OnClose if you want to know when that occurs.</para>
+            </summary>
+        </member>
+        <member name="M:Sirenix.OdinInspector.Editor.OdinEditorWindow.InspectObjectInDropDown(System.Object)">
             <summary>
             <para>
             Pops up an editor window for the given object in a drop-down window which closes when it loses its focus. 
@@ -10034,7 +10798,7 @@
             <summary>
             Creates a StringMemberHelper to get a display string.
             </summary>
-            <param name="parentType">The type of the parent, to get a member string from.</param>
+            <param name="objectType">The type of the object, to get a member string from.</param>
             <param name="path">The input string. If the first character is a '$', then StringMemberHelper will look for a member string field, property or method.</param>
             <param name="allowInstanceMember">If <c>true</c>, then StringMemberHelper will look for instance members.</param>
             <param name="allowStaticMember">If <c>true</c>, then StringMemberHelper will look for static members.</param>
@@ -10043,7 +10807,7 @@
             <summary>
             Creates a StringMemberHelper to get a display string.
             </summary>
-            <param name="parentType">The type of the parent, to get a member string from.</param>
+            <param name="objectType">The type of the parent, to get a member string from.</param>
             <param name="path">The input string. If the first character is a '$', then StringMemberHelper will look for a member string field, property or method.</param>
             <param name="errorMessage">Error message buffer. If the string is not equal to <c>null</c>, the StringMemberHelper will not run.</param>
             <param name="allowInstanceMember">If <c>true</c>, then StringMemberHelper will look for instance members.</param>
@@ -10052,6 +10816,11 @@
         <member name="P:Sirenix.OdinInspector.Editor.StringMemberHelper.IsDynamicString">
             <summary>
             Gets a value indicating whether or not the string is retrived from a from a member. 
+            </summary>
+        </member>
+        <member name="P:Sirenix.OdinInspector.Editor.StringMemberHelper.ObjectType">
+            <summary>
+            Gets the type of the object.
             </summary>
         </member>
         <member name="M:Sirenix.OdinInspector.Editor.StringMemberHelper.GetString(Sirenix.OdinInspector.Editor.IPropertyValueEntry)">

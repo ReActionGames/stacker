@@ -4188,11 +4188,46 @@
             <exception cref="T:System.ArgumentNullException"><paramref name="serializedGenericTypeDefinition"/> was null.</exception>
             <exception cref="T:System.ArgumentException">The type given in <paramref name="serializedGenericTypeDefinition"/> is not a generic type definition.</exception>
         </member>
+        <member name="T:Sirenix.Serialization.BindTypeNameToTypeAttribute">
+             <summary>
+             An attribute that lets you help the DefaultSerializationBinder bind type names to types. This is useful if you're renaming a type, 
+             that would result in data loss, and what to specify the new type name to avoid loss of data.
+             </summary>
+             <seealso cref="T:Sirenix.Serialization.DefaultSerializationBinder" />
+             <example>
+             <code>
+             [assembly: Sirenix.Serialization.BindTypeNameToType("Namespace.OldTypeName", typeof(Namespace.NewTypeName))]
+             //[assembly: Sirenix.Serialization.BindTypeNameToType("Namespace.OldTypeName, OldFullAssemblyName", typeof(Namespace.NewTypeName))]
+            
+             namespace Namespace
+             {
+                 public class SomeComponent : SerializedMonoBehaviour
+                 {
+                     public IInterface test; // Contains an instance of OldTypeName;
+                 }
+            
+                 public interface IInterface { }
+            
+                 public class NewTypeName : IInterface { }
+            
+                 //public class OldTypeName : IInterface { }
+             }
+             </code>
+             </example>
+        </member>
+        <member name="M:Sirenix.Serialization.BindTypeNameToTypeAttribute.#ctor(System.String,System.Type)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sirenix.Serialization.BindTypeNameToTypeAttribute"/> class.
+            </summary>
+            <param name="oldFullTypeName">Old old full type name. If it's moved to new a new assembly you must specify the old assembly name as well. See example code in the documentation.</param>
+            <param name="newType">The new type.</param>
+        </member>
         <member name="T:Sirenix.Serialization.DefaultSerializationBinder">
             <summary>
             Provides a default, catch-all <see cref="T:Sirenix.Serialization.TwoWaySerializationBinder"/> implementation. This binder only includes assembly names, without versions and tokens, in order to increase compatibility.
             </summary>
             <seealso cref="T:Sirenix.Serialization.TwoWaySerializationBinder" />
+            <seealso cref="T:Sirenix.Serialization.BindTypeNameToTypeAttribute" />
         </member>
         <member name="M:Sirenix.Serialization.DefaultSerializationBinder.BindToName(System.Type,Sirenix.Serialization.DebugContext)">
             <summary>
@@ -5947,72 +5982,73 @@
         </member>
         <member name="T:Sirenix.Serialization.SerializationData">
             <summary>
-            Not yet documented.
-            </summary>
-        </member>
-        <member name="F:Sirenix.Serialization.SerializationData.SerializedFormat">
-            <summary>
-            Not yet documented.
-            </summary>
-        </member>
-        <member name="F:Sirenix.Serialization.SerializationData.SerializedBytes">
-            <summary>
-            Not yet documented.
-            </summary>
-        </member>
-        <member name="F:Sirenix.Serialization.SerializationData.ReferencedUnityObjects">
-            <summary>
-            Not yet documented.
+            Unity serialized data struct that contains all data needed by Odin serialization.
             </summary>
         </member>
         <member name="F:Sirenix.Serialization.SerializationData.PrefabModificationsReferencedUnityObjectsFieldName">
             <summary>
-            Not yet documented.
+            The name of the <see cref="F:Sirenix.Serialization.SerializationData.PrefabModificationsReferencedUnityObjects"/> field.
             </summary>
         </member>
         <member name="F:Sirenix.Serialization.SerializationData.PrefabModificationsFieldName">
             <summary>
-            Not yet documented.
+            The name of the <see cref="F:Sirenix.Serialization.SerializationData.PrefabModifications"/> field.
             </summary>
         </member>
         <member name="F:Sirenix.Serialization.SerializationData.PrefabFieldName">
             <summary>
-            Not yet documented.
+            The name of the <see cref="F:Sirenix.Serialization.SerializationData.Prefab"/> field.
+            </summary>
+        </member>
+        <member name="F:Sirenix.Serialization.SerializationData.SerializedFormat">
+            <summary>
+            The data format used by the serializer. This field will be automatically set to the format specified in the global serialization config
+            when the Unity object gets serialized, unless the Unity object implements the <see cref="T:Sirenix.Serialization.IOverridesSerializationFormat"/> interface.
+            </summary>
+        </member>
+        <member name="F:Sirenix.Serialization.SerializationData.SerializedBytes">
+            <summary>
+            The serialized data when serializing with the Binray format.
+            </summary>
+        </member>
+        <member name="F:Sirenix.Serialization.SerializationData.ReferencedUnityObjects">
+            <summary>
+            All serialized Unity references.
             </summary>
         </member>
         <member name="P:Sirenix.Serialization.SerializationData.HasEditorData">
             <summary>
-            Not yet documented.
+            Whether the object contains any serialized data.
             </summary>
         </member>
         <member name="F:Sirenix.Serialization.SerializationData.SerializedBytesString">
             <summary>
-            Not yet documented.
+            The serialized data when serializing with the JSON format.
             </summary>
         </member>
         <member name="F:Sirenix.Serialization.SerializationData.Prefab">
             <summary>
-            Not yet documented.
+            The reference to the prefab this is only populated in prefab scene instances.
             </summary>
         </member>
         <member name="F:Sirenix.Serialization.SerializationData.PrefabModificationsReferencedUnityObjects">
             <summary>
-            Not yet documented.
+            All serialized Unity references.
             </summary>
         </member>
         <member name="F:Sirenix.Serialization.SerializationData.PrefabModifications">
             <summary>
-            Not yet documented.
+            All Odin serialized prefab modifications.
             </summary>
         </member>
         <member name="F:Sirenix.Serialization.SerializationData.SerializationNodes">
             <summary>
-            Not yet documented.
+            The serialized data when serializing with the Nodes format.
             </summary>
         </member>
         <member name="M:Sirenix.Serialization.SerializationData.Reset">
             <summary>
-            Not yet documented.
+            Resets all data.
             </summary>
         </member>
         <member name="T:Sirenix.Serialization.UnityEventFormatter">
@@ -7065,12 +7101,12 @@
         </member>
         <member name="M:Sirenix.OdinInspector.SerializedMonoBehaviour.OnAfterDeserialize">
             <summary>
-            Not yet documented.
+            See ISerializationCallbackReceiver.OnBeforeSerialize for documentation on how to use this method.
             </summary>
         </member>
         <member name="M:Sirenix.OdinInspector.SerializedMonoBehaviour.OnBeforeSerialize">
             <summary>
-            Not yet documented.
+            Implement this method to receive a callback after unity serialized your object.
             </summary>
         </member>
         <member name="T:Sirenix.OdinInspector.SerializedNetworkBehaviour">
