@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Name: InspectorConfig
   m_EditorClassIdentifier: 
   enableOdinInInspector: 1
-  defaultEditorBehaviour: 11
+  defaultEditorBehaviour: 15
   processMouseMoveInInspector: 1
   drawingConfig:
-    configs: []
+    configs:
+    - DrawnTypeName: UnityEngine.UI.GraphicRaycaster, UnityEngine.UI
+      EditorTypeName: Sirenix.OdinInspector.Editor.OdinEditor, Sirenix.OdinInspector.Editor
