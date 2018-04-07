@@ -89,21 +89,7 @@ namespace Stacker
 
         private void RewardPlayer()
         {
-            StartCoroutine(AddCoins());
-        }
-
-        private IEnumerator AddCoins()
-        {
-            int amountGiven = 0;
-
-            yield return startDelay;
-
-            while (amountGiven < rewardAmount)
-            {
-                Currency.AddCoins(1);
-                amountGiven++;
-                yield return delay;
-            }
+            FindObjectOfType<RewardPlayer>().RewardWithCoins(rewardAmount);
         }
     }
 }
