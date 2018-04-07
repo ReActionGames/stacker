@@ -1,16 +1,16 @@
-﻿using System.Collections;
+﻿using Stacker.ScriptableObjects;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThemeUI : MonoBehaviour {
+namespace Stacker
+{
+    public class ThemeUI : MonoBehaviour
+    {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+        public void SetUp(Theme theme)
+        {
+
+        }
+    }
 }

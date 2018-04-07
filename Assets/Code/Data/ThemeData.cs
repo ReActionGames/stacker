@@ -1,16 +1,35 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThemeData : MonoBehaviour {
+namespace Stacker.ScriptableObjects
+{
+    [CreateAssetMenu(menuName = "Data/Theme List")]
+    public class ThemeData : ScriptableObject
+    {
+        [SerializeField] private Theme[] themes;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+        public Theme[] Themes
+        {
+            get
+            {
+                return themes;
+            }
+        }
+    }
+
+    [Serializable]
+    public class Theme
+    {
+        [SerializeField] private Sprite sprite;
+        
+        public Sprite Sprite
+        {
+            get
+            {
+                return sprite;
+            }
+        }
+    }
 }
