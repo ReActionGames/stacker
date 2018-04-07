@@ -36,13 +36,13 @@ namespace Stacker
         {
             switch (product.definition.id)
             {
-                case "coins.200":
+                case "com.henderstudios.stacker.coins.200":
                     RewardWithCoins(200);
                     break;
-                case "coins.500":
+                case "com.henderstudios.stacker.coins.500":
                     RewardWithCoins(500);
                     break;
-                case "coins.900":
+                case "com.henderstudios.stacker.coins.900":
                     RewardWithCoins(900);
                     break;
                 default:
