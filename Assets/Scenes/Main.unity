@@ -297,7 +297,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000058305257}
+  m_AnchoredPosition: {x: 0, y: -0.00007710351}
   m_SizeDelta: {x: 0, y: 161}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &52860208
@@ -10666,7 +10666,7 @@ MonoBehaviour:
   inAnimations:
     animationType: 0
     move:
-      enabled: 1
+      enabled: 0
       animationType: 0
       moveDirection: 2
       customPosition: {x: 0, y: 0, z: 0}
@@ -10724,9 +10724,9 @@ MonoBehaviour:
       startDelay: 0
       duration: 0.5
     moveIsExpanded:
-      m_Target: 1
+      m_Target: 0
       speed: 2
-      m_Value: 1
+      m_Value: 0
     rotateIsExpanded:
       m_Target: 0
       speed: 2
