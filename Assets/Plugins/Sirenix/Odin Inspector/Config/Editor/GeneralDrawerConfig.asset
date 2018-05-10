@@ -25,4 +25,4 @@ MonoBehaviour:
   maxRecursiveDrawDepth: 10
   showIndexLabels: 0
   squareUnityObjectFieldHeight: 50
-  squareUnityObjectAlignment: 2
+  squareUnityObjectAlignment: 0

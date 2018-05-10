@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -301,7 +301,7 @@ MonoBehaviour:
     iconColor: {r: 0.96470594, g: 0.96470594, b: 0.96470594, a: 1}
   inactiveState:
     borderColor: {r: 0.5921569, g: 0.30588236, b: 0.27450982, a: 1}
-    iconColor: {r: 0.7607843, g: 0.7607843, b: 0.7607843, a: 1}
+    iconColor: {r: 0.634, g: 0.634, b: 0.634, a: 1}
 --- !u!222 &222831227282405730
 CanvasRenderer:
   m_ObjectHideFlags: 1
