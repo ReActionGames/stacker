@@ -73,6 +73,7 @@ MonoBehaviour:
       itemNames:
       - ConfirmPurchase
       - Game Over
+      - HUD
       - Main Menu
       - Shop
       isExpanded:
@@ -137,6 +138,16 @@ MonoBehaviour:
         m_Target: 0
         speed: 2
         m_Value: 0
+    - categoryName: Game
+      itemNames:
+      - Home
+      - Pause
+      - Replay
+      - Resume
+      isExpanded:
+        m_Target: 1
+        speed: 2
+        m_Value: 1
     - categoryName: Main Menu
       itemNames:
       - Play
@@ -144,9 +155,9 @@ MonoBehaviour:
       - Shop
       - Stats
       isExpanded:
-        m_Target: 1
+        m_Target: 0
         speed: 2
-        m_Value: 1
+        m_Value: 0
     - categoryName: Uncategorized
       itemNames:
       - ~Button Name~
@@ -161,6 +172,7 @@ MonoBehaviour:
     - Example 2 - OrientationManager
     - Example 3 - Buttons
     - Example 4 - Simple UI
+    - Game
     - Main Menu
     - Uncategorized
   DatabaseUICanvases:
