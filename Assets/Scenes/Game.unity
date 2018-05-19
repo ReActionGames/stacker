@@ -5456,6 +5456,7 @@ GameObject:
   - component: {fileID: 1150831095}
   - component: {fileID: 1150831096}
   - component: {fileID: 1150831097}
+  - component: {fileID: 1150831098}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -5501,6 +5502,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tetroSettings: {fileID: 11400000, guid: 1dc8126af75009042b1ec986f70d72e1, type: 2}
+--- !u!114 &1150831098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1150831094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dcc828572473694a9be82296540c982, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1160301784
 GameObject:
   m_ObjectHideFlags: 0
@@ -6533,12 +6545,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d1e48fa3ebc86bc42a7099e7907d327a, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1277403104 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114428985559798070, guid: d1e48fa3ebc86bc42a7099e7907d327a,
-    type: 2}
-  m_PrefabInternal: {fileID: 1277403103}
-  m_Script: {fileID: 11500000, guid: 17dfa5d1de769384f9408a45fa9569bd, type: 3}
 --- !u!1 &1279254927
 GameObject:
   m_ObjectHideFlags: 0
@@ -6588,8 +6594,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dcc828572473694a9be82296540c982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasGroup: {fileID: 1279254930}
-  speed: 0.1
 --- !u!225 &1279254930
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -7329,9 +7333,9 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1277403104}
-        m_MethodName: SendMessage
-        m_Mode: 5
+      - m_Target: {fileID: 1150831098}
+        m_MethodName: HomeButtonClick
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7459,8 +7463,7 @@ MonoBehaviour:
       m_Target: 0
       speed: 2
       m_Value: 0
-  onClickGameEvents:
-  - LoadSceneAsync_Name_Main
+  onClickGameEvents: []
   onClickNavigation:
     addToNavigationHistory: 0
     show: []
@@ -8023,7 +8026,7 @@ GameObject:
   - component: {fileID: 1440360488}
   - component: {fileID: 1440360487}
   m_Layer: 5
-  m_Name: TogglePause
+  m_Name: Button_Pause
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8594,7 +8597,18 @@ MonoBehaviour:
   customOnClickSound: 0
   OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1150831098}
+        m_MethodName: PauseButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   onClickAnimationType: 0
@@ -11187,7 +11201,7 @@ GameObject:
   - component: {fileID: 1808011868}
   - component: {fileID: 1808011867}
   m_Layer: 5
-  m_Name: TogglePause
+  m_Name: Button_Resume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11759,7 +11773,18 @@ MonoBehaviour:
   customOnClickSound: 0
   OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1150831098}
+        m_MethodName: ResumeButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   onClickAnimationType: 0
@@ -12703,11 +12728,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
