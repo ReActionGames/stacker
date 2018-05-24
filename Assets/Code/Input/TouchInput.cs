@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TouchInput : IInputHandler {
-
-
-    public void ResolveInput()
+namespace Stacker
+{
+    public class TouchInput : IInputHandler
     {
-        throw new System.NotImplementedException();
-    }
 
+
+        public void ResolveInput()
+        {
+            throw new System.NotImplementedException();
+        }
+
+    }
 }

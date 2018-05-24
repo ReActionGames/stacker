@@ -1,4 +1,8 @@
-﻿public interface IInputHandler {
+﻿namespace Stacker
+{
+    public interface IInputHandler
+    {
 
-    void ResolveInput();
+        void ResolveInput();
+    }
 }

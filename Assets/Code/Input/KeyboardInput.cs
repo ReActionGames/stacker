@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Stacker
 {
-    public class KeyboardInput : MonoBehaviour
+    public class KeyboardInput : MonoBehaviour, IInputHandler
     {
         [SerializeField] private KeyCode left = KeyCode.A;
         [SerializeField] private KeyCode leftAlt = KeyCode.LeftArrow;
@@ -25,26 +25,26 @@ namespace Stacker
             }
         }
 
-        private void ResolveInput()
+        public void ResolveInput()
         {
-            InputType type = 0;
+            InputTriggerType type = 0;
             if (Input.GetKeyDown(left) || Input.GetKeyDown(leftAlt))
-                type = InputType.TetroLeft;
+                type = InputTriggerType.TetroLeft;
             else if (Input.GetKeyDown(right) || Input.GetKeyDown(rightAlt))
-                type = InputType.TetroRight;
+                type = InputTriggerType.TetroRight;
             else if (Input.GetKeyDown(drop) || Input.GetKeyDown(dropAlt))
-                type = InputType.TetroDrop;
+                type = InputTriggerType.TetroDrop;
             else if (Input.GetKeyDown(clockwise))
-                type = InputType.TetroClockwise;
+                type = InputTriggerType.TetroClockwise;
             else if (Input.GetKeyDown(counterClockwise))
-                type = InputType.TetroCounterClockwise;
+                type = InputTriggerType.TetroCounterClockwise;
             else
                 return;
 
             SendTrigger(type);
         }
 
-        private void SendTrigger(InputType type)
+        private void SendTrigger(InputTriggerType type)
         {
             EventManager.TriggerEvent(EventNames.InputReceived, new Message(type));
         }

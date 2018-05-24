@@ -26,27 +26,27 @@ namespace Stacker
 
         private void OnInputReceived(Message msg)
         {
-            InputType input = (InputType)msg.Data;
+            InputTriggerType input = (InputTriggerType)msg.Data;
             ResolveInput(input);
         }
 
-        private void ResolveInput(InputType input)
+        private void ResolveInput(InputTriggerType input)
         {
             switch (input)
             {
-                case InputType.TetroRight:
+                case InputTriggerType.TetroRight:
                     EventManager.TriggerEvent(EventNames.TetroMoveRight, new Message(tetroSettings));
                     break;
-                case InputType.TetroLeft:
+                case InputTriggerType.TetroLeft:
                     EventManager.TriggerEvent(EventNames.TetroMoveLeft, new Message(tetroSettings));
                     break;
-                case InputType.TetroDrop:
+                case InputTriggerType.TetroDrop:
                     EventManager.TriggerEvent(EventNames.TetroMoveDrop, new Message(tetroSettings));
                     break;
-                case InputType.TetroClockwise:
+                case InputTriggerType.TetroClockwise:
                     EventManager.TriggerEvent(EventNames.TetroRotateClockwise, new Message(tetroSettings));
                     break;
-                case InputType.TetroCounterClockwise:
+                case InputTriggerType.TetroCounterClockwise:
                     EventManager.TriggerEvent(EventNames.TetroRotateCounterClockwise, new Message(tetroSettings));
                     break;
             }
