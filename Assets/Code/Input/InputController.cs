@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using HenderStudios.Events;
+using Stacker.Enums;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,6 +25,12 @@ namespace Stacker
             inputHandler = EstablishInputController(inputType);
         }
 
+        private void Update()
+        {
+            if (IsInput())
+                HandleInput();
+        }
+
         private IInputHandler EstablishInputController(InputType inputType)
         {
             switch (inputType)
@@ -38,9 +46,26 @@ namespace Stacker
             }
         }
 
+        private bool IsInput()
+        {
+            return inputHandler.IsInput();
+        }
+
+        private void HandleInput()
+        {
+            var input = inputHandler.HandleInput();
+            SendTrigger(input);
+        }
+
+        private void SendTrigger(InputTriggerType input)
+        {
+            EventManager.TriggerEvent(EventNames.InputReceived, new Message(input));
+        }
+
+
         private KeyboardInput GetKeyboardInput()
         {
-            var input = gameObject.AddComponent<KeyboardInput>();
+            var input = new KeyboardInput();
             return input;
         }
 
