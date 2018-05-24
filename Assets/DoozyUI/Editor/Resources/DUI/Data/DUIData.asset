@@ -75,6 +75,7 @@ MonoBehaviour:
       - Game Over
       - HUD
       - Main Menu
+      - Pause
       - Shop
       isExpanded:
         m_Target: 0

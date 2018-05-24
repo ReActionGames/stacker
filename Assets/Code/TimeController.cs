@@ -16,7 +16,7 @@ namespace Stacker
             EventManager.StartListening(EventNames.ResumeGame, ResumeTime);
         }
 
-        private void PauseTime(Message message)
+        public void PauseTime()
         {
             previousDeltaTime = Time.fixedDeltaTime;
             previousTimeScale = Time.timeScale;
@@ -25,11 +25,20 @@ namespace Stacker
             Time.fixedDeltaTime = 0;
         }
 
-        private void ResumeTime(Message message)
+        public void ResumeTime()
         {
             Time.timeScale = previousTimeScale;
             Time.fixedDeltaTime = previousDeltaTime;
         }
 
+        private void PauseTime(Message message)
+        {
+            PauseTime();
+        }
+
+        private void ResumeTime(Message message)
+        {
+            ResumeTime();
+        }
     }
 }
