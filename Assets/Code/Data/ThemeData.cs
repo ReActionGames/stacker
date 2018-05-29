@@ -17,6 +17,13 @@ namespace Stacker.ScriptableObjects
                 return themes;
             }
         }
+
+        public Theme GetTheme(int themeNumber)
+        {
+            if (themeNumber < 0 || themeNumber >= themes.Length)
+                return null;
+            return themes[themeNumber];
+        }
     }
 
     [Serializable]

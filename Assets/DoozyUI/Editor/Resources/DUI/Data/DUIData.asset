@@ -155,6 +155,7 @@ MonoBehaviour:
       - Rate
       - Shop
       - Stats
+      - Theme
       isExpanded:
         m_Target: 0
         speed: 2

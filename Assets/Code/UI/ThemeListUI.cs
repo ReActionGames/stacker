@@ -14,22 +14,33 @@ namespace Stacker
         [SerializeField] private ThemeUI themeUIPrefab;
         [SerializeField] private GridLayoutGroup container;
 
-        [Button]
+        private ThemeUI[] themeUIs;
+
+        private void Start()
+        {
+            UpdateList();
+        }
+
+        //[Button]
         public void UpdateList()
         {
-            if (Application.isPlaying == false)
-                return;
-            container.transform.Clear();
+            themeUIs = GetComponentsInChildren<ThemeUI>();
 
-            foreach (Theme theme in themeData.Themes)
+            foreach (var theme in themeUIs)
             {
-                var go = Instantiate(themeUIPrefab);
-                go.transform.SetParent(container.transform, false);
-                go.SetUp(theme);
+                theme.SetUp(themeData);
             }
 
             var rect = container.GetComponent<RectTransform>();
             rect.sizeDelta = new Vector2(rect.sizeDelta.x, container.preferredHeight);
+        }
+
+        public void DeselectAll()
+        {
+            foreach (var theme in themeUIs)
+            {
+                theme.Deselect();
+            }
         }
 
     }

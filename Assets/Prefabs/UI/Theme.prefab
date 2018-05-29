@@ -366,6 +366,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f68bfbf4835673247b84a86c4b3641bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  themeNumber: 0
+  image: {fileID: 114624860679970276}
+  locked: {fileID: 224729256547865760}
+  texture: {fileID: 224834630095866600}
+  selected: {fileID: 224800993902198998}
 --- !u!114 &114624860679970276
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -432,8 +437,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 0
-  buttonCategory: Uncategorized
-  buttonName: ~Button Name~
+  buttonCategory: Main Menu
+  buttonName: Theme
   allowMultipleClicks: 1
   deselectButtonOnClick: 1
   disableButtonInterval: 0.4
@@ -966,7 +971,18 @@ MonoBehaviour:
   customOnClickSound: 0
   OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114536421771678766}
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   onClickAnimationType: 0
