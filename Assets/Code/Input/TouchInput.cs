@@ -1,13 +1,24 @@
-﻿using System.Collections;
+﻿using DoozyUI.Gestures;
+using Stacker.Enums;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TouchInput : IInputHandler {
-
-
-    public void ResolveInput()
+namespace Stacker
+{
+    public class TouchInput : IInputHandler
     {
-        throw new System.NotImplementedException();
-    }
+        public bool IsInput()
+        {
+            return TouchInputDetector.GetTrigger() != 0;
+        }
 
+        public InputTriggerType HandleInput()
+        {
+            var temp = TouchInputDetector.GetTrigger();
+            TouchInputDetector.ResetTrigger();
+            return temp;
+        }
+
+    }
 }

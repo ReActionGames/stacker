@@ -1,6 +1,6 @@
 ﻿namespace Stacker.Enums
 {
-    public enum InputType
+    public enum InputTriggerType
     {
         TetroRight = 10,
         TetroLeft = 11,

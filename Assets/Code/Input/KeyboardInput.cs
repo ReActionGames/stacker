@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Stacker
 {
-    public class KeyboardInput : MonoBehaviour
+    public class KeyboardInput : IInputHandler
     {
         [SerializeField] private KeyCode left = KeyCode.A;
         [SerializeField] private KeyCode leftAlt = KeyCode.LeftArrow;
@@ -17,36 +17,32 @@ namespace Stacker
         [SerializeField] private KeyCode clockwise = KeyCode.Period;
         [SerializeField] private KeyCode counterClockwise = KeyCode.Comma;
 
-        private void Update()
+        public bool IsInput()
         {
-            if (Input.anyKeyDown)
-            {
-                ResolveInput();
-            }
+            return Input.anyKeyDown;
         }
 
-        private void ResolveInput()
+        public InputTriggerType HandleInput()
         {
-            InputType type = 0;
+            InputTriggerType type = GetInputType();
+            return type;
+        }
+
+        private InputTriggerType GetInputType()
+        {
             if (Input.GetKeyDown(left) || Input.GetKeyDown(leftAlt))
-                type = InputType.TetroLeft;
+                return InputTriggerType.TetroLeft;
             else if (Input.GetKeyDown(right) || Input.GetKeyDown(rightAlt))
-                type = InputType.TetroRight;
+                return InputTriggerType.TetroRight;
             else if (Input.GetKeyDown(drop) || Input.GetKeyDown(dropAlt))
-                type = InputType.TetroDrop;
+                return InputTriggerType.TetroDrop;
             else if (Input.GetKeyDown(clockwise))
-                type = InputType.TetroClockwise;
+                return InputTriggerType.TetroClockwise;
             else if (Input.GetKeyDown(counterClockwise))
-                type = InputType.TetroCounterClockwise;
+                return InputTriggerType.TetroCounterClockwise;
             else
-                return;
-
-            SendTrigger(type);
+                return 0;
         }
 
-        private void SendTrigger(InputType type)
-        {
-            EventManager.TriggerEvent(EventNames.InputReceived, new Message(type));
-        }
     }
 }

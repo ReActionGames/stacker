@@ -1,4 +1,12 @@
-﻿public interface IInputHandler {
+﻿using Stacker.Enums;
 
-    void ResolveInput();
+namespace Stacker
+{
+    public interface IInputHandler
+    {
+
+        bool IsInput();
+
+        InputTriggerType HandleInput();
+    }
 }
