@@ -59,6 +59,7 @@ namespace Stacker
 
         private void SendTrigger(InputTriggerType input)
         {
+            Debug.Log("Sending Trigger: " + input.ToString());
             EventManager.TriggerEvent(EventNames.InputReceived, new Message(input));
         }
 

@@ -9,5 +9,6 @@ public static class PlayerPrefsClearer {
     public static void ClearPlayerPrefs()
     {
         PlayerPrefs.DeleteAll();
+        Debug.Log("PlayerPrefs Cleared.");
     }
 }

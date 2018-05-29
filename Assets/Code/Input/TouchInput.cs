@@ -10,12 +10,14 @@ namespace Stacker
     {
         public bool IsInput()
         {
-            return Input.touchCount > 0;
+            return TouchInputDetector.GetTrigger() != 0;
         }
 
         public InputTriggerType HandleInput()
         {
-            throw new System.NotImplementedException();
+            var temp = TouchInputDetector.GetTrigger();
+            TouchInputDetector.ResetTrigger();
+            return temp;
         }
 
     }
