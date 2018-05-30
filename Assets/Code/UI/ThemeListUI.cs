@@ -31,8 +31,8 @@ namespace Stacker
                 theme.SetUp(themeData);
             }
 
-            var rect = container.GetComponent<RectTransform>();
-            rect.sizeDelta = new Vector2(rect.sizeDelta.x, container.preferredHeight);
+            //var rect = container.GetComponent<RectTransform>();
+            //rect.sizeDelta = new Vector2(rect.sizeDelta.x, container.preferredHeight);
         }
 
         public void DeselectAll()
