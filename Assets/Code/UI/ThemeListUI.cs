@@ -11,7 +11,7 @@ namespace Stacker
     public class ThemeListUI : MonoBehaviour
     {
         [SerializeField] private ThemeData themeData;
-        [SerializeField] private ThemeUI themeUIPrefab;
+        [SerializeField] private TetroSettings tetroSettings;
         [SerializeField] private GridLayoutGroup container;
 
         private ThemeUI[] themeUIs;
@@ -43,5 +43,9 @@ namespace Stacker
             }
         }
 
+        public void SelectTheme(Theme theme)
+        {
+            tetroSettings.Theme = theme;
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Sirenix.OdinInspector;
+using Stacker.ScriptableObjects;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,7 @@ namespace Stacker.Tetros
         }
 
         [SerializeField] private GameObject coinImage;
+        [SerializeField] private SpriteRenderer textureImage;
 
         private bool hasCoin;
 
@@ -64,6 +66,14 @@ namespace Stacker.Tetros
         {
             var grid = FindObjectOfType<TetroGrid>();
             GetComponent<SpriteRenderer>().color = grid.ColorPalette.GetColorBasedOnType(type);
+        }
+
+        public void SetTexture()
+        {
+            var grid = FindObjectOfType<TetroGrid>();
+            Theme theme = grid.TetroSettings.Theme;
+            textureImage.sprite = theme.Sprite;
+            textureImage.transform.localPosition = Vector3.zero;
         }
 
         public void SetHasCoin(bool hasCoin)

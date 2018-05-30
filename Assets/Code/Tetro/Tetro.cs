@@ -61,6 +61,7 @@ namespace Stacker.Tetros
             tetroType = data.Type;
             SetTilePositions(data.DefaultTilePositions);
             ApplyColor();
+            ApplyTexture();
             Active = false;
         }
 
@@ -130,6 +131,14 @@ namespace Stacker.Tetros
             foreach (var tile in tiles)
             {
                 tile.SetColor(tetroType);
+            }
+        }
+
+        public void ApplyTexture()
+        {
+            foreach (var tile in tiles)
+            {
+                tile.SetTexture();
             }
         }
 

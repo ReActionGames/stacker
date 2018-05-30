@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Sirenix.OdinInspector;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,8 @@ namespace Stacker.Cells
     public class MovingCell : MonoBehaviour
     {
         [SerializeField] private GameObject coinImage;
+        [Required]
+        [SerializeField] private SpriteRenderer texture;
         private TetroGrid grid;
 
         private SpriteRenderer sprite
@@ -21,6 +24,7 @@ namespace Stacker.Cells
         {
             this.grid = grid;
             sprite.color = cell.GetColor();
+            SetTexture(grid);
             transform.position = startPos;
             ActiveCell state = (ActiveCell)cell.CurrentState;
             coinImage.SetActive(state.HasCoin);
@@ -58,6 +62,11 @@ namespace Stacker.Cells
         private void SetColor(Color color)
         {
             sprite.color = color;
+        }
+
+        private void SetTexture(TetroGrid grid)
+        {
+            texture.sprite = grid.TetroSettings.Theme.Sprite;
         }
 
         private Color GetColor()

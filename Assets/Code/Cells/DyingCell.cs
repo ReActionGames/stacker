@@ -10,6 +10,8 @@ namespace Stacker.Cells
     public class DyingCell : MonoBehaviour
     {
         [SerializeField] private DyingCellSettings settings;
+        [Required]
+        [SerializeField] private SpriteRenderer texture;
 
         private float jumpXDistance;
         private bool rotate;
@@ -26,6 +28,7 @@ namespace Stacker.Cells
             transform.position = position;
             jumpXDistance = settings.JumpXDistance;
             sprite.color = color;
+            SetTexture(FindObjectOfType<TetroGrid>());
             if (hasCoin)
                 SpawnCoin();
             PlaySFX();
@@ -36,6 +39,11 @@ namespace Stacker.Cells
         private void PlaySFX()
         {
             EventManager.TriggerEvent(EventNames.PlaySFX, new Message(settings.SoundFX));
+        }
+
+        private void SetTexture(TetroGrid grid)
+        {
+            texture.sprite = grid.TetroSettings.Theme.Sprite;
         }
 
         private void SpawnCoin()

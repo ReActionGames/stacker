@@ -11,6 +11,7 @@ namespace Stacker.ScriptableObjects
         [SerializeField] private float fallingSpeedIncreaseRate;
         [SerializeField] private float shiftSpeed;
         [SerializeField] private float dropSpeed;
+        [SerializeField] private Theme theme;
 
         [ReadOnly]
         [SerializeField] private float fallingSpeed;
@@ -34,6 +35,19 @@ namespace Stacker.ScriptableObjects
             get
             {
                 return fallingSpeed;
+            }
+        }
+
+        public Theme Theme
+        {
+            get
+            {
+                return theme;
+            }
+
+            set
+            {
+                theme = value;
             }
         }
 

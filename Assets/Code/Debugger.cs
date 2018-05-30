@@ -1,4 +1,5 @@
 ﻿using HenderStudios.Events;
+using Sirenix.OdinInspector;
 using Stacker.Cells;
 using System;
 using System.Collections;
@@ -9,9 +10,18 @@ namespace Stacker
 {
     public class Debugger : MonoBehaviour
     {
+        [SerializeField] private bool updateGrid = false;
+
+        [Button]
+        private void Add200Coins()
+        {
+            Currency.AddCoins(200);
+        }
 
         private void Update()
         {
+            if (!updateGrid)
+                return;
             if (Input.GetMouseButtonUp(0))
             {
                 UpdateGrid();

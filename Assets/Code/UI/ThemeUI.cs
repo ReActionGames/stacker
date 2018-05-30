@@ -12,6 +12,7 @@ namespace Stacker
     {
         private static string unlockedKeyPrefix = "theme-unlocked-";
         private static string selectedKey = "theme-selected";
+        private static int cost = 200;
 
         [SerializeField] private int themeNumber;
         [SerializeField] private Image image;
@@ -46,7 +47,23 @@ namespace Stacker
         public void OnClick()
         {
             if (unlocked)
+            {
                 Select();
+                return;
+            }
+
+            AttemptPurchase();
+        }
+
+        private void AttemptPurchase()
+        {
+            bool successful = Currency.RemoveCoinsIfAble(cost);
+
+            if (!successful)
+                return;
+
+            Unlock();
+            Select();
         }
 
         private void CheckIfUnlocked()
@@ -70,8 +87,12 @@ namespace Stacker
         private void Select()
         {
             //Unlock();
-            GetComponentInParent<ThemeListUI>().DeselectAll();
+            var listUI = GetComponentInParent<ThemeListUI>();
+            listUI.DeselectAll();
             selected.gameObject.SetActive(true);
+
+            listUI.SelectTheme(theme);
+            PlayerPrefs.SetInt(selectedKey, themeNumber);
         }
 
         //[Button]

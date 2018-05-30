@@ -17,32 +17,25 @@ namespace Stacker
     {
         [SerializeField] private Vector2 gridSize;
         [OnValueChanged("UpdateGridCellSize")]
-        [SerializeField]
-        private Vector3 cellSize;
+        [SerializeField] private Vector3 cellSize;
         [SerializeField] private Grid grid;
         [Required]
-        [SerializeField]
-        private Cell cellPrefab;
+        [SerializeField] private Cell cellPrefab;
         [Required]
-        [SerializeField]
-        private MovingCell movingCellPrefab;
+        [SerializeField] private MovingCell movingCellPrefab;
         [Required]
-        [SerializeField]
-        private DyingCell dyingCellPrefab;
+        [SerializeField] private DyingCell dyingCellPrefab;
         [SerializeField] private TetroColorPalette colorPalette;
         [SerializeField] private TetroSettings tetroSettings;
         [SerializeField] private GameSettings gameSettings;
 
         [BoxGroup("Gizmos")]
-        [SerializeField]
-        private bool showGizmos, showCoordinates;
+        [SerializeField] private bool showGizmos, showCoordinates;
         [BoxGroup("Gizmos")]
-        [SerializeField]
-        private bool negativeX, negativeY;
+        [SerializeField] private bool negativeX, negativeY;
 
         [BoxGroup("Events")]
-        [SerializeField]
-        private UnityEvent onGridUpdated;
+        [SerializeField] private UnityEvent onGridUpdated;
 
         /// <summary>
         /// A 2D array of Cells. Cells are either null, Active, Inactive, Moving, or Dying.

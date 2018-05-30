@@ -37,17 +37,24 @@ namespace Stacker.Cells
 
         public override void OnEnterState(Cell cell)
         {
+            SetTexture(cell);
             if (Type == TetroType.None)
             {
                 SetColor(cell, Color);
                 return;
             }
-            SetColor(cell, cell.grid.ColorPalette.GetColorBasedOnType(Type));
+            SetColor(cell, cell.Grid.ColorPalette.GetColorBasedOnType(Type));
         }
 
         private void SetColor(Cell cell, Color color)
         {
-            cell.sprite.color = color;
+            cell.Sprite.color = color;
+        }
+
+        private void SetTexture(Cell cell)
+        {
+            cell.Texture.gameObject.SetActive(true);
+            cell.Texture.sprite = cell.Grid.TetroSettings.Theme.Sprite;
         }
 
         public void ActivateCoin(Cell cell)
