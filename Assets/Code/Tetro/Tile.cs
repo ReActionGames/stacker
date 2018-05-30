@@ -3,6 +3,7 @@ using Stacker.ScriptableObjects;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Stacker.Tetros
 {
@@ -16,7 +17,7 @@ namespace Stacker.Tetros
         }
 
         [SerializeField] private GameObject coinImage;
-        [SerializeField] private SpriteRenderer textureImage;
+        [SerializeField] private Image textureImage;
 
         private bool hasCoin;
 
@@ -73,7 +74,11 @@ namespace Stacker.Tetros
             var grid = FindObjectOfType<TetroGrid>();
             Theme theme = grid.TetroSettings.Theme;
             textureImage.sprite = theme.Sprite;
-            textureImage.transform.localPosition = Vector3.zero;
+            textureImage.color = theme.Color;
+            textureImage.type = Image.Type.Simple;
+            textureImage.preserveAspect = true;
+            GetComponentInChildren<Canvas>().GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
+            //textureImage.transform.localPosition = Vector3.zero;
         }
 
         public void SetHasCoin(bool hasCoin)

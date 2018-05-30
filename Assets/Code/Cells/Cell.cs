@@ -3,6 +3,7 @@ using Stacker.ScriptableObjects;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Stacker.Cells
 {
@@ -11,7 +12,7 @@ namespace Stacker.Cells
         [SerializeField] private CellState currentState;
         [SerializeField] private SpriteRenderer sprite;
         [Required]
-        [SerializeField] private SpriteRenderer texture;
+        [SerializeField] private Image texture;
         [SerializeField] private TetroGrid grid;
         [SerializeField] private GameObject coinImage;
         
@@ -66,7 +67,7 @@ namespace Stacker.Cells
             }
         }
 
-        public SpriteRenderer Texture
+        public Image Texture
         {
             get
             {

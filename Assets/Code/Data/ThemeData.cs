@@ -30,12 +30,21 @@ namespace Stacker.ScriptableObjects
     public class Theme
     {
         [SerializeField] private Sprite sprite;
+        [SerializeField] private Color color;
         
         public Sprite Sprite
         {
             get
             {
                 return sprite;
+            }
+        }
+
+        public Color Color
+        {
+            get
+            {
+                return color;
             }
         }
     }

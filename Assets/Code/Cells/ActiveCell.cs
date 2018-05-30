@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Stacker.Cells
 {
@@ -54,7 +55,11 @@ namespace Stacker.Cells
         private void SetTexture(Cell cell)
         {
             cell.Texture.gameObject.SetActive(true);
-            cell.Texture.sprite = cell.Grid.TetroSettings.Theme.Sprite;
+            ScriptableObjects.Theme theme = cell.Grid.TetroSettings.Theme;
+            cell.Texture.sprite = theme.Sprite;
+            cell.Texture.color = theme.Color;
+            cell.Texture.type = Image.Type.Simple;
+            cell.Texture.preserveAspect = true;
         }
 
         public void ActivateCoin(Cell cell)

@@ -1,7 +1,9 @@
 ﻿using Sirenix.OdinInspector;
+using Stacker.ScriptableObjects;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Stacker.Cells
 {
@@ -9,7 +11,7 @@ namespace Stacker.Cells
     {
         [SerializeField] private GameObject coinImage;
         [Required]
-        [SerializeField] private SpriteRenderer texture;
+        [SerializeField] private Image texture;
         private TetroGrid grid;
 
         private SpriteRenderer sprite
@@ -66,7 +68,11 @@ namespace Stacker.Cells
 
         private void SetTexture(TetroGrid grid)
         {
-            texture.sprite = grid.TetroSettings.Theme.Sprite;
+            Theme theme = grid.TetroSettings.Theme;
+            texture.sprite = theme.Sprite;
+            texture.color = theme.Color;
+            texture.type = Image.Type.Simple;
+            texture.preserveAspect = true;
         }
 
         private Color GetColor()
