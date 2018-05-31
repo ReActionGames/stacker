@@ -117,7 +117,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.2.3
+  bundleVersion: 0.2.4
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -153,8 +153,8 @@ PlayerSettings:
     Android: com.henderstudios.stacker
     iOS: com.henderstudios.stacker
   buildNumber:
-    iOS: 2003
-  AndroidBundleVersionCode: 2003
+    iOS: 2004
+  AndroidBundleVersionCode: 2004
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
