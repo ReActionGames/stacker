@@ -1,18 +1,19 @@
-﻿using Stacker.ScriptableObjects;
+﻿using Sirenix.OdinInspector;
+using Stacker.ScriptableObjects;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Stacker.Cells
 {
     public class Cell : MonoBehaviour {
 
-        [SerializeField]
-        private CellState currentState;
-        [SerializeField]
-        internal SpriteRenderer sprite;
-        [SerializeField]
-        internal TetroGrid grid;
+        [SerializeField] private CellState currentState;
+        [SerializeField] private SpriteRenderer sprite;
+        [Required]
+        [SerializeField] private Image texture;
+        [SerializeField] private TetroGrid grid;
         [SerializeField] private GameObject coinImage;
         
         public CellState CurrentState
@@ -41,6 +42,39 @@ namespace Stacker.Cells
             }
         }
 
+        public SpriteRenderer Sprite
+        {
+            get
+            {
+                return sprite;
+            }
+
+            set
+            {
+                sprite = value;
+            }
+        }
+
+        public TetroGrid Grid
+        {
+            get
+            {
+                return grid;
+            }
+            private set
+            {
+                grid = value;
+            }
+        }
+
+        public Image Texture
+        {
+            get
+            {
+                return texture;
+            }
+        }
+
         private void Start()
         {
             currentState = new InactiveCell();
@@ -56,7 +90,7 @@ namespace Stacker.Cells
 
         public void SetGrid(TetroGrid grid, int x, int y)
         {
-            this.grid = grid;
+            this.Grid = grid;
             X = x;
             Y = y;
         }
@@ -68,7 +102,7 @@ namespace Stacker.Cells
 
         public Color GetColor()
         {
-            return sprite.color;
+            return Sprite.color;
         }
     }
 }

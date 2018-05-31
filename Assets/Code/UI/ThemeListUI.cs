@@ -11,26 +11,41 @@ namespace Stacker
     public class ThemeListUI : MonoBehaviour
     {
         [SerializeField] private ThemeData themeData;
-        [SerializeField] private ThemeUI themeUIPrefab;
+        [SerializeField] private TetroSettings tetroSettings;
         [SerializeField] private GridLayoutGroup container;
 
-        [Button]
-        public void UpdateList()
+        private ThemeUI[] themeUIs;
+
+        private void Start()
         {
-            if (Application.isPlaying == false)
-                return;
-            container.transform.Clear();
-
-            foreach (Theme theme in themeData.Themes)
-            {
-                var go = Instantiate(themeUIPrefab);
-                go.transform.SetParent(container.transform, false);
-                go.SetUp(theme);
-            }
-
-            var rect = container.GetComponent<RectTransform>();
-            rect.sizeDelta = new Vector2(rect.sizeDelta.x, container.preferredHeight);
+            UpdateList();
         }
 
+        //[Button]
+        public void UpdateList()
+        {
+            themeUIs = GetComponentsInChildren<ThemeUI>();
+
+            foreach (var theme in themeUIs)
+            {
+                theme.SetUp(themeData);
+            }
+
+            //var rect = container.GetComponent<RectTransform>();
+            //rect.sizeDelta = new Vector2(rect.sizeDelta.x, container.preferredHeight);
+        }
+
+        public void DeselectAll()
+        {
+            foreach (var theme in themeUIs)
+            {
+                theme.Deselect();
+            }
+        }
+
+        public void SelectTheme(Theme theme)
+        {
+            tetroSettings.Theme = theme;
+        }
     }
 }

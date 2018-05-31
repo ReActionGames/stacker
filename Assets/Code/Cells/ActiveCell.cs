@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Stacker.Cells
 {
@@ -37,17 +38,28 @@ namespace Stacker.Cells
 
         public override void OnEnterState(Cell cell)
         {
+            SetTexture(cell);
             if (Type == TetroType.None)
             {
                 SetColor(cell, Color);
                 return;
             }
-            SetColor(cell, cell.grid.ColorPalette.GetColorBasedOnType(Type));
+            SetColor(cell, cell.Grid.ColorPalette.GetColorBasedOnType(Type));
         }
 
         private void SetColor(Cell cell, Color color)
         {
-            cell.sprite.color = color;
+            cell.Sprite.color = color;
+        }
+
+        private void SetTexture(Cell cell)
+        {
+            cell.Texture.gameObject.SetActive(true);
+            ScriptableObjects.Theme theme = cell.Grid.TetroSettings.Theme;
+            cell.Texture.sprite = theme.Sprite;
+            cell.Texture.color = theme.Color;
+            cell.Texture.type = Image.Type.Simple;
+            cell.Texture.preserveAspect = true;
         }
 
         public void ActivateCoin(Cell cell)

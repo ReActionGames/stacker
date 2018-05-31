@@ -3152,6 +3152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0166addf6afcc645a69653d2b5525b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  updateGrid: 0
 --- !u!1 &386912894
 GameObject:
   m_ObjectHideFlags: 0
@@ -10013,7 +10014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0c035a752215324d9d3983042b91889, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputType: 2
+  inputType: 0
 --- !u!4 &1533340979
 Transform:
   m_ObjectHideFlags: 0
