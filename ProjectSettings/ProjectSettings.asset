@@ -603,6 +603,7 @@ PlayerSettings:
   webGLLinkerTarget: 0
   scriptingDefineSymbols:
     1: ODIN_INSPECTOR
+    4: NO_GPGS
     7: ODIN_INSPECTOR;dUI_DoozyUI;dUI_TextMeshPro
   platformArchitecture: {}
   scriptingBackend: {}
