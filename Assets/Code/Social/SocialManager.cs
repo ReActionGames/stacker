@@ -12,14 +12,20 @@ namespace Stacker
 
         private void Awake()
         {
+            if (!Social.localUser.authenticated)
+                Authenticate();
+        }
+
+        private void Authenticate()
+        {
             if (Application.platform == RuntimePlatform.Android || googlePlayOverride)
             {
                 PlayGamesPlatform.Activate();
-                Social.localUser.Authenticate((bool success) => {
+                Social.localUser.Authenticate((bool success) =>
+                {
                     Debug.Log("Authenticating User: " + (success ? "successful" : "unsuccessful"));
                 });
             }
         }
-
     }
 }
