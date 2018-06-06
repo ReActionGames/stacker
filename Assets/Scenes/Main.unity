@@ -12982,10 +12982,10 @@ MonoBehaviour:
     move:
       enabled: 0
       animationType: 0
-      moveDirection: 0
+      moveDirection: 11
       customPosition: {x: 0, y: 0, z: 0}
       easeType: 0
-      ease: 1
+      ease: 26
       animationCurve:
         serializedVersion: 2
         m_Curve: []
@@ -13000,7 +13000,7 @@ MonoBehaviour:
       rotation: {x: 0, y: 0, z: 0}
       rotateMode: 1
       easeType: 0
-      ease: 1
+      ease: 26
       animationCurve:
         serializedVersion: 2
         m_Curve: []
@@ -13014,7 +13014,7 @@ MonoBehaviour:
       animationType: 0
       scale: {x: 0, y: 0, z: 0}
       easeType: 0
-      ease: 1
+      ease: 26
       animationCurve:
         serializedVersion: 2
         m_Curve: []
@@ -13022,7 +13022,7 @@ MonoBehaviour:
         m_PostInfinity: 2
         m_RotationOrder: 4
       startDelay: 0
-      duration: 0.5
+      duration: 0.3
     fade:
       enabled: 1
       animationType: 0
@@ -13064,7 +13064,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   inAnimationsPresetCategoryName: Basic
-  inAnimationsPresetName: FadeLeft
+  inAnimationsPresetName: InstantFade
   loadInAnimationsPresetAtRuntime: 1
   inAnimationsSoundAtStart: ~No Sound~
   customInAnimationsSoundAtStart: 0
@@ -15517,12 +15517,8 @@ MonoBehaviour:
   onClickGameEvents: []
   onClickNavigation:
     addToNavigationHistory: 1
-    show:
-    - category: Screens
-      name: Help2
-    hide:
-    - category: Screens
-      name: Help3
+    show: []
+    hide: []
   useOnDoubleClick: 0
   waitForOnDoubleClickAnimation: 1
   doubleClickRegisterInterval: 0.2
@@ -22210,7 +22206,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: bf58e6a555f060e499eb108cf4a9f08d, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -22804,18 +22800,7 @@ MonoBehaviour:
   customOnClickSound: 0
   OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1155439682}
-        m_MethodName: set_Interactable
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   onClickAnimationType: 0
@@ -22937,13 +22922,9 @@ MonoBehaviour:
       m_Value: 0
   onClickGameEvents: []
   onClickNavigation:
-    addToNavigationHistory: 1
-    show:
-    - category: Screens
-      name: Help3
-    hide:
-    - category: Screens
-      name: Help2
+    addToNavigationHistory: 0
+    show: []
+    hide: []
   useOnDoubleClick: 0
   waitForOnDoubleClickAnimation: 1
   doubleClickRegisterInterval: 0.2
@@ -25386,13 +25367,9 @@ MonoBehaviour:
       m_Value: 0
   onClickGameEvents: []
   onClickNavigation:
-    addToNavigationHistory: 1
-    show:
-    - category: Screens
-      name: Help1
-    hide:
-    - category: Screens
-      name: Help2
+    addToNavigationHistory: 0
+    show: []
+    hide: []
   useOnDoubleClick: 0
   waitForOnDoubleClickAnimation: 1
   doubleClickRegisterInterval: 0.2
@@ -26160,7 +26137,7 @@ MonoBehaviour:
     move:
       enabled: 0
       animationType: 1
-      moveDirection: 0
+      moveDirection: 11
       customPosition: {x: 0, y: 0, z: 0}
       easeType: 0
       ease: 26
@@ -26171,14 +26148,14 @@ MonoBehaviour:
         m_PostInfinity: 2
         m_RotationOrder: 4
       startDelay: 0
-      duration: 0.4
+      duration: 0.5
     rotate:
       enabled: 0
       animationType: 1
-      rotation: {x: 0, y: 0, z: 60}
+      rotation: {x: 0, y: 0, z: 0}
       rotateMode: 1
       easeType: 0
-      ease: 17
+      ease: 26
       animationCurve:
         serializedVersion: 2
         m_Curve: []
@@ -26188,7 +26165,7 @@ MonoBehaviour:
       startDelay: 0
       duration: 0.5
     scale:
-      enabled: 0
+      enabled: 1
       animationType: 1
       scale: {x: 0, y: 0, z: 0}
       easeType: 0
@@ -26200,7 +26177,7 @@ MonoBehaviour:
         m_PostInfinity: 2
         m_RotationOrder: 4
       startDelay: 0
-      duration: 0.5
+      duration: 0.3
     fade:
       enabled: 1
       animationType: 1
@@ -26214,7 +26191,7 @@ MonoBehaviour:
         m_PostInfinity: 2
         m_RotationOrder: 4
       startDelay: 0
-      duration: 0.05
+      duration: 0.2
     moveIsExpanded:
       m_Target: 0
       speed: 2
@@ -26224,9 +26201,9 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
     scaleIsExpanded:
-      m_Target: 0
+      m_Target: 1
       speed: 2
-      m_Value: 0
+      m_Value: 1
     fadeIsExpanded:
       m_Target: 1
       speed: 2
@@ -26241,8 +26218,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  outAnimationsPresetCategoryName: Uncategorized
-  outAnimationsPresetName: DefaultPreset
+  outAnimationsPresetCategoryName: Basic
+  outAnimationsPresetName: FastFadeOut
   loadOutAnimationsPresetAtRuntime: 0
   outAnimationsSoundAtStart: ~No Sound~
   customOutAnimationsSoundAtStart: 0
@@ -28551,8 +28528,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4293980400
-  m_fontColor: {r: 0.94117653, g: 0.94117653, b: 0.94117653, a: 1}
+    rgba: 4287072135
+  m_fontColor: {r: 0.53099996, g: 0.53099996, b: 0.53099996, a: 1}
   m_enableVertexGradient: 0
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
@@ -29481,13 +29458,9 @@ MonoBehaviour:
       m_Value: 0
   onClickGameEvents: []
   onClickNavigation:
-    addToNavigationHistory: 1
-    show:
-    - category: Screens
-      name: Help2
-    hide:
-    - category: Screens
-      name: Help1
+    addToNavigationHistory: 0
+    show: []
+    hide: []
   useOnDoubleClick: 0
   waitForOnDoubleClickAnimation: 1
   doubleClickRegisterInterval: 0.2
@@ -30023,7 +29996,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 501bd83abc92b4a4f8669c0c1a19d590, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -33745,12 +33718,25 @@ MonoBehaviour:
   help2: {fileID: 885385421}
   help3: {fileID: 1639326349}
   playButton: {fileID: 1155439682}
-  textColorDisabled: {r: 0, g: 0, b: 0, a: 0}
-  textColorNormal: {r: 0, g: 0, b: 0, a: 0}
-  firstInAnim: 
-  lastOutAnim: 
-  transitionInAnim: 
-  transitionOutAnim: 
+  next1: {fileID: 1914346922}
+  next2: {fileID: 1588302119}
+  previous1: {fileID: 1606372341}
+  previous2: {fileID: 1111488834}
+  playButtonText: {fileID: 1842522182}
+  textColorDisabled: {r: 0.5294118, g: 0.5294118, b: 0.5294118, a: 1}
+  textColorNormal: {r: 0.94117653, g: 0.94117653, b: 0.94117653, a: 1}
+  firstInAnimCategory: Basic
+  firstInAnimName: InstantFade
+  lastOutAnimCategory: Basic
+  lastOutAnimName: InstantFade
+  transitionRightInAnimCategory: Basic
+  transitionRightInAnimName: FadeRight
+  transitionRightOutAnimCategory: Basic
+  transitionRightOutAnimName: FadeRight
+  transitionLeftInAnimCategory: Basic
+  transitionLeftInAnimName: FadeLeft
+  transitionLeftOutAnimCategory: Basic
+  transitionLeftOutAnimName: FadeLeft
 --- !u!1 &2053002596
 GameObject:
   m_ObjectHideFlags: 0
@@ -34323,7 +34309,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 7bd9edba39c192f4e804a4a809a49e2e, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1

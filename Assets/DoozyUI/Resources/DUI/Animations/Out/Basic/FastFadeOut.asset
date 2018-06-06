@@ -48,7 +48,7 @@ MonoBehaviour:
     scale:
       enabled: 1
       animationType: 1
-      scale: {x: 0, y: 0, z: 0}
+      scale: {x: 0.9, y: 0.9, z: 0.9}
       easeType: 0
       ease: 26
       animationCurve:
@@ -82,14 +82,14 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
     scaleIsExpanded:
-      m_Target: 0
+      m_Target: 1
       speed: 2
-      m_Value: 0
+      m_Value: 1
     fadeIsExpanded:
-      m_Target: 0
+      m_Target: 1
       speed: 2
-      m_Value: 0
+      m_Value: 1
   isExpanded:
-    m_Target: 0
+    m_Target: 1
     speed: 2
-    m_Value: 0
+    m_Value: 1
