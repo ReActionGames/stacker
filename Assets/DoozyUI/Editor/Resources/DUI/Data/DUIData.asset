@@ -73,6 +73,10 @@ MonoBehaviour:
       itemNames:
       - ConfirmPurchase
       - Game Over
+      - Help
+      - Help1
+      - Help2
+      - Help3
       - HUD
       - Main Menu
       - Pause
@@ -1340,8 +1344,8 @@ MonoBehaviour:
       presetNames:
       - DefaultPreset
       isExpanded:
-        m_Target: 0
+        m_Target: 1
         speed: 2
-        m_Value: 0
+        m_Value: 1
     categoryNames:
     - Uncategorized
