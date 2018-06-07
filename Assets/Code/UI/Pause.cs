@@ -10,7 +10,12 @@ namespace Stacker
 {
     public class Pause : MonoBehaviour
     {
-        
+
+        private void OnApplicationPause(bool pause)
+        {
+            EventManager.TriggerEvent(EventNames.PauseGame);
+        }
+
         public void PauseButtonClick()
         {
             EventManager.TriggerEvent(EventNames.PauseGame);

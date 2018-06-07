@@ -15,7 +15,8 @@ namespace Stacker
         [OnInspectorGUI, PropertyOrder(int.MinValue)]
         private void DrawInfoBox()
         {
-            Sirenix.Utilities.Editor.SirenixEditorGUI.InfoMessageBox("Touch Input Type:\n0 = SwipeDown\n1 = TapLeft\n2 = TapCenter\n3 = TapRight");
+            Sirenix.Utilities.Editor.SirenixEditorGUI
+                .InfoMessageBox("Touch Input Type:\n0 = SwipeDown\n1 = TapLeft\n2 = TapCenter\n3 = TapRight\n4 = SwipeLeft\n5 = SwipeRight\n6 = TapAnywhere");
         }
 #endif
 
@@ -28,7 +29,10 @@ namespace Stacker
             SwipeDown,
             TapLeft,
             TapCenter,
-            TapRight
+            TapRight,
+            SwipeLeft,
+            SwipeRight,
+            TapAnywhere
         }
 
         public void InputDetected(int type)
@@ -45,12 +49,15 @@ namespace Stacker
                     inputTrigger = InputTriggerType.TetroDrop;
                     break;
                 case TouchInputType.TapCenter:
+                case TouchInputType.TapAnywhere:
                     inputTrigger = InputTriggerType.TetroClockwise;
                     break;
                 case TouchInputType.TapLeft:
+                case TouchInputType.SwipeLeft:
                     inputTrigger = InputTriggerType.TetroLeft;
                     break;
                 case TouchInputType.TapRight:
+                case TouchInputType.SwipeRight:
                     inputTrigger = InputTriggerType.TetroRight;
                     break;
             }
