@@ -155,6 +155,7 @@ MonoBehaviour:
         m_Value: 1
     - categoryName: Main Menu
       itemNames:
+      - Help
       - Play
       - Rate
       - Shop

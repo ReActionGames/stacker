@@ -9,11 +9,7 @@ namespace Stacker
     public class HelpUI : MonoBehaviour
     {
         [TabGroup("Screens")]
-        [SerializeField] private UIElement help1;
-        [TabGroup("Screens")]
-        [SerializeField] private UIElement help2;
-        [TabGroup("Screens")]
-        [SerializeField] private UIElement help3;
+        [SerializeField] private UIElement mainMenu, help1, help2, help3;
 
         [TabGroup("Buttons")]
         [SerializeField] private UIButton playButton;
@@ -33,6 +29,9 @@ namespace Stacker
                                         transitionRightOutAnimCategory, transitionRightOutAnimName,
                                         transitionLeftInAnimCategory, transitionLeftInAnimName,
                                         transitionLeftOutAnimCategory, transitionLeftOutAnimName;
+
+        [TabGroup("Elements")]
+        [SerializeField] private string screenCategory, mainMenuName, helpName, help1Name, help2Name, help3Name;
 
         private Anim firstInAnim
         {
@@ -76,7 +75,7 @@ namespace Stacker
                 return UIAnimatorUtil.GetOutAnim(transitionLeftOutAnimCategory, transitionLeftOutAnimName);
             }
         }
-
+        
         private void Awake()
         {
             next1.OnClick.AddListener(Next1ButtonOnClick);
@@ -100,6 +99,53 @@ namespace Stacker
             playButtonText.color = textColorDisabled;
         }
 
+        public void ShowHelp()
+        {
+            SetPlayButtonInteractable(false);
+
+            NavigationPointer mainMenuPointer = new NavigationPointer(screenCategory, mainMenuName);
+            NavigationPointer helpPointer = new NavigationPointer(screenCategory, helpName);
+            NavigationPointer help1Pointer = new NavigationPointer(screenCategory, help1Name);
+            NavigationPointerData data = new NavigationPointerData(true);
+            data.show.Add(helpPointer);
+            data.show.Add(help1Pointer);
+            data.hide.Add(mainMenuPointer);
+
+            var temp = mainMenu.outAnimations.Copy();
+            mainMenu.outAnimations = lastOutAnim.Copy();
+
+            UINavigation.Show(data.show);
+            UINavigation.Hide(data.hide);
+            UINavigation.AddItemToHistory(data);
+
+            mainMenu.outAnimations = temp;
+        }
+
+        public void HideHelp()
+        {
+            SetPlayButtonInteractable(false);
+
+            NavigationPointer mainMenuPointer = new NavigationPointer(screenCategory, mainMenuName);
+            NavigationPointer helpPointer = new NavigationPointer(screenCategory, helpName);
+            NavigationPointerData data = new NavigationPointerData(true);
+
+            data.show.Add(mainMenuPointer);
+            data.hide.Add(helpPointer);
+
+            var temp = mainMenu.inAnimations.Copy();
+            mainMenu.inAnimations = firstInAnim.Copy();
+
+            UINavigation.Show(data.show, true);
+            UINavigation.Hide(data.hide);
+            UINavigation.AddItemToHistory(data);
+
+            help1.Hide(true);
+            help2.Hide(true);
+            help3.Hide(true);
+
+            mainMenu.inAnimations = temp;
+        }
+
         private void Next1ButtonOnClick()
         {
             help1.outAnimations = transitionLeftOutAnim;
@@ -116,6 +162,8 @@ namespace Stacker
 
             help2.Hide(false);
             help3.Show(false);
+
+            SetPlayButtonInteractable(true);
         }
 
         private void Previous1ButtonOnClick()
@@ -134,6 +182,20 @@ namespace Stacker
 
             help3.Hide(false);
             help2.Show(false);
+        }
+
+        private void SetPlayButtonInteractable(bool interactable)
+        {
+            playButton.Interactable = interactable;
+
+            if (interactable)
+            {
+                playButtonText.color = textColorNormal;
+            }
+            else
+            {
+                playButtonText.color = textColorDisabled;
+            }
         }
     }
 }
