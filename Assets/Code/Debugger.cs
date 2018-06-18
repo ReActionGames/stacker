@@ -11,12 +11,19 @@ namespace Stacker
     public class Debugger : MonoBehaviour
     {
         [SerializeField] private bool updateGrid = false;
+        [SerializeField] private string IAP_ID;
 
         [Button]
         private void Add200Coins()
         {
             Currency.AddCoins(200);
         }
+
+        //private void RewardPlayer()
+        //{
+        //    FindObjectOfType<Purchaser>().
+        //    FindObjectOfType<RewardPlayer>().Reward(new UnityEngine.Purchasing.Product())
+        //}
 
         private void Update()
         {
