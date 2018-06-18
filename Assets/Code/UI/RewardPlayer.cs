@@ -19,6 +19,7 @@ namespace Stacker
         private void Start()
         {
             CacheDelays();
+            FindObjectOfType<Purchaser>().onPurchaseCompleted.AddListener(Reward);
         }
 
         private void CacheDelays()

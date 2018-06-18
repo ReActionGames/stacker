@@ -3,6 +3,8 @@ using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 namespace Stacker
 {
@@ -24,11 +26,12 @@ namespace Stacker
         [SerializeField] private Color textColorNormal;
 
         [TabGroup("Anims")]
-        [SerializeField] private string firstInAnimCategory, firstInAnimName, lastOutAnimCategory, lastOutAnimName, 
-                                        transitionRightInAnimCategory, transitionRightInAnimName, 
+        [SerializeField] private string firstInAnimCategory, firstInAnimName, lastOutAnimCategory, lastOutAnimName,
+                                        transitionRightInAnimCategory, transitionRightInAnimName,
                                         transitionRightOutAnimCategory, transitionRightOutAnimName,
                                         transitionLeftInAnimCategory, transitionLeftInAnimName,
-                                        transitionLeftOutAnimCategory, transitionLeftOutAnimName;
+                                        transitionLeftOutAnimCategory, transitionLeftOutAnimName,
+                                        playButtonLoopAnimCategory, playButtonLoopAnimName;
 
         [TabGroup("Elements")]
         [SerializeField] private string screenCategory, mainMenuName, helpName, help1Name, help2Name, help3Name;
@@ -75,6 +78,13 @@ namespace Stacker
                 return UIAnimatorUtil.GetOutAnim(transitionLeftOutAnimCategory, transitionLeftOutAnimName);
             }
         }
+        private Loop playButtonLoopAnim
+        {
+            get
+            {
+                return UIAnimatorUtil.GetLoop(playButtonLoopAnimCategory, playButtonLoopAnimName);
+            }
+        }
         
         private void Awake()
         {
@@ -101,6 +111,8 @@ namespace Stacker
 
         public void ShowHelp()
         {
+            PlayerPrefsX.SetBool("first-time", false);
+
             SetPlayButtonInteractable(false);
 
             NavigationPointer mainMenuPointer = new NavigationPointer(screenCategory, mainMenuName);
@@ -191,11 +203,32 @@ namespace Stacker
             if (interactable)
             {
                 playButtonText.color = textColorNormal;
+                //playButton.normalLoop = playButtonLoopAnim;
+                EventSystem.current.SetSelectedGameObject(playButton.gameObject);
             }
             else
             {
+                //playButton.normalLoop = null;
+                EventSystem.current.SetSelectedGameObject(null);
                 playButtonText.color = textColorDisabled;
             }
+        }
+
+        public void RegularPlayButtonOnClick()
+        {
+            bool firstTime = PlayerPrefsX.GetBool("first-time", true);
+            if (firstTime == false)
+            {
+                LoadScene();
+                return;
+            }
+
+            ShowHelp();
+        }
+
+        private void LoadScene()
+        {
+            SceneManager.LoadScene("Game");
         }
     }
 }

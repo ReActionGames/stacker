@@ -12,17 +12,17 @@ namespace Stacker
     public class Purchaser : MonoBehaviour, IStoreListener
     {
         [System.Serializable]
-        private class OnPurchaseCompletedEvent : UnityEvent<Product>
+        public class OnPurchaseCompletedEvent : UnityEvent<Product>
         {
         };
 
         [System.Serializable]
-        private class OnPurchaseFailedEvent : UnityEvent<Product, PurchaseFailureReason>
+        public class OnPurchaseFailedEvent : UnityEvent<Product, PurchaseFailureReason>
         {
         };
 
-        [SerializeField] private OnPurchaseCompletedEvent onPurchaseCompleted;
-        [SerializeField] private OnPurchaseFailedEvent onPurchaseFailed;
+        [SerializeField] public OnPurchaseCompletedEvent onPurchaseCompleted;
+        [SerializeField] public OnPurchaseFailedEvent onPurchaseFailed;
 
         private static IStoreController m_StoreController;          // The Unity Purchasing system.
         private static IExtensionProvider m_StoreExtensionProvider; // The store-specific Purchasing subsystems.
@@ -185,6 +185,7 @@ namespace Stacker
 
         public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs args)
         {
+            Debug.Log("Purchase completed. Firing events...");
             onPurchaseCompleted?.Invoke(args.purchasedProduct);
 
             // Return a flag indicating whether this product has completely been received, or if the application needs 
