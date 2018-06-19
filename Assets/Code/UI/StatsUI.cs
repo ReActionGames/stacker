@@ -10,8 +10,13 @@ namespace Stacker
         public void OnStatsClicked()
         {
             Debug.Log("stats clicked.");
+            if (Application.platform == RuntimePlatform.Android)
+            {
+                GooglePlayGames.PlayGamesPlatform.Instance.ShowLeaderboardUI("CgkIkKf5rrQOEAIQAQ");
+                return;
+            }
+
             Social.ShowLeaderboardUI();
-            //GooglePlayGames.PlayGamesPlatform.Instance.ShowLeaderboardUI("CgkIkKf5rrQOEAIQAQ");
         }
     }
 }

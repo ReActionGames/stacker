@@ -5,6 +5,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Stacker
 {
@@ -12,6 +13,7 @@ namespace Stacker
     {
         public bool startGameOnStart;
         [SerializeField] private GameSettings gameSettings;
+        [SerializeField] private UnityEvent onGameOver;
 
         private Spawner spawner;
         private TetroGrid grid;
@@ -52,6 +54,8 @@ namespace Stacker
 
         private void EndGame(Message message)
         {
+            onGameOver?.Invoke();
+
             EventManager.TriggerEvent(EventNames.StopGameUpdate);
             EventManager.TriggerEvent(EventNames.EndGame);
         }

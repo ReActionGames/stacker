@@ -33,6 +33,15 @@ namespace Stacker
             }
         }
 
+        public bool NewHighScore
+        {
+            get
+            {
+                return beatHighScore;
+            }
+
+        }
+
         private void Start()
         {
             EventManager.StartListening(EventNames.StartGameUpdate, delegate

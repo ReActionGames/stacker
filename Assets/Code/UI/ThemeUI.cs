@@ -4,6 +4,7 @@ using Stacker.ScriptableObjects;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace Stacker
@@ -14,11 +15,23 @@ namespace Stacker
         private static string selectedKey = "theme-selected";
         private static int cost = 200;
 
+        [System.Serializable]
+        private class OnPurchaseCompletedEvent : UnityEvent<Theme>
+        {
+        };
+        [System.Serializable]
+        private class OnThemeSelectedEvent : UnityEvent<Theme>
+        {
+        };
+
         [SerializeField] private int themeNumber;
         [SerializeField] private Image image;
         [SerializeField] private RectTransform locked;
         [SerializeField] private RectTransform texture;
         [SerializeField] private RectTransform selected;
+
+        [SerializeField] private OnPurchaseCompletedEvent onPurchaseCompleted;
+        [SerializeField] private OnThemeSelectedEvent onThemeSelected;
 
         private Theme theme;
         private string unlockedKey
@@ -62,6 +75,8 @@ namespace Stacker
             if (!successful)
                 return;
 
+            onPurchaseCompleted?.Invoke(theme);
+
             Unlock();
             Select();
         }
@@ -93,6 +108,8 @@ namespace Stacker
 
             listUI.SelectTheme(theme);
             PlayerPrefs.SetInt(selectedKey, themeNumber);
+
+            onThemeSelected?.Invoke(theme);
         }
 
         //[Button]

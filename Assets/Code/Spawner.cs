@@ -24,7 +24,8 @@ namespace Stacker
         
         public void PreWarmPool()
         {
-            Tetro[] tetros = tetroPool.PreWarm();
+            tetroPool.PreWarm();
+            //Tetro[] tetros = tetroPool.PreWarm();
             //foreach (var tetro in tetros)
             //{
             //    //tetro.OnDie.AddListener(InvokeOnTetroDie);

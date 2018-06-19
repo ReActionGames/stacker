@@ -31,6 +31,7 @@ namespace Stacker.ScriptableObjects
     {
         [SerializeField] private Sprite sprite;
         [SerializeField] private Color color;
+        [SerializeField] private int id;
         
         public Sprite Sprite
         {
@@ -45,6 +46,14 @@ namespace Stacker.ScriptableObjects
             get
             {
                 return color;
+            }
+        }
+
+        public int ID
+        {
+            get
+            {
+                return id;
             }
         }
     }

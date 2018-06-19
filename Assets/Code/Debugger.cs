@@ -48,7 +48,7 @@ namespace Stacker
 
         private void EditGrid()
         {
-            TetroGrid grid = FindObjectOfType<TetroGrid>();
+            //TetroGrid grid = FindObjectOfType<TetroGrid>();
             Vector2 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
             {
