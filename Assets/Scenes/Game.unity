@@ -858,7 +858,7 @@ MonoBehaviour:
   useOnClickAnimations: 1
   waitForOnClickAnimation: 1
   singleClickMode: 0
-  onClickSound: ~No Sound~
+  onClickSound: MouthPop
   customOnClickSound: 0
   OnClick:
     m_PersistentCalls:
@@ -6348,7 +6348,7 @@ MonoBehaviour:
   useOnClickAnimations: 1
   waitForOnClickAnimation: 1
   singleClickMode: 0
-  onClickSound: ~No Sound~
+  onClickSound: MouthPop
   customOnClickSound: 0
   OnClick:
     m_PersistentCalls:
@@ -7624,7 +7624,7 @@ MonoBehaviour:
   useOnClickAnimations: 1
   waitForOnClickAnimation: 1
   singleClickMode: 0
-  onClickSound: ~No Sound~
+  onClickSound: MouthPop
   customOnClickSound: 0
   OnClick:
     m_PersistentCalls:
@@ -8210,7 +8210,7 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   controllerInputMode: 0
-  enableAlternateInputs: 0
+  enableAlternateInputs: 1
   onClickKeyCode: 13
   onClickKeyCodeAlt: 32
   onClickVirtualButtonName: Submit
@@ -10313,7 +10313,7 @@ MonoBehaviour:
   useOnClickAnimations: 1
   waitForOnClickAnimation: 1
   singleClickMode: 0
-  onClickSound: ~No Sound~
+  onClickSound: MouthPop
   customOnClickSound: 0
   OnClick:
     m_PersistentCalls:
@@ -12552,7 +12552,7 @@ MonoBehaviour:
   useOnClickAnimations: 1
   waitForOnClickAnimation: 1
   singleClickMode: 0
-  onClickSound: ~No Sound~
+  onClickSound: MouthPop
   customOnClickSound: 0
   OnClick:
     m_PersistentCalls:
