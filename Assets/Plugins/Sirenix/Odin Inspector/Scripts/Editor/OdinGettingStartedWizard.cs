@@ -2,7 +2,6 @@
 {
     using Sirenix.OdinInspector;
     using Sirenix.OdinInspector.Editor;
-    using Sirenix.Serialization;
     using Sirenix.Utilities;
     using Sirenix.Utilities.Editor;
     using System;
@@ -11,11 +10,18 @@
     using System.Linq;
     using UnityEditor;
     using UnityEngine;
-    using UnityEngine.Serialization;
 
     [HideMonoScript]
     public class OdinGettingStartedWizard : ScriptableObject
     {
+        [MenuItem("Tools/Odin Inspector/Getting Started", priority = int.MaxValue - 2)]
+        private static void OpenGettingStarted()
+        {
+            var assetPath = "Assets/" + SirenixAssetPaths.SirenixPluginPath + "Getting Started With Odin.asset";
+            var asset = AssetDatabase.LoadAssetAtPath(assetPath, typeof(UnityEngine.Object));
+            OdinEditorWindow.InspectObject(asset).position = GUIHelper.GetEditorWindowRect().AlignCenter(632, 743);
+        }
+
         [NonSerialized]
         public bool ShowEditor;
 
@@ -77,8 +83,15 @@
                     // Draw texts
                     GUILayout.BeginVertical();
                     {
-                        GUILayout.Label(item.Title, subTitle);
-                        GUILayout.Label(item.SubTitle, SirenixGUIStyles.MultiLineLabel);
+                        if (string.IsNullOrEmpty(item.Title) && item.Resources.Count == 0)
+                        {
+                            GUILayout.Label(item.SubTitle, SirenixGUIStyles.MultiLineCenteredLabel);
+                        }
+                        else
+                        {
+                            GUILayout.Label(item.Title, subTitle);
+                            GUILayout.Label(item.SubTitle, SirenixGUIStyles.MultiLineLabel);
+                        }
                     }
                     GUILayout.EndVertical();
 
@@ -119,7 +132,7 @@
                 GUIHelper.PushColor(Color.green);
                 if (GUILayout.Button("Open this in a new window", GUILayoutOptions.Height(30)))
                 {
-                    OdinEditorWindow.InspectObject(this).position = GUIHelper.GetEditorWindowRect().AlignCenter(570, 700);
+                    OdinEditorWindow.InspectObject(this).position = GUIHelper.GetEditorWindowRect().AlignCenter(632, 743);
                     Selection.objects = new UnityEngine.Object[0];
                 }
                 GUIHelper.PopColor();

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: 2800000, guid: a78bffbeb81b48ae9ec71ad7969613e5, type: 3}
   Title: Getting Started
-  BtnWidth: 178.65
+  BtnWidth: 147.1
   SubTitleFontSize: 17
   TitleFontSize: 25
   Examples:
@@ -37,8 +37,7 @@ MonoBehaviour:
   - VerticalResources: 0
     Title: Odin Editor Windows
     SubTitle: You can also use Odin to rapidly create custom Editor Windows to help
-      organize your project and game data. This is where Odin can really help boost
-      your workflow. Make sure to check out the examples!
+      organize your project data. This is where Odin can really help boost your workflow.
     Resources:
     - Type: 0
       ButtonName: Import Demo
@@ -57,7 +56,7 @@ MonoBehaviour:
     Title: Custom Drawer Examples
     SubTitle: Making custom drawers in Odin is 10x faster and 10x more powerful than
       in vanilla Unity. Drawers are strongly typed, with generic resolution, and have
-      full support for the layout system - no need to calculate any property heights!
+      full support for the layout system - no need to calculate any property heights.
     Resources:
     - Type: 0
       ButtonName: Import Demo
@@ -71,6 +70,18 @@ MonoBehaviour:
       UnityObject: {fileID: 102900000, guid: eff1fe28f11c1fa43a4019748a284cb0, type: 3}
       StringValue: 
       windowSize: {x: 700, y: 500}
+  - VerticalResources: 0
+    Title: Sample Projects
+    SubTitle: Looking for ideas, inspiration, tips, and tricks to improve your workflow?
+      Here we showcase various example projects that combines many of features Odin
+      provides.
+    Resources:
+    - Type: 1
+      ButtonName: Open Sample Projects
+      HighlightButton: 0
+      UnityObject: {fileID: 0}
+      StringValue: Assets/Plugins/Sirenix/Odin Inspector/Assets/Sample Projects.asset
+      windowSize: {x: 500, y: 337.7}
   - VerticalResources: 1
     Title: Online Resources
     SubTitle: 'Check out the Manual for a proper in-depth introduction to Odin Inspector.
@@ -81,8 +92,8 @@ MonoBehaviour:
       get inspiration or come and hang out.
 
 
-      We really hope you like Odin! if you do, be sure to leave a review on the Asset
-      Store, that helps us out a lot!'
+      We really hope you like Odin! If you feel like it, please leave a review on
+      the Asset Store, that helps us out a lot.'
     Resources:
     - Type: 2
       ButtonName: Manual
@@ -97,10 +108,22 @@ MonoBehaviour:
       StringValue: http://sirenix.net/odininspector/documentation
       windowSize: {x: 700, y: 500}
     - Type: 2
+      ButtonName: FAQ
+      HighlightButton: 0
+      UnityObject: {fileID: 0}
+      StringValue: http://sirenix.net/odininspector/faq
+      windowSize: {x: 700, y: 500}
+    - Type: 2
       ButtonName: Issue Tracker
       HighlightButton: 0
       UnityObject: {fileID: 0}
       StringValue: https://bitbucket.org/sirenix/odin-inspector/issues
+      windowSize: {x: 700, y: 500}
+    - Type: 2
+      ButtonName: Discord
+      HighlightButton: 0
+      UnityObject: {fileID: 0}
+      StringValue: https://discordapp.com/invite/yHypX4?utm_source=Discord%20Widget&utm_medium=Connect
       windowSize: {x: 700, y: 500}
     - Type: 2
       ButtonName: Support

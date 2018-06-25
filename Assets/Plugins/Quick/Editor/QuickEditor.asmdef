@@ -1,0 +1,12 @@
+{
+    "name": "QuickEditor",
+    "references": [
+        "Plugins"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false
+}

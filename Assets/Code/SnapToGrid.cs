@@ -3,15 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
-public class SnapToGrid : MonoBehaviour {
-
-    public TetrisGrid tetrisGrid;
-
-    [Button]
-    public void Snap()
+namespace Stacker
+{
+    public class SnapToGrid : MonoBehaviour
     {
-        var grid = tetrisGrid.Grid;
-        Vector3Int cellPosition = grid.LocalToCell(transform.localPosition);
-        transform.localPosition = grid.GetCellCenterLocal(cellPosition);
+
+        public TetroGrid tetrisGrid;
+        [BoxGroup("Snapping")]
+        public Transform objectToSnap;
+
+        [Button(ButtonSizes.Large), BoxGroup("Snapping")]
+        public void Snap()
+        {
+            if (tetrisGrid == null || objectToSnap == null)
+                return;
+            var grid = tetrisGrid.Grid;
+            Vector3Int cellPosition = grid.LocalToCell(objectToSnap.localPosition);
+            objectToSnap.localPosition = grid.GetCellCenterLocal(cellPosition);
+        }
+
+        public void Snap(Transform _transform)
+        {
+            if (tetrisGrid == null)
+                return;
+            var grid = tetrisGrid.Grid;
+            Vector3Int cellPosition = grid.LocalToCell(_transform.localPosition);
+            _transform.localPosition = grid.GetCellCenterLocal(cellPosition);
+        }
     }
 }
