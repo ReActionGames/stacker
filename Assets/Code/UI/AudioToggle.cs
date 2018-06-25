@@ -19,11 +19,13 @@ namespace Stacker
         {
             [SerializeField] private Color borderColor;
             [SerializeField] private Color iconColor;
+            [SerializeField] private Sprite icon;
 
             public void ApplyState(Image border, Image icon)
             {
                 border.color = borderColor;
                 icon.color = iconColor;
+                icon.sprite = this.icon;
             }
         }
 
@@ -57,9 +59,13 @@ namespace Stacker
         private void ToggleState()
         {
             if (audioOn)
+            {
                 activeState.ApplyState(border, icon);
+            }
             else
+            {
                 inactiveState.ApplyState(border, icon);
+            }
         }
 
         private void LoadState()

@@ -11863,9 +11863,11 @@ MonoBehaviour:
   activeState:
     borderColor: {r: 0.90196085, g: 0.3832979, b: 0.32549024, a: 1}
     iconColor: {r: 0.96470594, g: 0.96470594, b: 0.96470594, a: 1}
+    icon: {fileID: 21300000, guid: 40eb6c9174895a241abab3fa942c7ef5, type: 3}
   inactiveState:
     borderColor: {r: 0.5921569, g: 0.30588236, b: 0.27450982, a: 1}
     iconColor: {r: 0.634, g: 0.634, b: 0.634, a: 1}
+    icon: {fileID: 21300000, guid: c0ba1ada41c79cb4983d30de89c26d81, type: 3}
 --- !u!1 &799138064
 GameObject:
   m_ObjectHideFlags: 0
