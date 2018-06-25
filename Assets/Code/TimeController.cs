@@ -14,6 +14,8 @@ namespace Stacker
         {
             EventManager.StartListening(EventNames.PauseGame, PauseTime);
             EventManager.StartListening(EventNames.ResumeGame, ResumeTime);
+
+            ResumeTime();
         }
 
         public void PauseTime()

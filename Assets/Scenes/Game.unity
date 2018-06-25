@@ -9593,7 +9593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 0
-  minSwipeLength: 10
+  minSwipeLength: 15
   longTapDuration: 0.5
   useEightDirections: 0
 --- !u!4 &1760371806
