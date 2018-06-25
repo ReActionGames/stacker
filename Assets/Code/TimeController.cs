@@ -27,8 +27,10 @@ namespace Stacker
 
         public void ResumeTime()
         {
-            Time.timeScale = previousTimeScale;
-            Time.fixedDeltaTime = previousDeltaTime;
+            //Time.timeScale = previousTimeScale;
+            //Time.fixedDeltaTime = previousDeltaTime;
+            Time.timeScale = 1;
+            Time.fixedDeltaTime = 0.02f;
         }
 
         private void PauseTime(Message message)
